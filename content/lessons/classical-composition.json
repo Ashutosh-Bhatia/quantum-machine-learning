@@ -1,0 +1,49 @@
+{
+  "id": "classical-composition",
+  "number": "1.4",
+  "title": "Composing operations",
+  "part": "Part I · Chapter 1",
+  "status": "Full lecture notes · instructor-review draft",
+  "objectives": [
+    "Translate a temporal sequence into the correct matrix product.",
+    "Show a noncommuting pair and distinguish it from associativity.",
+    "Prove that a compatible product of stochastic matrices is stochastic."
+  ],
+  "body_file": "chapters/classical-information/4-composition.html",
+  "quizzes": [
+    {
+      "id": "composition-order",
+      "question": "A acts first, then B, on a column probability vector p. Which expression describes the result?",
+      "options": [
+        "ABp",
+        "BAp",
+        "A+B+p"
+      ],
+      "answer": 1,
+      "feedback": [
+        "ABp applies B to p first; it reverses the stated sequence.",
+        "Correct. The intermediate state is Ap, so the second action is B(Ap).",
+        "A temporal composition is matrix multiplication, not addition."
+      ]
+    },
+    {
+      "id": "composition-commute",
+      "question": "Identity and flip agree on the uniform bit distribution. Are they therefore the same operation?",
+      "options": [
+        "Yes: one matching output proves equality.",
+        "No: they disagree on a definite basis input.",
+        "They agree on every other input too."
+      ],
+      "answer": 1,
+      "feedback": [
+        "One input is not enough to establish equality of linear maps.",
+        "Correct. On |0⟩, identity outputs |0⟩ while flip outputs |1⟩.",
+        "They agree on the uniform vector, but not on the basis inputs."
+      ]
+    }
+  ],
+  "notebook": "00-classical-information.ipynb",
+  "notebook_kind": "classical",
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.12–13. The multiplication refresher, closure proof, commuting example and state-sufficiency discussion provide expanded lecture-note exposition.",
+  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+}

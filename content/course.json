@@ -1,31 +1,60 @@
 {
   "title": "Quantum Machine Learning",
   "lessons": [
+    "classical-states",
+    "classical-probability",
+    "classical-operations",
+    "classical-composition"
+  ],
+  "planned": [
+    {
+      "title": "Chapter 2 · Mathematical language",
+      "needs": "Complex numbers, inner products, Dirac notation, and matrix operations."
+    },
+    {
+      "title": "Chapter 3 · Qubits and measurement",
+      "needs": "Pure states, Born probabilities, phase, and conditional projection."
+    },
+    {
+      "title": "Chapter 4 · Gates, interference and measurement bases",
+      "needs": "Unitary evolution, gates, rotations, and Bloch geometry."
+    },
+    {
+      "title": "Chapter 5 · Composite systems and entanglement",
+      "needs": "Tensor products, controlled gates, Bell states, and partial measurement."
+    },
+    {
+      "title": "Chapter 6 · Registers, conventions and oracles",
+      "needs": "Circuit/readout ordering and reversible oracle access."
+    },
+    {
+      "title": "Chapter 7 · Learning from quantum algorithms",
+      "needs": "Kickback, Deutsch, Deutsch–Jozsa, and Simon’s sampled constraints."
+    },
+    {
+      "title": "Chapter 8 · Observables, statistics and noisy devices",
+      "needs": "Expectations, uncertainty, mixtures, reduced states, and simple noise models."
+    },
+    {
+      "title": "Part II · Classical machine learning bridge",
+      "needs": "Learning loops, optimization, feature spaces, kernels, and generalization."
+    },
+    {
+      "title": "Part III · Quantum machine learning",
+      "needs": "Encoding, variational classifiers, quantum kernels, and responsible evaluation."
+    }
+  ],
+  "legacy_lessons": [
     "states",
     "gates",
     "entanglement",
     "classifier"
   ],
-  "planned": [
-    {
-      "title": "Query algorithms & phase kickback",
-      "source": "Slides 1\u20137, PDF pp.55\u201397; practice Q26\u201335",
-      "needs": "Deutsch lab review; new Deutsch\u2013Jozsa / Simon exercises and GF(2) notebook."
-    },
-    {
-      "title": "Classical ML foundations & models",
-      "source": "Lecture 8 and Lecture 9",
-      "needs": "Train/test leakage examples; loss and gradient labs; baseline notebooks."
-    },
-    {
-      "title": "Encoding & quantum kernels",
-      "source": "Lecture 9 pp.19\u201332; Lecture 10 pp.22\u201332 and 43",
-      "needs": "Encoding cost comparison; kernel PSD lab; held-out kernel experiment."
-    },
-    {
-      "title": "Noise, trainability & responsible evaluation",
-      "source": "Introductory discussion in Lecture 10",
-      "needs": "Dedicated source material, noise experiments, shot budgets, barren plateaus and qualified advantage discussion."
-    }
-  ]
+  "chapter": {
+    "id": "classical-information",
+    "title": "Classical Systems and Information",
+    "number": 1,
+    "part": "Part I · Quantum computing",
+    "body_file": "chapters/classical-information/overview.html"
+  }
 }

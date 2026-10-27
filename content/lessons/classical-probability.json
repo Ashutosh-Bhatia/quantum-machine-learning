@@ -1,0 +1,49 @@
+{
+  "id": "classical-probability",
+  "number": "1.2",
+  "title": "Probability distributions and repeated observations",
+  "part": "Part I · Chapter 1",
+  "status": "Full lecture notes · instructor-review draft",
+  "objectives": [
+    "Validate a probability vector and calculate event probabilities.",
+    "Separate a model probability from a finite empirical frequency.",
+    "Calculate conditional probabilities and explain zero-probability boundaries."
+  ],
+  "body_file": "chapters/classical-information/2-probability.html",
+  "quizzes": [
+    {
+      "id": "prob-valid",
+      "question": "Which vector is a complete valid distribution on a two-state set?",
+      "options": [
+        "(0.2, 0.3)ᵀ",
+        "(1.2, −0.2)ᵀ",
+        "(0.75, 0.25)ᵀ"
+      ],
+      "answer": 2,
+      "feedback": [
+        "The entries sum to 0.5, so some probability is missing.",
+        "A negative probability is invalid even when the entries sum to one.",
+        "Correct. Both entries are nonnegative and sum to one."
+      ]
+    },
+    {
+      "id": "prob-frequency",
+      "question": "A model has P(1)=0.25, but a 100-trial batch contains 28 ones. What follows?",
+      "options": [
+        "The exact probability must be 0.28.",
+        "The observed frequency is 0.28; it can differ from the model probability.",
+        "The model has been proved false."
+      ],
+      "answer": 1,
+      "feedback": [
+        "A finite frequency is an estimate, not a proof of the exact probability.",
+        "Correct. Interpreting the size of the discrepancy also requires the sampling assumptions and an uncertainty analysis.",
+        "This observation alone does not prove the model false. Finite samples fluctuate."
+      ]
+    }
+  ],
+  "notebook": "00-classical-information.ipynb",
+  "notebook_kind": "classical",
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.5–6, and the introductory lecture’s probability discussion. Event/conditional-probability examples and the indicator expectation derivation are new supporting exposition.",
+  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+}

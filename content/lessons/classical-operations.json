@@ -1,0 +1,49 @@
+{
+  "id": "classical-operations",
+  "number": "1.3",
+  "title": "Deterministic and stochastic operations",
+  "part": "Part I · Chapter 1",
+  "status": "Full lecture notes · instructor-review draft",
+  "objectives": [
+    "Build a matrix from its response to definite inputs.",
+    "Derive the distribution update p′=Mp and prove normalization preservation.",
+    "Distinguish stochastic validity, invertibility, and allowed reversal."
+  ],
+  "body_file": "chapters/classical-information/3-operations.html",
+  "quizzes": [
+    {
+      "id": "operations-columns",
+      "question": "In our column-vector convention, what does column j of an operation matrix describe?",
+      "options": [
+        "The output distribution conditional on input j.",
+        "The input distribution conditional on output j.",
+        "The final distribution for every possible preparation."
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct. Each input basis vector selects its corresponding output column.",
+        "That reverses the conditional direction. The input is the column label.",
+        "A different uncertain preparation combines the columns with different weights."
+      ]
+    },
+    {
+      "id": "operations-inverse",
+      "question": "Reset-to-zero preserves total probability. Must it therefore be reversible for every input?",
+      "options": [
+        "Yes: preservation of probability guarantees an inverse.",
+        "No: distinct inputs are mapped to the same output.",
+        "Only if the input distribution is uniform."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Probability preservation is weaker than reversibility. Reset is a counterexample.",
+        "Correct. The common output cannot identify which of the distinct inputs occurred.",
+        "A chosen input distribution does not create an inverse that recovers every input."
+      ]
+    }
+  ],
+  "notebook": "00-classical-information.ipynb",
+  "notebook_kind": "classical",
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.7,11. The total-probability derivation, random-flip calculation and distinction between algebraic and stochastic inverses expand the slide material.",
+  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+}

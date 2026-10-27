@@ -1,0 +1,49 @@
+{
+  "id": "classical-states",
+  "number": "1.1",
+  "title": "Finite systems, states and basis labels",
+  "part": "Part I · Chapter 1",
+  "status": "Full lecture notes · instructor-review draft",
+  "objectives": [
+    "Choose a finite state set appropriate to a modelling question.",
+    "Translate a definite state into a labelled standard basis vector.",
+    "Distinguish coordinate dimension from binary storage size."
+  ],
+  "body_file": "chapters/classical-information/1-states.html",
+  "quizzes": [
+    {
+      "id": "states-order",
+      "question": "If we reorder the coordinates, does the same switch setting necessarily keep the same column vector?",
+      "options": [
+        "Yes: coordinate order has no effect.",
+        "No: the coordinates can change while the labelled setting stays the same.",
+        "No: reordering physically changes the setting."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The position of the 1 depends on which coordinate corresponds to the setting.",
+        "Correct. A vector must be interpreted with its declared basis order.",
+        "Changing our coordinate convention does not operate on the physical device."
+      ]
+    },
+    {
+      "id": "states-capacity",
+      "question": "What is the minimum fixed-length binary storage for five distinct labels?",
+      "options": [
+        "Two bits",
+        "Three bits",
+        "Five bits"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Two bits provide only four distinct strings.",
+        "Correct. Three bits provide eight strings; three are unused in a five-label code.",
+        "Five one-hot coordinates are one representation, but they are not the minimum number of storage bits."
+      ]
+    }
+  ],
+  "notebook": "00-classical-information.ipynb",
+  "notebook_kind": "classical",
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.3–4. The introductory July 26 lecture transcript informs the systems-first explanation; classroom dialogue is paraphrased rather than published.",
+  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+}

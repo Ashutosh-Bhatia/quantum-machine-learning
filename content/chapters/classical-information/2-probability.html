@@ -1,0 +1,49 @@
+<p class="lead">A system can have a definite classical state even when we do not know which state it has. A probability distribution describes that uncertainty—or the outcomes of a random preparation—without changing the set of possible state labels.</p>
+<section id="distributions"><h2>1. Probability distributions as column vectors</h2>
+<p>Let \(\Sigma=\{a_1,\ldots,a_d\}\) be a finite state set in a declared order. Write \(p_j=\Pr(X=a_j)\), where \(X\) denotes the state label obtained in the experiment. Collect these numbers into a column:</p>
+\[p=\begin{pmatrix}p_1\\\vdots\\p_d\end{pmatrix},\qquad p_j\ge0,\qquad \sum_{j=1}^{d}p_j=1.\]
+<p>The entries must be nonnegative because they represent probabilities. They sum to one because the labels are mutually exclusive and exhaustive: exactly one of the modelled outcomes occurs on a trial. A vector such as \((0.2,0.3)^{\mathsf T}\) is not a complete distribution on a two-state set; its entries sum to 0.5. A vector such as \((1.2,-0.2)^{\mathsf T}\) is also invalid, even though its sum is one.</p>
+<p>A <strong>point mass</strong> describes certainty about one label. For a bit, the distributions \((1,0)^{\mathsf T}\) and \((0,1)^{\mathsf T}\) coincide with the basis vectors from the previous lesson. Uncertainty allows other nonnegative normalized combinations. For example,</p>
+\[p=\frac34|0\rangle+\frac14|1\rangle=\begin{pmatrix}3/4\\1/4\end{pmatrix}.\]
+<p>Here the coefficients themselves are probabilities. They are not quantum amplitudes. Later the course will change the rules for state descriptions; we will then explain why squared magnitudes enter measurement probabilities. Applying that later rule to this classical vector would be a mistake.</p>
+<div data-quiz="prob-valid"></div></section>
+<section id="events"><h2>2. Events collect possible outcomes</h2>
+<p>An <strong>event</strong> is a subset of the state set. If a die's distribution in face order 1 through 6 is</p>
+\[p=\frac1{12}\begin{pmatrix}1\\2\\1\\3\\2\\3\end{pmatrix},\]
+<p>the event “the face is even” is \(E=\{2,4,6\}\). Since only one face is observed, these outcomes are mutually exclusive. Therefore,</p>
+\[\Pr(E)=p_2+p_4+p_6=\frac{2+3+3}{12}=\frac23.\]
+<p>We add the probabilities of the relevant labels. We do not need to invent a new physical state called “even”; it is a question about a collection of outcomes. The complement \(E^c\) contains the outcomes not in \(E\), so \(\Pr(E^c)=1-\Pr(E)\).</p>
+<p>Care is needed when adding probabilities of events that overlap. For any two events,</p>
+\[\Pr(A\cup B)=\Pr(A)+\Pr(B)-\Pr(A\cap B).\]
+<p>The final term removes outcomes counted twice. For disjoint events it is zero. This is why simply adding the probabilities of individual distinct die faces was valid.</p></section>
+<section id="frequency"><h2>3. A model probability is not a finite observed frequency</h2>
+<p>Suppose a preparation produces a bit with \(\Pr(X=1)=1/4\). Repeat that preparation independently \(N\) times under the same conditions. If \(N_1\) outcomes are 1, the empirical frequency is</p>
+\[\widehat p_1=\frac{N_1}{N}.\]
+<p>The hat distinguishes an estimate from the underlying model probability. In 100 trials, 25 ones is the expected count. But 24, 28, or another nearby count can occur. An illustrative observation of 28 ones gives \(\widehat p_1=0.28\), not proof that the preparation's true probability is exactly 0.28.</p>
+<h3>Why the expected count is \(Np_1\)</h3>
+<p>Define an indicator \(I_t\) for trial \(t\): it is 1 if that trial produces a 1 and 0 otherwise. Its expected value is \(1\cdot p_1+0\cdot(1-p_1)=p_1\). Because the total count is \(N_1=I_1+\cdots+I_N\), linearity of expectation gives</p>
+\[\mathbb E[N_1]=\sum_{t=1}^{N}\mathbb E[I_t]=Np_1,\qquad \mathbb E[\widehat p_1]=p_1.\]
+<p>Equal marginal probabilities suffice for this expectation calculation; independence becomes important for the standard variance and concentration formulas used later. We assume independent trials in the lab below. If the preparation drifts or trials influence one another, an independent, fixed-probability model may be inappropriate.</p>
+<figure><div class="figure-canvas" tabindex="0" role="region" aria-label="Academic figure; scroll horizontally on a narrow screen"><img src="figures/classical-information/probability-frequency.svg" alt="A probability model assigns probabilities 0.75 and 0.25 to zero and one. A separate illustrative 100-trial sample has counts 72 and 28, showing that observed frequency can differ from model probability." loading="lazy"></div><figcaption><strong>Figure 2.</strong> Model probabilities and one illustrative sample describe different quantities. The counts 72 and 28 are a labelled illustration, not a reported experiment or guaranteed result. <span class="draft-label">Draft figure for instructor review.</span></figcaption></figure>
+<div data-lab="probability"></div>
+<p>The simulation is a way to inspect the model, not a proof of a probability law. Repeat a batch with unchanged settings and compare the results. At probabilities 0 and 1 the outcomes are deterministic. At intermediate probabilities different batches will usually have different counts. The more formal treatment of uncertainty comes in Chapter 8.</p>
+<div data-quiz="prob-frequency"></div></section>
+<section id="conditioning"><h2>4. Conditioning: updating a description when information arrives</h2>
+<p>Return to the weighted die. Suppose we learn that the result lies in \(E=\{2,4,6\}\). Outcomes outside \(E\) are now excluded, while the relative weights of the surviving faces remain 2:3:3. To make those weights sum to one, divide by their total probability.</p>
+<p>For \(\Pr(E)&gt;0\), the conditional probability of a face \(j\) is</p>
+\[\Pr(X=j\mid E)=\frac{\Pr(\{X=j\}\cap E)}{\Pr(E)}=\begin{cases}p_j/\Pr(E),&j\in E,\\0,&j\notin E.\end{cases}\]
+<p>In this example, \(\Pr(E)=8/12\). Hence the conditional probabilities of faces 2, 4, and 6 are \(2/8,3/8,3/8\). In the full face order,</p>
+\[p_{\mid E}=\begin{pmatrix}0\\1/4\\0\\3/8\\0\\3/8\end{pmatrix}.\]
+<p>The denominator is a probability because these entries are classical probabilities. A later quantum conditional-state calculation will divide surviving <em>amplitudes</em> by the square root of an outcome probability. The difference follows from what the entries represent; it is not an arbitrary change of convention.</p>
+<p>If an event has probability zero under our model, this elementary conditional formula is undefined. Dividing by zero does not create a meaningful conditional distribution. Such an observation would require us to reconsider the model or preparation.</p>
+<aside class="takeaway"><strong>Observation and physical operation are different ideas.</strong><p>Learning a classical state can update our information to a point mass. That alone does not assert a physical disturbance of the device. If a measurement or intervention changes a system, the physical change needs its own model. We will handle quantum measurement on its own terms later.</p></aside></section>
+<section id="practice"><h2>5. Practice and worked reasoning</h2>
+<ol class="exercise-list"><li><strong>Validity and an event.</strong> Is \((0.1,0.4,0.5)^{\mathsf T}\) a valid distribution on labels (A,B,C)? Find the probability that the outcome is not B.
+<details><summary>Hint</summary><p>Check nonnegativity and the total before calculating an event probability.</p></details>
+<details><summary>Worked solution</summary><p>All entries are nonnegative and \(0.1+0.4+0.5=1\), so it is valid. The event not B contains A and C, giving \(0.1+0.5=0.6\), equivalently \(1-0.4\).</p></details></li>
+<li><strong>Count versus probability.</strong> A fixed model has \(p_1=0.3\). In 200 independent trials you observe 68 ones. State the expected count, observed frequency, and what can be concluded about the exact model probability.
+<details><summary>Worked solution</summary><p>The expected count is \(200(0.3)=60\); the observed frequency is \(68/200=0.34\). A finite sample can differ from its expectation. This single observation neither proves the exact probability is 0.34 nor, by itself, establishes that the model is wrong. Assessing the size of a discrepancy requires an uncertainty analysis and the sampling assumptions.</p></details></li>
+<li><strong>Conditional die.</strong> For the distribution in this lesson, condition on \(A=\{1,2,3\}\). What is the probability of face 2 given A? What if you try to condition on the empty event?
+<details><summary>Hint</summary><p>Add the surviving weights before renormalizing them.</p></details>
+<details><summary>Worked solution</summary><p>\(\Pr(A)=(1+2+1)/12=1/3\). Therefore \(\Pr(X=2\mid A)=(2/12)/(4/12)=1/2\). The empty event has probability zero, so the elementary conditional formula is not defined for it.</p></details></li></ol>
+<aside class="takeaway"><strong>What to carry forward</strong><p>A distribution is a normalized nonnegative vector. Events collect outcomes, counts summarize repeated trials, and conditioning updates a description using information. Next we will represent operations on these vectors by matrices.</p></aside></section>

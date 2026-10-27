@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 410" role="img" aria-labelledby="title description"><title id="title">Model probabilities and an illustrative sample</title><desc id="description">Exact probabilities 0.75 and 0.25 are compared with illustrative counts 72 and 28 from a batch of 100. These are different quantities.</desc><rect width="100%" height="100%" fill="white"/><style>text{font-family:Arial,Helvetica,sans-serif;fill:#242424}.muted{fill:#666}.accent{fill:#286a9b}.rule{stroke:#d6d6d6;stroke-width:1}.flow{stroke:#555;stroke-width:2;fill:none}</style>
+<text x="35" y="42" font-size="25" font-weight="bold" class="">Model probability and observed frequency</text>
+<text x="65" y="88" font-size="21" font-weight="bold" class="">Model probabilities</text>
+<text x="560" y="88" font-size="21" font-weight="bold" class="">Illustrative batch: N = 100</text>
+<line x1="480" y1="72" x2="480" y2="352" class="rule"/>
+<line x1="75" y1="302" x2="330" y2="302" class="rule"/>
+<rect x="90" y="163.25" width="72" height="138.75" fill="#286a9b"/>
+<text x="98" y="151.25" font-size="20" font-weight="bold" class="">0.75</text>
+<text x="118" y="331" font-size="19" font-weight="normal" class="">0</text>
+<rect x="235" y="255.75" width="72" height="46.25" fill="#286a9b"/>
+<text x="243" y="243.75" font-size="20" font-weight="bold" class="">0.25</text>
+<text x="263" y="331" font-size="19" font-weight="normal" class="">1</text>
+<text x="85" y="365" font-size="17" font-weight="normal" class="muted">Outcome</text>
+<line x1="595" y1="302" x2="850" y2="302" class="rule"/>
+<rect x="610" y="168.8" width="72" height="133.2" fill="#286a9b"/>
+<text x="618" y="156.8" font-size="20" font-weight="bold" class="">72</text>
+<text x="638" y="331" font-size="19" font-weight="normal" class="">0</text>
+<rect x="755" y="250.2" width="72" height="51.8" fill="#286a9b"/>
+<text x="763" y="238.2" font-size="20" font-weight="bold" class="">28</text>
+<text x="783" y="331" font-size="19" font-weight="normal" class="">1</text>
+<text x="605" y="365" font-size="17" font-weight="normal" class="muted">Outcome</text>
+<text x="35" y="398" font-size="17" font-weight="normal" class="muted">Observed P̂(1) = 28/100 = 0.28; model P(1) = 0.25. Counts shown are an illustration.</text>
+</svg>
