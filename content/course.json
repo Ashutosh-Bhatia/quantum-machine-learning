@@ -8,39 +8,39 @@
   ],
   "planned": [
     {
-      "title": "Chapter 2 · Mathematical language",
+      "title": "Part A · Chapter 3 · Mathematical language",
       "needs": "Complex numbers, inner products and Dirac notation, developed near their first use."
     },
     {
-      "title": "Chapter 3 · Qubits and measurement",
+      "title": "Part A · Chapter 4 · Qubits and measurement",
       "needs": "Pure states, Born probabilities, phase, and conditional projection."
     },
     {
-      "title": "Chapter 4 · Gates, interference and measurement bases",
+      "title": "Part A · Chapter 5 · Gates, interference and measurement bases",
       "needs": "Unitary evolution, gates, rotations, and Bloch geometry."
     },
     {
-      "title": "Chapter 5 · Composite systems and entanglement",
+      "title": "Part A · Chapter 6 · Composite systems and entanglement",
       "needs": "Tensor products, controlled gates, Bell states, and partial measurement."
     },
     {
-      "title": "Chapter 6 · Registers, conventions and oracles",
+      "title": "Part A · Chapter 7 · Registers, conventions and oracles",
       "needs": "Circuit/readout ordering and reversible oracle access."
     },
     {
-      "title": "Chapter 7 · Learning from quantum algorithms",
+      "title": "Part A · Chapter 8 · Learning from quantum algorithms",
       "needs": "Fully worked kickback and Deutsch; a promised Deutsch–Jozsa example. Simon is an optional extension."
     },
     {
-      "title": "Chapter 8 · Observables, statistics and noisy devices",
+      "title": "Part A · Chapter 9 · Observables, statistics and noisy devices",
       "needs": "Readout and finite-shot estimates before QML use, with linked depth on mixtures, reduced states and noise."
     },
     {
-      "title": "Part II · Classical machine learning bridge",
+      "title": "Part B · Classical machine learning bridge",
       "needs": "Learning loops, optimization, feature spaces, kernels, and generalization."
     },
     {
-      "title": "Part III · Quantum machine learning",
+      "title": "Part BI · Quantum machine learning",
       "needs": "Encoding, variational classifiers, quantum kernels, and responsible evaluation."
     }
   ],
@@ -50,11 +50,90 @@
     "entanglement",
     "classifier"
   ],
-  "chapter": {
-    "id": "classical-information",
-    "title": "Classical Systems and Information",
-    "number": 1,
-    "part": "Part I · Quantum computing",
-    "body_file": "chapters/classical-information/overview.html"
-  }
+  "preface": {
+    "id": "preface",
+    "title": "About This Book",
+    "body_file": "pages/preface.html",
+    "source": "Adapted from the instructor’s stated audience and QML teaching goals, the introductory recording’s abstraction and software discussion, and Introduction.pptx slides 2,15–20,46–51. The learning-loop and book-roadmap figures are newly authored."
+  },
+  "chapters": [
+    {
+      "id": "quantum-introduction",
+      "title": "Introduction to Quantum Computing",
+      "number": 1,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/quantum-introduction/overview.html",
+      "lessons": [],
+      "source": "Introduction.pptx, slides 2,15–25,40–51; introductory recording, 12:05–13:13 (abstraction), 47:15–52:01 (engineering analogies), 53:17–1:07:11 (superposition and readout), and the later discussion of systems and software. The Bloch, interference, factorization and basis-correlation calculations are newly authored supporting exposition. Figures are original review drafts.",
+      "quizzes": [
+        {
+          "id": "intro-phase",
+          "question": "The pure states plus and minus have the same Z probabilities. What does the final Hadamard do in the worked example?",
+          "options": [
+            "It turns their relative-sign difference into different final measurement probabilities.",
+            "It measures both intermediate coefficients directly in one shot.",
+            "It makes every possible input state deterministic in Z."
+          ],
+          "answer": 0,
+          "feedback": [
+            "Correct. H adds and subtracts amplitudes; plus becomes 0 and minus becomes 1 before the final measurement.",
+            "H is a unitary gate, not a measurement. One Z readout records one outcome.",
+            "That conclusion holds for these two particular inputs, not for arbitrary states."
+          ]
+        },
+        {
+          "id": "intro-correlation",
+          "question": "A Bell state and a classical mixture of 00 and 11 give matching Z outcomes. Does that one observation establish entanglement?",
+          "options": [
+            "Yes: every correlation is entanglement.",
+            "No: this classical preparation has the same Z statistics; other measurement choices distinguish the examples.",
+            "Yes: it proves a faster-than-light message was transmitted."
+          ],
+          "answer": 1,
+          "feedback": [
+            "Classical random preparations can be correlated too. The full state and allowed measurements matter.",
+            "Correct. In this example, matching X outcomes occur with probability 1 for the Bell state and 1/2 for the mixture.",
+            "Correlations do not let a party choose its random local outcome to transmit a message."
+          ]
+        },
+        {
+          "id": "intro-purpose",
+          "question": "A proposed quantum classifier runs correctly on a simulator. What can we conclude?",
+          "options": [
+            "It must train faster than every classical model.",
+            "It proves practical quantum advantage.",
+            "It is a candidate experiment whose learning quality and complete resource costs still need evaluation."
+          ],
+          "answer": 2,
+          "feedback": [
+            "Correct circuit execution alone does not establish a speed comparison.",
+            "Simulation demonstrates the modeled behavior, not an end-to-end practical advantage.",
+            "Correct. Compare a defined learning task with suitable classical baselines and account for preparation, training and readout."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "classical-information",
+      "title": "Classical Systems and Information",
+      "number": 2,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/classical-information/overview.html",
+      "lessons": [
+        "classical-states",
+        "classical-probability",
+        "classical-operations",
+        "classical-composition"
+      ]
+    }
+  ],
+  "reading_order": [
+    "preface",
+    "quantum-introduction",
+    "classical-information",
+    "classical-states",
+    "classical-probability",
+    "classical-operations",
+    "classical-composition"
+  ]
 }

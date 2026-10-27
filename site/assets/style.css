@@ -190,3 +190,11 @@ legend { font-weight: 600; padding: 0; }
  .figure-canvas { overflow: visible; }
  .figure-canvas img { min-width: 0; }
 }
+#nav .nav-heading { font-size: 12px; color: var(--muted); padding: 15px 20px 5px; margin: 0; }
+#nav a.nav-lesson { padding-left: 32px; }
+.workflow-steps { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+.workflow-steps button { margin: 0; }
+.workflow-steps button[aria-pressed=true] { border-color: var(--accent); color: #164d74; background: #edf3f7; }
+.phase-display { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px; }
+.phase-display svg { max-height: 300px; }
+@media(max-width:600px) { .phase-display { grid-template-columns: minmax(0,1fr); } }

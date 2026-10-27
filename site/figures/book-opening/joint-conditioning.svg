@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 365" role="img" aria-labelledby="title desc"><title id="title">Condition on a joint table</title><desc id="desc">The X=0 row of the classical joint distribution is retained. Its probability is 1/3. Dividing 1/12 and 1/4 by that row total gives conditional probabilities 1/4 and 3/4.</desc><rect width="100%" height="100%" fill="white"/><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#242424}.guide{fill:none;stroke:#ccd3da;stroke-width:1.4}.flow{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="30" y="42" font-size="25" font-weight="bold" style="fill:#242424">Select a row, then normalize the surviving probabilities</text>
+<text x="50" y="105" font-size="21" font-weight="bold" style="fill:#242424">Joint P(X,Y)</text>
+<text x="175" y="148" font-size="18" font-weight="bold" style="fill:#242424">Y=0</text>
+<text x="295" y="148" font-size="18" font-weight="bold" style="fill:#242424">Y=1</text>
+<text x="410" y="148" font-size="18" font-weight="bold" style="fill:#242424">P(X)</text>
+<rect x="40" y="165" width="465" height="49" fill="#edf3f7"/>
+<text x="55" y="197" font-size="19" font-weight="bold" style="fill:#242424">X=0</text>
+<text x="175" y="197" font-size="20" font-weight="normal" style="fill:#242424">1/12</text>
+<text x="295" y="197" font-size="20" font-weight="normal" style="fill:#242424">1/4</text>
+<text x="410" y="197" font-size="20" font-weight="normal" style="fill:#242424">1/3</text>
+<text x="55" y="257" font-size="19" font-weight="bold" style="fill:#242424">X=1</text>
+<text x="175" y="257" font-size="20" font-weight="normal" style="fill:#242424">1/3</text>
+<text x="295" y="257" font-size="20" font-weight="normal" style="fill:#242424">1/3</text>
+<text x="410" y="257" font-size="20" font-weight="normal" style="fill:#242424">2/3</text>
+<path d="M525 188L595 188" class="flow"/>
+<text x="625" y="125" font-size="22" font-weight="bold" style="fill:#286a9b">Given X = 0</text>
+<text x="625" y="170" font-size="18" font-weight="normal" style="fill:#242424">P(Y=0 | X=0) = (1/12)/(1/3) = 1/4</text>
+<text x="625" y="197" font-size="18" font-weight="normal" style="fill:#242424">P(Y=1 | X=0) = (1/4)/(1/3) = 3/4</text>
+<text x="625" y="260" font-size="17" font-weight="normal" style="fill:#242424">The two conditional probabilities sum to 1.</text>
+<text x="40" y="330" font-size="18" font-weight="normal" style="fill:#666">This table contains joint probabilities, not transition-matrix columns.</text>
+</svg>

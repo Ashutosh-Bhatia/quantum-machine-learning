@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 425" role="img" aria-labelledby="title desc"><title id="title">Phase becomes visible through interference</title><desc id="desc">A Hadamard creates equal amplitudes. A relative phase is introduced. A second Hadamard maps zero phase to outcome zero and pi phase to outcome one.</desc><rect width="100%" height="100%" fill="white"/><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#242424}.guide{fill:none;stroke:#ccd3da;stroke-width:1.4}.flow{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="30" y="42" font-size="25" font-weight="bold" style="fill:#242424">Relative phase becomes visible through interference</text>
+<text x="30" y="80" font-size="18" font-weight="normal" style="fill:#666">Both intermediate states give 50/50 Z outcomes. A final H distinguishes them.</text>
+<text x="35" y="150" font-size="21" font-weight="bold" style="fill:#242424">φ = 0</text>
+<text x="130" y="150" font-size="22" font-weight="normal" style="fill:#242424">|0⟩</text>
+<path d="M165 145L181 145" class="flow"/>
+<rect x="190" y="115" width="55" height="65" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="206" y="145" font-size="20" font-weight="bold" style="fill:#242424">H</text>
+<path d="M245 145L263 145" class="flow"/>
+<rect x="272" y="115" width="80" height="65" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="288" y="145" font-size="20" font-weight="bold" style="fill:#242424">P(φ)</text>
+<path d="M352 145L377 145" class="flow"/>
+<text x="390" y="150" font-size="23" font-weight="normal" style="fill:#242424">(|0⟩ + |1⟩) / √2</text>
+<path d="M675 145L711 145" class="flow"/>
+<rect x="720" y="115" width="75" height="65" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="736" y="145" font-size="20" font-weight="bold" style="fill:#242424">H</text>
+<path d="M795 145L851 145" class="flow"/>
+<text x="865" y="150" font-size="24" font-weight="bold" style="fill:#286a9b">|0⟩</text>
+<text x="390" y="198" font-size="18" font-weight="normal" style="fill:#666">Outcome 1 amplitude: (1 − 1) / 2 = 0</text>
+<text x="35" y="280" font-size="21" font-weight="bold" style="fill:#242424">φ = π</text>
+<text x="130" y="280" font-size="22" font-weight="normal" style="fill:#242424">|0⟩</text>
+<path d="M165 275L181 275" class="flow"/>
+<rect x="190" y="245" width="55" height="65" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="206" y="275" font-size="20" font-weight="bold" style="fill:#242424">H</text>
+<path d="M245 275L263 275" class="flow"/>
+<rect x="272" y="245" width="80" height="65" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="288" y="275" font-size="20" font-weight="bold" style="fill:#242424">P(φ)</text>
+<path d="M352 275L377 275" class="flow"/>
+<text x="390" y="280" font-size="23" font-weight="normal" style="fill:#242424">(|0⟩ − |1⟩) / √2</text>
+<path d="M675 275L711 275" class="flow"/>
+<rect x="720" y="245" width="75" height="65" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="736" y="275" font-size="20" font-weight="bold" style="fill:#242424">H</text>
+<path d="M795 275L851 275" class="flow"/>
+<text x="865" y="280" font-size="24" font-weight="bold" style="fill:#286a9b">|1⟩</text>
+<text x="390" y="328" font-size="18" font-weight="normal" style="fill:#666">Outcome 0 amplitude: (1 − 1) / 2 = 0</text>
+<text x="30" y="394" font-size="18" font-weight="normal" style="fill:#666">Cancellation concerns amplitudes. Probabilities are squared magnitudes.</text>
+</svg>

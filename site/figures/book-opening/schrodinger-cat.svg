@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 525" role="img" aria-labelledby="title desc"><title id="title">Schrodinger cat thought experiment</title><desc id="desc">An idealized chain connects a radioactive decay event, a detector and a trigger to the cat. Two correlated branches are shown. This is a thought experiment about measurement, not a model of a qubit as an ordinary hidden classical label.</desc><rect width="100%" height="100%" fill="white"/><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#242424}.guide{fill:none;stroke:#ccd3da;stroke-width:1.4}.flow{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#arrow)}</style>
+<text x="30" y="40" font-size="26" font-weight="bold" style="fill:#242424">Schrödinger’s cat: a question about measurement</text>
+<text x="30" y="78" font-size="18" font-weight="normal" style="fill:#666">An idealized thought experiment connecting a quantum event to a macroscopic record.</text>
+<rect x="30" y="108" width="980" height="200" fill="white" stroke="#9ba8b3" stroke-dasharray="7 5"/>
+<text x="45" y="132" font-size="16" font-weight="normal" style="fill:#666">Sealed apparatus (schematic, not to scale)</text>
+<rect x="55" y="165" width="185" height="95" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="71" y="195" font-size="20" font-weight="bold" style="fill:#242424">Decay source</text>
+<text x="71" y="229" font-size="17" font-weight="normal" style="fill:#242424">Quantum event</text>
+<rect x="290" y="165" width="185" height="95" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="306" y="195" font-size="20" font-weight="bold" style="fill:#242424">Detector</text>
+<text x="306" y="229" font-size="17" font-weight="normal" style="fill:#242424">Records event</text>
+<rect x="525" y="165" width="185" height="95" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="541" y="195" font-size="20" font-weight="bold" style="fill:#242424">Trigger + vial</text>
+<text x="541" y="229" font-size="17" font-weight="normal" style="fill:#242424">Links event to cat</text>
+<path d="M240 208L281 208" class="flow"/>
+<path d="M475 208L516 208" class="flow"/>
+<path d="M710 208L750 208" class="flow"/>
+<path d="M790 245C770 225 775 198 797 195L792 169L813 184L840 184L860 169L858 198C880 218 867 246 845 251L800 251M800 251C775 272 746 255 763 235" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round"/>
+<text x="905" y="216" font-size="20" font-weight="normal" style="fill:#242424">Cat</text>
+<rect x="30" y="345" width="465" height="95" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="46" y="375" font-size="20" font-weight="bold" style="fill:#242424">No decay branch</text>
+<text x="46" y="409" font-size="17" font-weight="normal" style="fill:#242424">Detector inactive → cat alive</text>
+<rect x="545" y="345" width="465" height="95" fill="#fafbfc" stroke="#c8cfd5"/>
+<text x="561" y="375" font-size="20" font-weight="bold" style="fill:#242424">Decay branch</text>
+<text x="561" y="409" font-size="17" font-weight="normal" style="fill:#242424">Detector active → trigger → cat dead</text>
+<text x="30" y="480" font-size="18" font-weight="normal" style="fill:#666">The issue is how a quantum description connects to a definite observed record.</text>
+<text x="30" y="507" font-size="18" font-weight="normal" style="fill:#666">An unopened box alone does not establish quantum superposition.</text>
+</svg>
