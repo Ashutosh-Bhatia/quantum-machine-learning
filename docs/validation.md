@@ -12,6 +12,10 @@ Passed:
 
 Re-run build with `python3 scripts/build.py`. Re-run notebook calculations after installing dependencies with `python3 scripts/check_notebooks.py`.
 
-Not yet verified: Google Colab execution itself, mobile browser layout, all imported animation mathematics/interactions, complete PDF diagram fidelity, live GitHub Actions deployment. Package ranges can resolve to later versions; the tested versions above provide a reproducibility reference.
+Not yet verified: Google Colab execution itself, mobile browser layout, all imported animation mathematics/interactions, complete PDF diagram fidelity, full live browser interaction audit. Package ranges can resolve to later versions; the tested versions above provide a reproducibility reference.
 
 Qiskit reference: [Statevector implementation and API](https://github.com/Qiskit/qiskit/blob/main/qiskit/quantum_info/states/statevector.py). No deprecated execute/Aer-provider APIs are used.
+
+## Publication
+
+Repository created and source pushed on 27 October 2026. GitHub Pages configured to publish main from the root; deployment initiated. The inactive Actions template is stored in templates/ because the current OAuth token lacks workflow scope. Colab links now point directly to the repository.

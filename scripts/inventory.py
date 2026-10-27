@@ -6,11 +6,12 @@ p.add_argument('source',type=Path)
 p.add_argument('--update',action='store_true')
 a=p.parse_args()
 if not a.source.is_dir():p.error('Source directory does not exist')
-target=Path(__file__).resolve().parents[1]/'docs/resource-inventory.json'
+project=Path(__file__).resolve().parents[1]
+target=project/'docs/resource-inventory.json'
 old={r['path']:r for r in json.loads(target.read_text())} if target.exists() else {}
 new={}
 for f in sorted(a.source.rglob('*')):
- if not f.is_file() or any(x.startswith('.') for x in f.relative_to(a.source).parts):continue
+ if not f.is_file() or project in f.resolve().parents or any(x.startswith('.') for x in f.relative_to(a.source).parts):continue
  key=str(f.relative_to(a.source)); h=hashlib.sha256(f.read_bytes()).hexdigest()
  new[key]={**old.get(key,{}),'path':key,'bytes':f.stat().st_size,'sha256':h}
  if key not in old:print('ADDED',key)
