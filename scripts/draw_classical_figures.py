@@ -10,13 +10,13 @@ def text(parts,x,y,s,size=20,weight='normal',cls=''):
 def line(parts,x1,y1,x2,y2):parts.append(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" class="rule"/>')
 def finish(parts,name):
  parts.append('</svg>');(OUT/name).write_text('\n'.join(parts)+'\n')
-p=start('One setting, two representations','Three switch settings are mapped to three-component one-hot vectors and fixed two-bit codes. The string 11 is unused.',h=380)
-text(p,35,42,'One setting, two representations',25,'bold');text(p,35,78,'Coordinate order: (off, low, high)',18,cls='muted')
+p=start('One setting, two representations','Four switch settings are mapped to four-component one-hot vectors and fixed two-bit codes. All four codes are used.',h=435)
+text(p,35,42,'One setting, two representations',25,'bold');text(p,35,78,'Coordinate order: (off, low, medium, high)',18,cls='muted')
 for x,label in [(35,'Switch setting'),(325,'Basis column'),(665,'Binary code')]:text(p,x,126,label,19,'bold')
 line(p,35,145,925,145)
-for y,label,v,code in [(188,'off','(1, 0, 0)ᵀ','00'),(242,'low','(0, 1, 0)ᵀ','01'),(296,'high','(0, 0, 1)ᵀ','10')]:
+for y,label,v,code in [(188,'off','(1, 0, 0, 0)ᵀ','00'),(242,'low','(0, 1, 0, 0)ᵀ','01'),(296,'medium','(0, 0, 1, 0)ᵀ','10'),(350,'high','(0, 0, 0, 1)ᵀ','11')]:
  text(p,35,y,label);text(p,325,y,v);text(p,665,y,code,20,cls='accent');line(p,35,y+16,925,y+16)
-text(p,35,355,'Three basis coordinates; two storage bits. Binary string 11 is unused.',18,cls='muted')
+text(p,35,410,'Four basis coordinates; two storage bits. Every two-bit string has a label.',18,cls='muted')
 finish(p,'state-representations.svg')
 p=start('Model probabilities and an illustrative sample','Exact probabilities 0.75 and 0.25 are compared with illustrative counts 72 and 28 from a batch of 100. These are different quantities.',h=410)
 text(p,35,42,'Model probability and observed frequency',25,'bold')

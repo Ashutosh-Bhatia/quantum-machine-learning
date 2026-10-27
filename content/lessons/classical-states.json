@@ -3,7 +3,7 @@
   "number": "1.1",
   "title": "Finite systems, states and basis labels",
   "part": "Part I · Chapter 1",
-  "status": "Full lecture notes · instructor-review draft",
+  "status": "Transcript-led lecture notes · instructor-review draft",
   "objectives": [
     "Choose a finite state set appropriate to a modelling question.",
     "Translate a definite state into a labelled standard basis vector.",
@@ -44,6 +44,6 @@
   ],
   "notebook": "00-classical-information.ipynb",
   "notebook_kind": "classical",
-  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.3–4. The introductory July 26 lecture transcript informs the systems-first explanation; classroom dialogue is paraphrased rather than published.",
-  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.3–4; 26 July 2026 lecture, 4:32 (switches, die and four settings), 17:40 (basis columns) and 50:00 (labels and indexing). The three-setting encoding extension and full worked reasoning are newly authored adaptations.",
+  "prerequisites": "Basic arithmetic and elementary algebra. State labels, coordinate order and ket notation are explained here."
 }

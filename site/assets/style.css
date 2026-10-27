@@ -120,6 +120,7 @@ figcaption { font-size: 13px; line-height: 1.6; color: var(--muted); margin-top:
 .table-wrap caption { text-align: left; font-weight: 600; margin-bottom: 12px; }
 .table-wrap th, .table-wrap td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); }
 .table-wrap th { background: #fafafa; }
+.table-wrap .conditioned-row th, .table-wrap .conditioned-row td { background: #f1f5f8; font-weight: 600; }
 .katex-display { overflow-x: auto; overflow-y: hidden; padding: .4rem 0; margin: 1.3rem 0; }
 .katex { font-size: 1.08em; }
 fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }

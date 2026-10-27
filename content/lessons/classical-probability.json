@@ -3,27 +3,27 @@
   "number": "1.2",
   "title": "Probability distributions and repeated observations",
   "part": "Part I · Chapter 1",
-  "status": "Full lecture notes · instructor-review draft",
+  "status": "Transcript-led lecture notes · instructor-review draft",
   "objectives": [
     "Validate a probability vector and calculate event probabilities.",
     "Separate a model probability from a finite empirical frequency.",
-    "Calculate conditional probabilities and explain zero-probability boundaries."
+    "Calculate conditional probabilities from events and joint tables, including zero-probability boundaries."
   ],
   "body_file": "chapters/classical-information/2-probability.html",
   "quizzes": [
     {
-      "id": "prob-valid",
-      "question": "Which vector is a complete valid distribution on a two-state set?",
+      "id": "prob-envelope",
+      "question": "The envelope contains a recorded result, with pass labelled 0 and fail labelled 1. What does p=(3/4,1/4)ᵀ describe before opening it?",
       "options": [
-        "(0.2, 0.3)ᵀ",
-        "(1.2, −0.2)ᵀ",
-        "(0.75, 0.25)ᵀ"
+        "Our probabilities for the two recorded labels.",
+        "A coherent quantum superposition of pass and fail.",
+        "A guarantee that opening four envelopes produces exactly one failure."
       ],
-      "answer": 2,
+      "answer": 0,
       "feedback": [
-        "The entries sum to 0.5, so some probability is missing.",
-        "A negative probability is invalid even when the entries sum to one.",
-        "Correct. Both entries are nonnegative and sum to one."
+        "Correct. It describes uncertainty about the classical label. Observing pass updates our information to (1,0)ᵀ without requiring the printed result to change.",
+        "The ket/column notation alone does not make a classical letter a quantum system. The entries here are probabilities, not amplitudes.",
+        "Expected proportions are not a guarantee about a finite batch. A batch also requires a specified repeated-preparation model."
       ]
     },
     {
@@ -44,6 +44,6 @@
   ],
   "notebook": "00-classical-information.ipynb",
   "notebook_kind": "classical",
-  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.5–6, and the introductory lecture’s probability discussion. Event/conditional-probability examples and the indicator expectation derivation are new supporting exposition.",
-  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.5–6; 26 July 2026 lecture, 11:02 (changing-team/model assumptions), 20:49–23:55 (sealed envelope and probability coefficients); 16 August, 35:58–48:29, and 30 August, 24:36 (conditioning and normalization). The complete joint table, event calculations and indicator derivation are newly authored supporting exposition.",
+  "prerequisites": "Lesson 1.1: ordered state labels, basis columns and their meaning."
 }

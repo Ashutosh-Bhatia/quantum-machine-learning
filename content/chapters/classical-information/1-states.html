@@ -1,46 +1,55 @@
-<p class="lead">Before asking what makes a quantum computer different, we need a language for describing a system, the information it stores, and the operations we can perform on it. We can develop that language using familiar classical systems.</p>
-<section id="systems"><h2>1. A system and its possible states</h2>
-<p>Consider a device that we want to describe. A bit can have value 0 or 1. A die resting on a table can show one of six upper faces. A simplified fan switch can have three settings: off, low, or high. The first modelling decision is to choose which distinctions matter for our task.</p>
-<p>We call the collection of possible classical states the <strong>state set</strong>, denoted by \(\Sigma\). For the examples above,</p>
-\[\Sigma_{\mathrm{bit}}=\{0,1\},\qquad \Sigma_{\mathrm{die}}=\{1,2,3,4,5,6\},\qquad \Sigma_{\mathrm{switch}}=\{\mathrm{off},\mathrm{low},\mathrm{high}\}.\]
-<p>These are models of the devices. A real fan also has a temperature, a rotor speed, and many other properties. If the question is only which setting has been selected, the three-state description is sufficient. If we want to predict the motor's dynamics, it is not. A state description is always tied to the question and level of abstraction.</p>
-<aside class="takeaway"><strong>A state label is part of a model.</strong><p>The symbol “high” identifies one setting. It does not describe every microscopic detail of the fan, and renaming it does not change the physical device.</p></aside></section>
-<section id="labels"><h2>2. Choosing labels and an order</h2>
-<p>Suppose our switch is definitely set to low. We can record that fact with the label “low.” But calculations become easier if all state descriptions have a common mathematical form. We therefore place the state labels in a fixed order and associate one coordinate with each label.</p>
-<p>Choose the order \((\mathrm{off},\mathrm{low},\mathrm{high})\). The coordinate corresponding to the actual state will be 1; all other coordinates will be 0. This is a <strong>one-hot representation</strong>. The three coordinate vectors are</p>
-\[e_{\mathrm{off}}=\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad e_{\mathrm{low}}=\begin{pmatrix}0\\1\\0\end{pmatrix},\qquad e_{\mathrm{high}}=\begin{pmatrix}0\\0\\1\end{pmatrix}.\]
-<p>The order is a convention, not an extra physical property. If we instead choose \((\mathrm{high},\mathrm{off},\mathrm{low})\), the same setting low is represented by \((0,0,1)^{\mathsf T}\). Its position changed because we reordered our coordinates. Its meaning did not change.</p>
-<p>This distinction will matter throughout the course: a coordinate vector can only be interpreted when its basis order is known. Later, multi-qubit circuit diagrams and software will introduce further ordering conventions. We start the habit of writing the order now.</p>
-<div data-quiz="states-order"></div></section>
-<section id="basis"><h2>3. Standard basis vectors and ket notation</h2>
-<p>For a state set with \(d\) labels, there are \(d\) standard coordinate vectors. The vector for label \(a\) has a 1 at position \(a\) and zeros elsewhere. These vectors form the <strong>standard basis</strong>: any \(d\)-component vector can be written uniquely as a weighted sum of them.</p>
-<p>For example, a vector \(v=(v_{\mathrm{off}},v_{\mathrm{low}},v_{\mathrm{high}})^{\mathsf T}\) can be written as</p>
-\[v=v_{\mathrm{off}}e_{\mathrm{off}}+v_{\mathrm{low}}e_{\mathrm{low}}+v_{\mathrm{high}}e_{\mathrm{high}}.\]
-<p>Why is this true? The first term contributes only to the off coordinate, the second only to low, and the third only to high. Adding them reconstructs each original component. The coefficients are unique because no other basis vector contributes to a given coordinate.</p>
-<p>We will also write \(|a\rangle\) for the standard basis vector associated with a label \(a\). Read this symbol as “ket a.” In this chapter it is simply convenient notation for a column vector; using a ket does not, by itself, make the description quantum. For a bit in the order \((0,1)\),</p>
+<p class="lead">Before we discuss a quantum computer, let us ask a simpler question: what do we need to know about a system to describe its state? We can build the language for this question with a switch and a die, and then use it to understand computation.</p>
+<section id="systems"><h2>1. Start with a system we already understand</h2>
+<p>Consider an on/off switch. If our question is simply which position has been selected, there are two possible answers: off and on. For a die resting on a table, we might ask which face is uppermost. That gives six possible answers. A switch with off, low, medium and high settings gives four.</p>
+<p>We call the collection of possible classical state labels the <strong>state set</strong>, denoted by \(\Sigma\). For these examples,</p>
+\[\Sigma_{\mathrm{bit}}=\{0,1\},\quad \Sigma_{\mathrm{die}}=\{1,2,3,4,5,6\},\quad \Sigma_{\mathrm{switch}}=\{\mathrm{off},\mathrm{low},\mathrm{medium},\mathrm{high}\}.\]
+<p>Notice the modelling decision we made. A real switch also has a temperature and a physical position; a die has an orientation in space. We have selected the distinctions needed for our question. If the question changes, the state description may need to change too. Describing a switch by its selected setting is enough to record that setting, but it would not be enough to predict the dynamics of a motor connected to it.</p>
+<p>We can now see a simple model of computation. A system is in some state; an operation acts on it; the system has an output state. An on/off switch is a small example. A computer memory has many more possible states, but the question is still familiar: what is the state, and how does an operation change it?</p>
+<p>Try giving a state set for another familiar device before continuing. State what your labels describe. The important first step is choosing the question, not choosing complicated mathematics.</p></section>
+<section id="labels"><h2>2. Give each label a coordinate</h2>
+<p>Suppose our four-setting switch is set to medium. We could write the word “medium” and stop there. Why introduce a vector? Because we want a common mathematical language for definite states, uncertainty about states, and operations on states. A column representation will let us build that language piece by piece.</p>
+<p>Choose the coordinate order \((\mathrm{off},\mathrm{low},\mathrm{medium},\mathrm{high})\). Put a 1 in the coordinate corresponding to the selected label and zeros in the other coordinates:</p>
+\[e_{\mathrm{off}}=\begin{pmatrix}1\\0\\0\\0\end{pmatrix},\quad e_{\mathrm{low}}=\begin{pmatrix}0\\1\\0\\0\end{pmatrix},\quad e_{\mathrm{medium}}=\begin{pmatrix}0\\0\\1\\0\end{pmatrix},\quad e_{\mathrm{high}}=\begin{pmatrix}0\\0\\0\\1\end{pmatrix}.\]
+<p>This is a <strong>one-hot representation</strong>. The column for medium selects the third position in our declared list. We have not measured a new physical quantity by writing four numbers; we have represented the label in coordinates.</p>
+<h3>Pause and predict: what if we reverse the list?</h3>
+<p>Keep the switch at medium, but use the order (high, medium, low, off). Where should the 1 go now?</p>
+<details><summary>Work through the change</summary><p>Medium is the second label in the new list, so its column is \((0,1,0,0)^{\mathsf T}\). The old column was \((0,0,1,0)^{\mathsf T}\). Both describe medium, with different coordinate conventions. Reordering the list does not operate on the switch.</p></details>
+<p>Keep this habit throughout the course: write the order before interpreting a column. Later, the order of qubits in a circuit diagram and the order of symbols in a ket will need the same care.</p>
+<div data-quiz="states-order"></div>
+<h3>Does a die have to start at label zero?</h3>
+<p>No. The physical face label 1 and a programming array position 0 are different things. We can choose the ordered face labels (1,2,3,4,5,6); the column for face 1 is then \((1,0,0,0,0,0)^{\mathsf T}\). A program may store its first entry at array index 0. The mapping between label and position must be stated; it should never be guessed from the number printed on the die.</p></section>
+<section id="basis"><h2>3. Basis vectors and the ket language</h2>
+<p>For a finite state set with \(d\) labels, we construct \(d\) standard coordinate vectors. Each has a single 1 in its corresponding coordinate. These form the <strong>standard basis</strong>: every \(d\)-component vector can be written uniquely as a weighted sum of them.</p>
+<p>Let us see what that statement means for the switch. If</p>
+\[v=\begin{pmatrix}v_{\mathrm{off}}\\v_{\mathrm{low}}\\v_{\mathrm{medium}}\\v_{\mathrm{high}}\end{pmatrix},\]
+<p>then</p>
+\[v=v_{\mathrm{off}}e_{\mathrm{off}}+v_{\mathrm{low}}e_{\mathrm{low}}+v_{\mathrm{medium}}e_{\mathrm{medium}}+v_{\mathrm{high}}e_{\mathrm{high}}.\]
+<p>Each term contributes to only one coordinate. Adding the terms reconstructs the original column. The coefficients are unique because no other basis vector contributes to that coordinate. This simple observation is why the representation is useful: we can understand a linear operation by understanding its action on the basis columns.</p>
+<p>We also write \(|a\rangle\) for the basis column associated with label \(a\), and read it as “ket a.” For a bit, in order (0,1),</p>
 \[|0\rangle=\begin{pmatrix}1\\0\end{pmatrix},\qquad |1\rangle=\begin{pmatrix}0\\1\end{pmatrix}.\]
-<p>A definite classical bit has one of these state labels. In the next lesson, we will use weighted sums of the basis vectors to describe uncertainty. The meaning of those weights will be stated explicitly: they will be classical probabilities.</p>
-<figure><div class="figure-canvas" tabindex="0" role="region" aria-label="Academic figure; scroll horizontally on a narrow screen"><img src="figures/classical-information/state-representations.svg" alt="Three switch labels are mapped to three-component one-hot columns and two-bit encodings. The binary string 11 is unused." loading="lazy"></div><figcaption><strong>Figure 1.</strong> A definite switch setting can have different mathematical encodings. Basis coordinates and binary storage have different dimensions. <span class="draft-label">Draft figure for instructor review.</span></figcaption></figure></section>
-<section id="encoding"><h2>4. Number of states versus number of bits</h2>
-<p>Our three-state switch used a three-component coordinate vector. Does it therefore require three binary storage bits? No. The length of the coordinate representation and the number of bits used to encode a label are different quantities.</p>
-<p>One bit has two possible strings, 0 and 1. Two bits have four: 00, 01, 10, and 11. In general, \(n\) bits provide \(2^n\) distinct strings because each of the \(n\) positions has two choices. To assign a different binary string to every label in a \(d\)-state set, we need</p>
-\[2^n\ge d.\]
-<p>The smallest nonnegative integer satisfying this condition is</p>
-\[n=\lceil\log_2 d\rceil.\]
-<p>If logarithms are unfamiliar, use the equivalent counting question: how many times must we double 1 before reaching at least \(d\)? The ceiling symbol means round up to the next integer. A single-state system needs no information-bearing bit to distinguish among alternatives.</p>
-<h3>Worked example: encoding the switch</h3>
-<p>For \(d=3\), one bit is insufficient because \(2&lt;3\). Two bits suffice because \(4\ge3\). One possible code is off ↦ 00, low ↦ 01, high ↦ 10. The string 11 is unused. We must decide what an application does if that unused code appears; it should not silently acquire a fourth physical meaning.</p>
-<p>A six-state die similarly needs at least three binary digits for a fixed-length encoding: two bits provide only four strings, while three provide eight. Two strings remain unused. Neither encoding says that the device occupies all its possible states at once. It says how many distinct labels the storage scheme can distinguish.</p>
+<p>The symbols may look unfamiliar, but here they are names for columns we already understand. Using a ket does not by itself make a description quantum. In the next lesson, a weighted sum will describe classical uncertainty, and the coefficients will be probabilities. When we reach quantum states, the coefficients and the measurement rule will change. We will explain that change explicitly.</p></section>
+<section id="encoding"><h2>4. Four coordinates do not mean four storage bits</h2>
+<p>How many bits do we need to record the setting of our four-setting switch? Two bits give the strings 00, 01, 10 and 11. We can assign one string to each setting: off ↦ 00, low ↦ 01, medium ↦ 10, high ↦ 11. Every setting has a different code.</p>
+<p>Compare this with the one-hot column for medium: it has four entries, but its binary label code has two digits. The coordinate representation and the storage encoding answer different questions. The column provides a basis for calculations; the binary string stores which label was selected.</p>
+<figure><div class="figure-canvas" tabindex="0" role="region" aria-label="Academic figure; scroll horizontally on a narrow screen"><img src="figures/classical-information/state-representations.svg" alt="The four switch settings off, low, medium and high have four-component one-hot columns and distinct two-bit codes 00, 01, 10 and 11." loading="lazy"></div><figcaption><strong>Figure 1.</strong> One selected setting, two representations. The basis order is (off, low, medium, high); the four-component column and the two-bit code have different roles. <span class="draft-label">Revised draft figure for instructor review.</span></figcaption></figure>
+<p>In general, \(n\) bits provide \(2^n\) different strings: each position has two choices. To encode \(d\) distinct labels with fixed-length strings, we need</p>
+\[2^n\ge d,\qquad n_{\min}=\lceil\log_2d\rceil.\]
+<p>The ceiling means round up. If logarithms are unfamiliar, ask how many times we must double 1 before reaching at least \(d\). A one-label system needs no information-bearing bit to distinguish alternatives, since there are none.</p>
+<h3>An extension: when a code has unused strings</h3>
+<p>Now suppose a different switch has only three settings: off, low and high. One bit is insufficient because it gives only two strings. Two bits still suffice, but now we can use 00, 01 and 10 and leave 11 unused. That unused code does not automatically create another physical setting; an application must decide how to handle it.</p>
+<p>A six-state die similarly needs three fixed-length binary digits. Two digits give only four strings; three give eight, leaving two unused. None of this says that the die occupies all its possible faces at once. We have counted labels and assigned codes.</p>
 <div data-lab="states"></div>
 <div data-quiz="states-capacity"></div></section>
-<section id="practice"><h2>5. Practice and worked reasoning</h2>
-<p>Attempt these before opening the hints. They check the distinction between a system, a coordinate representation, and a binary code.</p>
-<ol class="exercise-list"><li><strong>A four-setting switch.</strong> Define a state set for off, low, medium, and high. Write the standard basis vector for medium in that order. How many binary digits suffice to encode the setting?
-<details><summary>Hint</summary><p>Assign one coordinate to each label. For the storage question, count how many strings two bits provide.</p></details>
-<details><summary>Worked solution</summary><p>The state set is \(\{\mathrm{off},\mathrm{low},\mathrm{medium},\mathrm{high}\}\). Medium has vector \((0,0,1,0)^{\mathsf T}\). Since \(2^2=4\), two binary digits suffice. The coordinate vector has four entries even though the binary encoding uses only two digits.</p></details></li>
-<li><strong>Changing coordinate order.</strong> Rewrite the medium vector using the order (high, medium, low, off). Explain what changed.
-<details><summary>Hint</summary><p>Find medium in the new list instead of moving the 1 by a memorized rule.</p></details>
-<details><summary>Worked solution</summary><p>Medium is now the second label, so its vector is \((0,1,0,0)^{\mathsf T}\). The representation changed; the labelled setting did not. Comparing raw columns without their basis labels would be misleading.</p></details></li>
-<li><strong>Five messages.</strong> You need a fixed-length binary code for five messages. Give a possible code and count unused strings.
-<details><summary>Worked solution</summary><p>Two bits give four strings, which is too few. Three bits give eight. For example, use 000, 001, 010, 011, and 100 for the messages. Three strings remain unused. The message labels still form a five-element state set, with five-component one-hot basis vectors if we choose that representation.</p></details></li></ol>
-<aside class="takeaway"><strong>What to carry forward</strong><p>Choose a state set and declare its order. A basis vector describes one definite label; a binary encoding stores the label using bit strings. Next we will describe uncertainty over labels with a probability vector.</p></aside></section>
+<section id="practice"><h2>5. Work it through yourself</h2>
+<p>Reading a column and constructing one yourself are different tasks. Attempt these before opening the hints or worked reasoning.</p>
+<ol class="exercise-list"><li><strong>The lecture's four-setting switch.</strong> In order (off, low, medium, high), write the column and fixed binary code for medium using the code defined above. Explain why the column length differs from the code length.
+<details><summary>Hint</summary><p>Find medium's position in the coordinate list, then use its assigned binary string. These are separate steps.</p></details>
+<details><summary>Worked solution</summary><p>The column is \((0,0,1,0)^{\mathsf T}\); the code is 10. Four basis coordinates provide a vector representation of the four labels, while two binary digits provide four different strings for storing a label.</p></details></li>
+<li><strong>Reorder without operating on the device.</strong> Rewrite the medium column in order (high, medium, low, off). Does the fixed code 10 change?
+<details><summary>Worked solution</summary><p>The column becomes \((0,1,0,0)^{\mathsf T}\). The fixed code remains 10 because we changed the coordinate list, not the label-to-code assignment or the switch setting. A new code assignment would be a separate convention change.</p></details></li>
+<li><strong>Face label or array position?</strong> For face order (1,2,3,4,5,6), write the column for face 3. Which entry would a zero-indexed array select?
+<details><summary>Worked solution</summary><p>The column is \((0,0,1,0,0,0)^{\mathsf T}\). Face 3 occupies the third list position, which is array index 2. A numerical face label need not equal its storage index.</p></details></li>
+<li><strong>Five messages.</strong> Find the minimum fixed-length binary storage, give a possible code, and count unused strings.
+<details><summary>Hint</summary><p>Count the strings available with two digits and then with three.</p></details>
+<details><summary>Worked solution</summary><p>Three bits suffice: two give only four strings, while three give eight. Use 000, 001, 010, 011 and 100, leaving three strings unused. A one-hot representation would instead have five coordinates.</p></details></li></ol>
+<aside class="takeaway"><strong>What have we built?</strong><p>Choose the state labels, declare their order, and represent each definite label by a basis column. We now have a language for calculations. Next we ask how to use that same language when the system has a definite classical result but we do not know it.</p></aside></section>

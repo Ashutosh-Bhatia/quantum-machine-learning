@@ -3,7 +3,7 @@
   "number": "1.3",
   "title": "Deterministic and stochastic operations",
   "part": "Part I · Chapter 1",
-  "status": "Full lecture notes · instructor-review draft",
+  "status": "Transcript-led lecture notes · instructor-review draft",
   "objectives": [
     "Build a matrix from its response to definite inputs.",
     "Derive the distribution update p′=Mp and prove normalization preservation.",
@@ -12,18 +12,18 @@
   "body_file": "chapters/classical-information/3-operations.html",
   "quizzes": [
     {
-      "id": "operations-columns",
-      "question": "In our column-vector convention, what does column j of an operation matrix describe?",
+      "id": "operations-asymmetric",
+      "question": "An operation keeps input 0 unchanged and sends input 1 to 0 or 1 equally. In output order (0,1), which column represents input 1?",
       "options": [
-        "The output distribution conditional on input j.",
-        "The input distribution conditional on output j.",
-        "The final distribution for every possible preparation."
+        "(1/2,1/2)ᵀ",
+        "(1,0)ᵀ",
+        "(3/4,1/4)ᵀ"
       ],
       "answer": 0,
       "feedback": [
-        "Correct. Each input basis vector selects its corresponding output column.",
-        "That reverses the conditional direction. The input is the column label.",
-        "A different uncertain preparation combines the columns with different weights."
+        "Correct. Column 1 is the output distribution given input 1. Column 0 is (1,0)ᵀ.",
+        "That is the output column for input 0, which the rule keeps unchanged.",
+        "Those are the weights of a separate uncertain input preparation used in the lesson. They do not define this operation’s response to definite input 1."
       ]
     },
     {
@@ -44,6 +44,6 @@
   ],
   "notebook": "00-classical-information.ipynb",
   "notebook_kind": "classical",
-  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.7,11. The total-probability derivation, random-flip calculation and distinction between algebraic and stochastic inverses expand the slide material.",
-  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.7,11; 26 July 2026 lecture, 26:34–35:41 (four functions and matrix representations), 1:07:05 (keep 0; randomize input 1 equally) and 1:16:27 (weighted deterministic actions). The exact decomposition A=(I+R0)/2, total-probability proof and inverse examples provide checked supporting exposition.",
+  "prerequisites": "Lessons 1.1–1.2: basis columns, probability distributions and conditional probabilities."
 }

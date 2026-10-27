@@ -3,7 +3,7 @@
   "number": "1.4",
   "title": "Composing operations",
   "part": "Part I · Chapter 1",
-  "status": "Full lecture notes · instructor-review draft",
+  "status": "Transcript-led lecture notes · instructor-review draft",
   "objectives": [
     "Translate a temporal sequence into the correct matrix product.",
     "Show a noncommuting pair and distinguish it from associativity.",
@@ -44,6 +44,6 @@
   ],
   "notebook": "00-classical-information.ipynb",
   "notebook_kind": "classical",
-  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.12–13. The multiplication refresher, closure proof, commuting example and state-sufficiency discussion provide expanded lecture-note exposition.",
-  "prerequisites": "Basic arithmetic and elementary algebra. A matrix-multiplication refresher is included before composition."
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pp.12–13; 26 July 2026 lecture, 1:32:56–1:35:38 (function composition, combined operators and order); 30 August, 1:39:47 (the later H→S→H→T circuit analogy). The matrix refresher, reset/flip proof, asymmetric two-stage exercise, closure proof and state-sufficiency discussion expand the lecture material.",
+  "prerequisites": "Lesson 1.3: operation columns and p′=Mp. The matrix-multiplication refresher below supplies the required arithmetic."
 }

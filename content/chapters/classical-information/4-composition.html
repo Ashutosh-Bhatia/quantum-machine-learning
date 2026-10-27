@@ -1,6 +1,6 @@
-<p class="lead">Once a single operation is represented by a matrix, a sequence of operations becomes a matrix product. The order of that product records the order of the process—and reversing the order can change the answer completely.</p>
+<p class="lead">Suppose we connect two small devices: the first changes a bit, and the second acts on its output. Can we replace the pair by one operation? Let us follow the intermediate state first, then see why a matrix product describes the whole process.</p>
 <section id="refresher"><h2>1. A short matrix-multiplication refresher</h2>
-<p>A matrix–vector product takes one row of the matrix at a time, multiplies its entries by the matching vector entries, and adds the results. For</p>
+<p>We already have state columns and operation matrices. Before combining devices, let us check the multiplication itself. A matrix–vector product takes one row at a time, multiplies its entries by the matching vector entries, and adds the results. For</p>
 \[A=\begin{pmatrix}a&b\\c&d\end{pmatrix},\qquad v=\begin{pmatrix}u\\w\end{pmatrix},\qquad Av=\begin{pmatrix}au+bw\\cu+dw\end{pmatrix}.\]
 <p>A matrix–matrix product applies the same rule to each column of the right-hand matrix. If</p>
 \[B=\begin{pmatrix}e&f\\g&h\end{pmatrix},\]
@@ -9,7 +9,7 @@
 <p>This is not entry-by-entry multiplication. The \((i,j)\) entry is \((AB)_{ij}=\sum_k A_{ik}B_{kj}\). If \(B\) maps input states to intermediate states and \(A\) maps intermediate states to output states, this sum follows every possible intermediate route.</p>
 <p>Dimensions are part of the meaning. If \(B\) maps a \(d\)-state input to an \(r\)-state intermediate system and \(A\) maps that to an \(m\)-state output, their dimensions are \(r\times d\) and \(m\times r\). The product \(AB\) is \(m\times d\). Its inner dimensions match because the two operations share the same intermediate labels and order. Our lab uses two-state systems, but the rule is more general.</p></section>
 <section id="order"><h2>2. Why the rightmost matrix acts first</h2>
-<p>Let the initial probability vector be \(p\). Apply \(A\) first, obtaining \(p^{(1)}=Ap\). Next apply \(B\):</p>
+<p>Think first about ordinary functions. If we apply f and then g, we write \(g(f(x))\): f acts on the input before g. For our devices, start with a column \(p\). Apply \(A\), obtaining the intermediate state \(p^{(1)}=Ap\). The second device B receives that result:</p>
 \[p^{(2)}=Bp^{(1)}=B(Ap)=(BA)p.\]
 <p>The last equality uses <strong>associativity</strong>: compatible matrix multiplication can be regrouped without changing its value. It does not permit us to interchange the factors. The operation closest to the input column acts first. Thus the temporal instruction “A, then B” corresponds to \(BA\), not \(AB\).</p>
 <p>For an ordered sequence \(M_1,M_2,\ldots,M_n\),</p>
@@ -19,7 +19,7 @@
 <section id="counterexample"><h2>3. Worked example: reset and flip do not commute</h2>
 <p>Use the reset-to-zero and flip matrices</p>
 \[R_0=\begin{pmatrix}1&1\\0&0\end{pmatrix},\qquad X=\begin{pmatrix}0&1\\1&0\end{pmatrix}.\]
-<p>Start with any normalized bit distribution \(p=(p_0,p_1)^{\mathsf T}\). If we reset first,</p>
+<p>Before looking at a product, predict each stage. If we reset a bit to 0 and then flip it, what must the final label be? If we reverse the devices, what changes? Start with any normalized bit distribution \(p=(p_0,p_1)^{\mathsf T}\). Reset first:</p>
 \[R_0p=\begin{pmatrix}p_0+p_1\\0\end{pmatrix}=\begin{pmatrix}1\\0\end{pmatrix}.\]
 <p>Flipping that result gives \(X(R_0p)=(0,1)^{\mathsf T}\): the output is certainly 1. The combined matrix confirms this:</p>
 \[XR_0=\begin{pmatrix}0&0\\1&1\end{pmatrix}=R_1.\]
@@ -41,10 +41,10 @@
 <p>The penultimate equality uses the column sum of \(B\); the final equality uses the column sum of \(A\). Therefore \(BA\) is column-stochastic. By applying this argument repeatedly, any finite sequence of valid stochastic operations remains a valid stochastic operation.</p>
 <p>The probabilistic interpretation is also useful. The index \(k\) ranges over the intermediate state. The first operation sends input \(j\) to \(k\) with probability \(A_{kj}\), and the second sends \(k\) to output \(i\) with probability \(B_{ik}\). Multiplying the route probabilities and summing over intermediate labels gives the composite transition rule.</p>
 <aside class="takeaway"><strong>A modelling assumption behind the product</strong><p>The same second-operation rule \(B\) must apply given the intermediate state. If the second device also depends on hidden history, shared randomness, or a changing environment not represented in that state, the state description may need to be enlarged. A convenient matrix product does not eliminate the need for a faithful model.</p></aside></section>
-<section id="practice"><h2>6. Practice and worked reasoning</h2>
-<ol class="exercise-list"><li><strong>A two-stage calculation.</strong> Begin with \(p=(3/4,1/4)^{\mathsf T}\). Apply a random flip with probability 1/4, then a definite flip. Find the intermediate vector, final vector, and combined matrix.
-<details><summary>Hint</summary><p>Write the intermediate result first. The matrix for “random flip, then flip” is \(XB_{1/4}\).</p></details>
-<details><summary>Worked solution</summary><p>The intermediate result is \((5/8,3/8)^{\mathsf T}\). Flipping gives \((3/8,5/8)^{\mathsf T}\). Multiplication gives \(XB_{1/4}=\begin{pmatrix}1/4&3/4\\3/4&1/4\end{pmatrix}\), and applying it directly to the input yields the same final vector.</p></details></li>
+<section id="practice"><h2>6. Work it through yourself</h2><p>Write the input, the intermediate state and the output before simplifying the combined matrix. Then check that both calculation routes agree.</p>
+<ol class="exercise-list"><li><strong>Return to the asymmetric rule.</strong> Begin with \(p=(3/4,1/4)^{\mathsf T}\). Apply the previous lesson’s operation A that keeps 0 and randomizes input 1 equally, then apply a definite flip X. Find the intermediate vector, final vector, and combined matrix.
+<details><summary>Hint</summary><p>The intermediate result is Ap. The second operation gives X(Ap), so the combined matrix is XA.</p></details>
+<details><summary>Worked solution</summary><p>The intermediate result is \((7/8,1/8)^{\mathsf T}\). Flipping gives \((1/8,7/8)^{\mathsf T}\). Multiplication gives \(XA=\begin{pmatrix}0&1/2\\1&1/2\end{pmatrix}\), which produces the same final vector when applied directly to p. Reversing the devices instead gives \(A(Xp)=(5/8,3/8)^{\mathsf T}\), so this pair also demonstrates why temporal order matters.</p></details></li>
 <li><strong>One input is not a proof.</strong> Identity and flip both leave the uniform distribution \((1/2,1/2)^{\mathsf T}\) unchanged. Are they the same operation?
 <details><summary>Worked solution</summary><p>No. On input \(|0\rangle\), identity outputs \(|0\rangle\) while flip outputs \(|1\rangle\). Agreement on one vector is weaker than agreement as operators. Checking their action on both bit basis vectors would distinguish them.</p></details></li>
 <li><strong>Three operations.</strong> A process applies \(A\), then \(B\), then \(C\). Write the combined matrix. If all are column-stochastic, explain why their product is valid.
@@ -54,5 +54,5 @@
 <section id="readiness"><h2>7. Chapter checkpoint and the road to quantum computing</h2>
 <p>You now have a complete classical calculation pattern: declare the state labels and order; write a probability vector; represent conditional transitions by stochastic columns; compose the matrices in temporal order; interpret the resulting distribution. You should be able to explain each step without relying on a simulation.</p>
 <ul><li>Represent a definite state and an uncertain description in the same declared basis.</li><li>Distinguish a probability, an empirical frequency, and a conditional probability.</li><li>Build an operation from its response to every definite input.</li><li>Derive \(p'=Mp\) and explain why normalization is preserved.</li><li>Track intermediate states and show an explicit noncommuting example.</li></ul>
-<p>The next chapter develops complex numbers, inner products, and the rest of our mathematical language. Quantum states will later be described by complex amplitudes, and closed-system gates by unitary matrices. Matrix composition will still matter, but the allowed states, operations, and measurement rules will change. The classical foundation gives us something precise to compare those new rules against.</p>
+<p>Keep the four one-bit functions and the rule “write the intermediate state” in mind. They will return when we work through Deutsch’s algorithm. Knowing what the classical functions do will help us ask a different question about an unknown function.</p><p>Next we develop the complex-number and inner-product language needed for quantum states. Matrix composition will still matter, but the allowed states, operations and measurement rules will change. We will introduce the mathematics where it helps us make that change precisely, while keeping the route toward the classical ML bridge and QML visible.</p>
 </section>

@@ -50,5 +50,13 @@
     return [N-one,one];
   }
   function bitsFor(d){if(!Number.isInteger(d)||d<1)throw new RangeError('Use at least one state.');return Math.ceil(Math.log2(d));}
-  return {probability,distribution,matrix,matVec,matMul,operation,sampleBit,bitsFor};
+  function conditionOnRow(joint,row){
+    if(!Array.isArray(joint)||!joint.length||!Array.isArray(joint[0])||!joint[0].length||joint.some(r=>!Array.isArray(r)||r.length!==joint[0].length))throw new RangeError('Use a nonempty rectangular joint-probability table.');
+    distribution(joint.flat());
+    if(!Number.isInteger(row)||row<0||row>=joint.length)throw new RangeError('Choose an observed row in the joint table.');
+    const eventProbability=joint[row].reduce((s,x)=>s+x,0);
+    if(eventProbability===0)throw new RangeError('The selected event has probability zero. Its conditional distribution is undefined.');
+    return {eventProbability,conditional:joint[row].map(x=>x/eventProbability),marginal:joint[0].map((_,j)=>joint.reduce((s,r)=>s+r[j],0))};
+  }
+  return {probability,distribution,matrix,matVec,matMul,operation,sampleBit,bitsFor,conditionOnRow};
 });

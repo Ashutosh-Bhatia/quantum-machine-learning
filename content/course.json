@@ -9,7 +9,7 @@
   "planned": [
     {
       "title": "Chapter 2 · Mathematical language",
-      "needs": "Complex numbers, inner products, Dirac notation, and matrix operations."
+      "needs": "Complex numbers, inner products and Dirac notation, developed near their first use."
     },
     {
       "title": "Chapter 3 · Qubits and measurement",
@@ -29,11 +29,11 @@
     },
     {
       "title": "Chapter 7 · Learning from quantum algorithms",
-      "needs": "Kickback, Deutsch, Deutsch–Jozsa, and Simon’s sampled constraints."
+      "needs": "Fully worked kickback and Deutsch; a promised Deutsch–Jozsa example. Simon is an optional extension."
     },
     {
       "title": "Chapter 8 · Observables, statistics and noisy devices",
-      "needs": "Expectations, uncertainty, mixtures, reduced states, and simple noise models."
+      "needs": "Readout and finite-shot estimates before QML use, with linked depth on mixtures, reduced states and noise."
     },
     {
       "title": "Part II · Classical machine learning bridge",
