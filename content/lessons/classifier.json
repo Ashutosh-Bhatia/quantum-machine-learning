@@ -1,0 +1,28 @@
+{
+  "id": "classifier",
+  "title": "A first variational classifier",
+  "part": "04 · Learning with circuits",
+  "status": "Draft lesson",
+  "time": "35 min",
+  "source": "Lecture 10 Building a Quantum Classifier 1.pdf, PDF pages 17–22, 31 and 33–42. Supplemental one-qubit example.",
+  "objectives": [
+    "Separate data encoding from trainable parameters.",
+    "Read a probability as a model prediction.",
+    "Compute an expectation gradient by parameter shift."
+  ],
+  "body": "<h2>A quantum model inside a classical loop</h2><p>Encode a scalar feature x with Rᵧ(x), apply a trainable Rᵧ(w), then measure. Starting from |0⟩, the probability of label 1 is p(1|x,w) = sin²((x+w)/2). A classical optimizer updates w to reduce a loss over training examples.</p><p>This tiny model combines the two rotations into one. It is an intentionally limited teaching model that a classical computer simulates easily. It demonstrates the training loop and makes no claim of quantum advantage.</p><h2>From probability to expectation</h2><p>The Z expectation is f(x,w)=1−2p(1|x,w)=cos(x+w). For this rotation, ∂f/∂w = [f(x,w+π/2)−f(x,w−π/2)]/2. A loss gradient still needs the chain rule; shifting the whole loss is not generally the same calculation.</p><aside class=\"takeaway\"><strong>Evaluate the complete experiment</strong><p>Fit preprocessing on training data only. Keep a test set for final evaluation. Compare classical baselines and report circuit depth, sampling cost, seeds, and uncertainty.</p></aside><h2>Explore before training</h2><p>Move x and w to predict the circuit output. The notebook implements Qiskit statevector predictions, parameter-shift gradients, a small training loop, and a held-out comparison.</p>",
+  "lab": "classifier",
+  "quiz": {
+    "question": "For x=0 and w=π, what is p(1)?",
+    "options": [
+      "0",
+      "1/2",
+      "1"
+    ],
+    "answer": 2,
+    "explanation": "Rᵧ(π)|0⟩ = |1⟩, so sin²(π/2)=1."
+  },
+  "exercise": "Derive ∂p(1|x,w)/∂w. Explain why changing the number of shots changes uncertainty but not the ideal probability.",
+  "solution": "∂p/∂w = sin(x+w)/2. For N independent shots the estimated probability has variance p(1−p)/N.",
+  "notebook": "03-variational-classifier.ipynb"
+}

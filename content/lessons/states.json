@@ -1,0 +1,28 @@
+{
+  "id": "states",
+  "title": "States, amplitudes & measurement",
+  "part": "01 · Quantum foundations",
+  "status": "Draft lesson",
+  "time": "25 min",
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pages 14–20; Practice Problems Q1–5, Q10; introductory transcript used for teaching context.",
+  "objectives": [
+    "Normalize a complex state vector.",
+    "Distinguish amplitude from probability.",
+    "Explain why phase can matter even when Z-basis probabilities do not change."
+  ],
+  "body": "<h2>From probabilities to amplitudes</h2><p>A classical random bit is described by probabilities that sum to one. A pure qubit is described by two complex amplitudes: <strong>|ψ⟩ = α|0⟩ + β|1⟩</strong>. Their squared magnitudes sum to one: |α|² + |β|² = 1.</p><p>Computational-basis measurement returns 0 with probability |α|² and 1 with probability |β|². One measurement gives one classical outcome; it does not reveal both amplitudes.</p><h2>A worked example</h2><p>For |ψ⟩ = [|0⟩ + (1 + 3i)|1⟩]/√11, the squared magnitudes are 1/11 and (1² + 3²)/11 = 10/11. They add to one, so the state is normalized. This works through practice question Q1.</p><aside class=\"takeaway\"><strong>Keep this distinction</strong><p>Amplitudes can interfere. Probabilities are real, nonnegative numbers obtained after taking squared magnitudes.</p></aside><h2>Explore a pure qubit</h2><p>Up to global phase, |ψ⟩ = cos(θ/2)|0⟩ + exp(iφ) sin(θ/2)|1⟩. The Bloch coordinates are (sin θ cos φ, sin θ sin φ, cos θ). Change φ while holding θ fixed. Predict which measurement probabilities will change.</p>",
+  "lab": "bloch",
+  "quiz": {
+    "question": "With θ = π/2, changing φ from 0 to π changes which quantity?",
+    "options": [
+      "The Z-basis probability of 1",
+      "The X-basis probability of +",
+      "The normalization"
+    ],
+    "answer": 1,
+    "explanation": "Z-basis probabilities remain 1/2. The state changes from |+⟩ to |−⟩, so the X-basis probability of + changes from 1 to 0."
+  },
+  "exercise": "Solve Q2–5 and Q10 in your practice sheet. For Q2, use |1−i|² = 2 before normalizing.",
+  "solution": "Q2: N = 1/√6 and vector (1−i, 2)ᵀ/√6. Q10: θ=π/2, φ=π gives |−⟩.",
+  "notebook": "01-qubit-foundations.ipynb"
+}

@@ -1,0 +1,1431 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quantum Computing Interactive Companion</title>
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --panel:#ffffff;
+      --text:#141821;
+      --muted:#617085;
+      --border:#d7dde8;
+      --accent:#2a63eb;
+      --accent2:#7c3aed;
+      --soft:#eef3ff;
+      --soft2:#f5efff;
+      --good:#0f9d58;
+      --warn:#d97706;
+      --bad:#c62828;
+      --shadow:0 10px 28px rgba(18,30,65,.08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .wrap{max-width:1320px;margin:0 auto;padding:22px 18px 40px}
+    h1,h2,h3,h4,p{margin-top:0}
+    h1{font-size:clamp(30px,4vw,46px);margin-bottom:8px}
+    .sub{color:var(--muted);line-height:1.55;max-width:980px}
+    .grid-main{display:grid;grid-template-columns:260px minmax(0,1fr);gap:18px;align-items:start;margin-top:18px}
+    .nav{position:sticky;top:14px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}
+    .nav h3{font-size:16px;margin:6px 0 12px}
+    .nav button{
+      display:block;width:100%;text-align:left;margin:0 0 8px;padding:11px 12px;border:1px solid var(--border);
+      background:#fff;border-radius:12px;color:var(--text);cursor:pointer;font-size:14px
+    }
+    .nav button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .panel{display:none;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .panel.active{display:block}
+    .kicker{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;background:var(--soft);color:var(--accent);font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+    .section-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}
+    .side-stack{display:grid;gap:14px}
+    .card,.soft-card{
+      background:#fff;border:1px solid var(--border);border-radius:16px;padding:14px
+    }
+    .soft-card{background:var(--soft)}
+    .soft2{background:var(--soft2)!important}
+    .controls{display:flex;flex-wrap:wrap;gap:8px}
+    button,select,input{font:inherit}
+    .btn{
+      border:1px solid var(--border);border-radius:12px;background:#fff;color:var(--text);padding:9px 12px;cursor:pointer
+    }
+    .btn:hover{border-color:#aeb8c8}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .btn.small{padding:6px 10px;font-size:13px}
+    select,.field{
+      width:100%;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:#fff;color:var(--text)
+    }
+    .metric{background:var(--soft);border:1px solid #d5e0ff;border-radius:16px;padding:12px}
+    .metric .label{font-size:13px;color:var(--muted)}
+    .metric .value{font-size:28px;font-weight:800;line-height:1.1;margin-top:3px}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .four-col{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+    .explain{font-size:14px;line-height:1.55;color:var(--muted)}
+    .statebox{background:#fafbfe;border:1px dashed #cdd6e6;border-radius:14px;padding:10px 12px}
+    .amp-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:10px}
+    .amp-bar{
+      border:1px solid var(--border);border-radius:12px;padding:8px;background:#fff;text-align:center
+    }
+    .bar-outer{height:110px;display:flex;align-items:flex-end;justify-content:center;margin:8px auto;width:40px;background:#f4f7fd;border-radius:10px;overflow:hidden;border:1px solid #e2e7f1}
+    .bar-inner{width:100%;background:linear-gradient(180deg,var(--accent),#8eb2ff);border-radius:10px 10px 0 0}
+    .pill{display:inline-block;padding:4px 9px;background:#f4f6fb;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--muted)}
+    svg{max-width:100%;height:auto;display:block}
+    .caption{font-size:13px;color:var(--muted);margin-top:6px}
+    .note{padding:10px 12px;background:#fff8e8;border:1px solid #f0d9a5;border-radius:12px;color:#7a5b0b;font-size:14px}
+    .good{color:var(--good)} .bad{color:var(--bad)} .warn{color:var(--warn)}
+    .hero-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:14px}
+    .hero-cards .card h4{margin-bottom:8px}
+    .slider-row{display:grid;grid-template-columns:1fr 86px;gap:12px;align-items:center}
+    .mini-table{width:100%;border-collapse:collapse;font-size:14px}
+    .mini-table td,.mini-table th{padding:7px 8px;border-bottom:1px solid #e6ebf3;text-align:left}
+    .mini-table tr:last-child td,.mini-table tr:last-child th{border-bottom:none}
+    .inline-controls{display:flex;gap:8px;flex-wrap:wrap}
+    .center{text-align:center}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#f3f4f6;font-size:12px;color:#4b5563}
+    .footer{margin-top:16px;color:var(--muted);font-size:13px}
+    @media (max-width:1050px){
+      .grid-main{grid-template-columns:1fr}
+      .nav{position:static}
+    }
+    @media (max-width:900px){
+      .section-grid,.two-col,.three-col,.hero-cards{grid-template-columns:1fr}
+      .four-col,.amp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media (max-width:560px){
+      .four-col,.amp-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Quantum Computing Interactive Companion</h1>
+  <p class="sub">
+    A standalone interactive companion for your quantum computing lecture. It includes animated visualizations for single-qubit gates, measurement and projection, tensor products, multi-qubit controlled gates, Bell-state entanglement, oracle/query behavior, a classical-vs-quantum query comparison, and a step-by-step Deutsch algorithm explorer.
+  </p>
+
+  <div class="grid-main">
+    <aside class="nav">
+      <h3>Modules</h3>
+      <button class="nav-btn active" data-panel="home">Overview</button>
+      <button class="nav-btn" data-panel="singleQubit">1. Single-Qubit Gate Lab</button>
+      <button class="nav-btn" data-panel="projection">2. Measurement & Projection</button>
+      <button class="nav-btn" data-panel="tensor">3. Tensor Product Builder</button>
+      <button class="nav-btn" data-panel="controlled">4. Controlled-Gate Playground</button>
+      <button class="nav-btn" data-panel="bell">5. Bell State & Entanglement</button>
+      <button class="nav-btn" data-panel="oracle">6. Oracle / Query Gate</button>
+      <button class="nav-btn" data-panel="race">7. Classical vs Quantum Query Race</button>
+      <button class="nav-btn" data-panel="deutsch">8. Deutsch Algorithm Explorer</button>
+    </aside>
+
+    <main>
+      <!-- HOME -->
+      <section class="panel active" id="home">
+        <span class="kicker">Companion overview</span>
+        <h2 style="margin-top:10px">What this companion covers</h2>
+        <p class="sub" style="max-width:none">
+          The modules are aligned to the conceptual flow of a first lecture on quantum computing: qubits,
+          quantum measurement, unitary gates, circuits, entanglement, query oracles, and Deutsch’s algorithm.
+        </p>
+        <div class="hero-cards">
+          <div class="card">
+            <h4>Visual intuition</h4>
+            <p class="explain">See qubit states move on a Bloch-sphere style display, observe phase gates preserve measurement probabilities, and compare how different gates change the same input state.</p>
+          </div>
+          <div class="card">
+            <h4>Interactive experiments</h4>
+            <p class="explain">Choose initial states, apply gates, build tensor products, run controlled gates, and simulate measurements using buttons and sliders.</p>
+          </div>
+          <div class="card">
+            <h4>Algorithmic understanding</h4>
+            <p class="explain">Move from gate intuition to oracle-based computation and finally step through Deutsch’s algorithm one stage at a time.</p>
+          </div>
+        </div>
+        <div class="three-col" style="margin-top:16px">
+          <div class="soft-card">
+            <h4>Suggested classroom path</h4>
+            <ol class="explain" style="padding-left:18px">
+              <li>Single-Qubit Gate Lab</li>
+              <li>Measurement & Projection</li>
+              <li>Tensor Products</li>
+              <li>Bell State & Entanglement</li>
+              <li>Oracle / Query Gate</li>
+              <li>Deutsch Algorithm Explorer</li>
+            </ol>
+          </div>
+          <div class="soft-card soft2">
+            <h4>How to use in PPT</h4>
+            <p class="explain">Open this file in a browser during the lecture and switch to the relevant module while teaching each slide cluster. Each module can work independently.</p>
+          </div>
+          <div class="soft-card">
+            <h4>Notes</h4>
+            <p class="explain">The visualizations are pedagogical. They are designed to make the concepts intuitive, not to replace formal mathematical derivations.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SINGLE QUBIT -->
+      <section class="panel" id="singleQubit">
+        <span class="kicker">Module 1</span>
+        <h2 style="margin-top:10px">Single-Qubit Gate Lab</h2>
+        <div class="section-grid">
+          <div class="card">
+            <svg id="singleQubitSvg" viewBox="0 0 680 460" aria-label="Bloch sphere visualization">
+              <defs>
+                <marker id="sqArrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+                  <polygon points="0,0 0,7 8,3.5" fill="#2a63eb"></polygon>
+                </marker>
+                <marker id="axisArrowSQ" markerWidth="8" markerHeight="8" refX="7" refY="3.5" orient="auto">
+                  <polygon points="0,0 0,7 8,3.5" fill="#697588"></polygon>
+                </marker>
+              </defs>
+              <circle cx="220" cy="220" r="145" fill="none" stroke="#d7dde8" stroke-width="2"></circle>
+              <ellipse cx="220" cy="220" rx="145" ry="46" fill="none" stroke="#d7dde8" stroke-width="1.5" stroke-dasharray="5 5"></ellipse>
+              <ellipse cx="220" cy="220" rx="48" ry="145" fill="none" stroke="#d7dde8" stroke-width="1.5" stroke-dasharray="5 5"></ellipse>
+              <line x1="45" y1="220" x2="394" y2="220" stroke="#697588" stroke-width="1.5" marker-end="url(#axisArrowSQ)"></line>
+              <line x1="220" y1="392" x2="220" y2="48" stroke="#697588" stroke-width="1.5" marker-end="url(#axisArrowSQ)"></line>
+              <line x1="108" y1="331" x2="334" y2="111" stroke="#697588" stroke-width="1.5" marker-end="url(#axisArrowSQ)"></line>
+              <text x="400" y="225" font-size="18" fill="#141821">x</text>
+              <text x="338" y="106" font-size="18" fill="#141821">y</text>
+              <text x="228" y="42" font-size="18" fill="#141821">z</text>
+              <text x="228" y="78" font-size="16" fill="#141821">|0⟩</text>
+              <text x="228" y="377" font-size="16" fill="#141821">|1⟩</text>
+              <path id="sqArc" d="" fill="none" stroke="#7c3aed" stroke-width="4" stroke-linecap="round" opacity="0.25"></path>
+              <line id="sqVector" x1="220" y1="220" x2="220" y2="75" stroke="#2a63eb" stroke-width="6" marker-end="url(#sqArrow)"></line>
+              <circle id="sqTip" cx="220" cy="75" r="7" fill="#2a63eb"></circle>
+              <circle cx="220" cy="220" r="5" fill="#141821"></circle>
+
+              <rect x="420" y="30" width="230" height="125" rx="14" fill="#f8faff" stroke="#d7dde8"></rect>
+              <text x="438" y="58" font-size="18" font-weight="700" fill="#141821">Current state</text>
+              <text id="sqStateText1" x="438" y="90" font-size="16" class="mono" fill="#141821"></text>
+              <text id="sqStateText2" x="438" y="116" font-size="16" class="mono" fill="#141821"></text>
+              <text id="sqProbText" x="438" y="142" font-size="16" fill="#617085"></text>
+
+              <rect x="420" y="180" width="230" height="190" rx="14" fill="#fbfbfd" stroke="#d7dde8"></rect>
+              <text x="438" y="208" font-size="18" font-weight="700" fill="#141821">Gate insight</text>
+              <text id="sqGateName" x="438" y="238" font-size="20" font-weight="700" fill="#2a63eb">X gate</text>
+              <text id="sqGateDesc1" x="438" y="270" font-size="15" fill="#141821"></text>
+              <text id="sqGateDesc2" x="438" y="295" font-size="15" fill="#141821"></text>
+              <text id="sqGateDesc3" x="438" y="320" font-size="15" fill="#617085"></text>
+            </svg>
+
+            <div class="two-col" style="margin-top:12px">
+              <div>
+                <label for="sqPreset"><strong>Initial state</strong></label>
+                <select id="sqPreset">
+                  <option value="0">|0⟩</option>
+                  <option value="1">|1⟩</option>
+                  <option value="plus">|+⟩</option>
+                  <option value="minus">|−⟩</option>
+                  <option value="plusi">|+i⟩</option>
+                  <option value="minusi">|−i⟩</option>
+                </select>
+              </div>
+              <div>
+                <label for="sqSpeed"><strong>Animation speed</strong></label>
+                <input id="sqSpeed" type="range" min="600" max="2600" step="100" value="1400" style="width:100%">
+              </div>
+            </div>
+
+            <div class="controls" style="margin-top:12px">
+              <button class="btn primary gate-btn" data-gate="X">Apply X</button>
+              <button class="btn gate-btn" data-gate="Y">Apply Y</button>
+              <button class="btn gate-btn" data-gate="Z">Apply Z</button>
+              <button class="btn gate-btn" data-gate="H">Apply H</button>
+              <button class="btn gate-btn" data-gate="S">Apply S</button>
+              <button class="btn gate-btn" data-gate="T">Apply T</button>
+              <button class="btn" id="sqReset">Reset</button>
+            </div>
+          </div>
+
+          <div class="side-stack">
+            <div class="metric">
+              <div class="label">Bloch coordinates</div>
+              <div id="sqBlochCoord" class="value mono" style="font-size:24px">x=0.00</div>
+              <div id="sqBlochCoord2" class="label mono" style="margin-top:4px">y=0.00, z=1.00</div>
+            </div>
+            <div class="card">
+              <h4>Why this matters</h4>
+              <p class="explain">
+                X, Y, and Z are Pauli gates. H creates and removes superposition. S and T are phase gates.
+                Use the same initial state with different gates and compare the outcomes.
+              </p>
+            </div>
+            <div class="soft-card">
+              <h4>Key lesson</h4>
+              <p class="explain">
+                Some gates change both amplitudes and probabilities, while phase gates may change relative phase
+                without immediately changing measurement probabilities in the computational basis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTION -->
+      <section class="panel" id="projection">
+        <span class="kicker">Module 2</span>
+        <h2 style="margin-top:10px">Measurement & Projection</h2>
+        <div class="section-grid">
+          <div class="card">
+            <svg id="projSvg" viewBox="0 0 680 430" aria-label="Measurement as projection">
+              <rect x="22" y="26" width="636" height="378" rx="16" fill="#fbfcff" stroke="#d7dde8"></rect>
+              <line x1="110" y1="340" x2="110" y2="80" stroke="#697588" stroke-width="2"></line>
+              <line x1="110" y1="340" x2="350" y2="340" stroke="#697588" stroke-width="2"></line>
+              <text x="78" y="90" font-size="18">|0⟩</text>
+              <text x="356" y="346" font-size="18">|1⟩</text>
+              <line id="projVector" x1="110" y1="340" x2="250" y2="180" stroke="#c62828" stroke-width="5"></line>
+              <circle id="projTip" cx="250" cy="180" r="8" fill="#c62828"></circle>
+              <line id="projShadowX" x1="250" y1="180" x2="250" y2="340" stroke="#2a63eb" stroke-width="2.5" stroke-dasharray="7 5"></line>
+              <line id="projShadowY" x1="250" y1="180" x2="110" y2="180" stroke="#2a63eb" stroke-width="2.5" stroke-dasharray="7 5"></line>
+              <text id="projAlphaLabel" x="116" y="258" font-size="16" fill="#2a63eb"></text>
+              <text id="projBetaLabel" x="178" y="364" font-size="16" fill="#2a63eb"></text>
+
+              <rect x="410" y="50" width="210" height="120" rx="14" fill="#eef3ff" stroke="#cfdcff"></rect>
+              <text x="426" y="78" font-size="18" font-weight="700">State</text>
+              <text id="projStateText" x="426" y="110" font-size="16" class="mono"></text>
+              <text id="projProb0" x="426" y="136" font-size="15"></text>
+              <text id="projProb1" x="426" y="160" font-size="15"></text>
+
+              <rect x="410" y="205" width="210" height="120" rx="14" fill="#fff9eb" stroke="#f0d9a5"></rect>
+              <text x="426" y="233" font-size="18" font-weight="700">Measurement</text>
+              <text id="projMeasureResult" x="426" y="264" font-size="16"></text>
+              <text id="projPostState" x="426" y="292" font-size="16"></text>
+            </svg>
+            <div class="two-col" style="margin-top:12px">
+              <div>
+                <label for="projTheta"><strong>θ (controls amplitudes)</strong></label>
+                <div class="slider-row">
+                  <input type="range" id="projTheta" min="0" max="90" value="35">
+                  <div id="projThetaVal" class="pill center">35°</div>
+                </div>
+              </div>
+              <div>
+                <label for="projMode"><strong>State type</strong></label>
+                <select id="projMode">
+                  <option value="real">Real amplitudes</option>
+                  <option value="plus">Preset |+⟩</option>
+                  <option value="minus">Preset |−⟩</option>
+                </select>
+              </div>
+            </div>
+            <div class="controls" style="margin-top:12px">
+              <button class="btn primary" id="projMeasureBtn">Measure</button>
+              <button class="btn" id="projResetBtn">Reset</button>
+            </div>
+          </div>
+
+          <div class="side-stack">
+            <div class="card">
+              <h4>What to observe</h4>
+              <p class="explain">
+                The projections onto the |0⟩ and |1⟩ axes determine the amplitudes. Squaring their magnitudes gives the measurement probabilities.
+              </p>
+            </div>
+            <div class="soft-card">
+              <h4>Teaching cue</h4>
+              <p class="explain">
+                Pause before clicking <strong>Measure</strong>. Ask students to predict the outcome probabilities. Then click several times and compare observed frequencies with the displayed probabilities.
+              </p>
+            </div>
+            <div class="note">
+              After measurement, the state collapses to the observed basis state. The displayed “post-measurement state” reflects this collapse.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TENSOR -->
+      <section class="panel" id="tensor">
+        <span class="kicker">Module 3</span>
+        <h2 style="margin-top:10px">Tensor Product Builder</h2>
+        <div class="section-grid">
+          <div class="card">
+            <div class="two-col">
+              <div>
+                <label for="tensorA"><strong>Qubit A</strong></label>
+                <select id="tensorA">
+                  <option value="0">|0⟩</option>
+                  <option value="1">|1⟩</option>
+                  <option value="plus">|+⟩</option>
+                  <option value="minus">|−⟩</option>
+                  <option value="plusi">|+i⟩</option>
+                  <option value="minusi">|−i⟩</option>
+                </select>
+              </div>
+              <div>
+                <label for="tensorB"><strong>Qubit B</strong></label>
+                <select id="tensorB">
+                  <option value="0">|0⟩</option>
+                  <option value="1">|1⟩</option>
+                  <option value="plus">|+⟩</option>
+                  <option value="minus">|−⟩</option>
+                  <option value="plusi">|+i⟩</option>
+                  <option value="minusi">|−i⟩</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="three-col" style="margin-top:16px">
+              <div class="statebox">
+                <h4>Chosen single-qubit states</h4>
+                <div id="tensorStateA" class="mono"></div>
+                <div id="tensorStateB" class="mono" style="margin-top:8px"></div>
+              </div>
+              <div class="statebox">
+                <h4>Tensor product</h4>
+                <div id="tensorExpr" class="mono"></div>
+              </div>
+              <div class="statebox">
+                <h4>Dimension insight</h4>
+                <p class="explain" style="margin-bottom:0">A two-qubit state has 4 basis states: |00⟩, |01⟩, |10⟩, |11⟩.</p>
+              </div>
+            </div>
+
+            <div class="amp-grid" id="tensorAmpGrid" style="margin-top:18px"></div>
+          </div>
+          <div class="side-stack">
+            <div class="soft-card">
+              <h4>Interpretation</h4>
+              <p class="explain">
+                This module helps students see how two single-qubit vectors become one four-dimensional joint state.
+                It is especially useful before controlled gates and entanglement.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Suggested prompt in class</h4>
+              <p class="explain">Ask: “If both qubits are in |+⟩, what are the amplitudes of all four basis states?” Then verify it here.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTROLLED -->
+      <section class="panel" id="controlled">
+        <span class="kicker">Module 4</span>
+        <h2 style="margin-top:10px">Controlled-Gate Playground</h2>
+        <div class="section-grid">
+          <div class="card">
+            <div class="two-col">
+              <div>
+                <label for="cgGate"><strong>Gate</strong></label>
+                <select id="cgGate">
+                  <option value="CNOT">CNOT</option>
+                  <option value="SWAP">SWAP</option>
+                  <option value="TOFFOLI">Toffoli</option>
+                  <option value="FREDKIN">Fredkin</option>
+                </select>
+              </div>
+              <div>
+                <label><strong>Run gate</strong></label>
+                <div class="controls">
+                  <button class="btn primary" id="cgRun">Apply</button>
+                  <button class="btn" id="cgReset">Reset</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="four-col" style="margin-top:16px">
+              <div class="statebox">
+                <h4>Bit / qubit values</h4>
+                <div class="inline-controls" id="cgBits"></div>
+              </div>
+              <div class="statebox">
+                <h4>Before</h4>
+                <div id="cgBefore" class="mono" style="font-size:20px"></div>
+              </div>
+              <div class="statebox">
+                <h4>After</h4>
+                <div id="cgAfter" class="mono" style="font-size:20px"></div>
+              </div>
+              <div class="statebox">
+                <h4>Rule</h4>
+                <div id="cgRule" class="explain"></div>
+              </div>
+            </div>
+
+            <div style="margin-top:18px" class="card">
+              <svg id="cgSvg" viewBox="0 0 760 220">
+                <rect x="20" y="20" width="720" height="180" rx="16" fill="#fbfcff" stroke="#d7dde8"></rect>
+                <g id="cgWireGroup"></g>
+              </svg>
+              <div class="caption">This is a conceptual logic-style view to build intuition about controlled and reversible gates.</div>
+            </div>
+          </div>
+
+          <div class="side-stack">
+            <div class="card">
+              <h4>What this builds</h4>
+              <p class="explain">
+                Before students see full quantum algorithms, they need comfort with structured multi-wire gates such as CNOT and SWAP.
+              </p>
+            </div>
+            <div class="soft-card">
+              <h4>Entanglement bridge</h4>
+              <p class="explain">
+                CNOT is the key gate that turns a superposition on one qubit into entanglement across two qubits when combined with Hadamard.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BELL -->
+      <section class="panel" id="bell">
+        <span class="kicker">Module 5</span>
+        <h2 style="margin-top:10px">Bell State & Entanglement</h2>
+        <div class="section-grid">
+          <div class="card">
+            <div class="controls" style="margin-bottom:12px">
+              <button class="btn primary" id="bellNext">Next step</button>
+              <button class="btn" id="bellReset">Reset</button>
+              <button class="btn" id="bellMeasure">Measure both qubits</button>
+            </div>
+
+            <div class="three-col">
+              <div class="statebox">
+                <h4>Circuit steps</h4>
+                <ol class="explain" style="padding-left:18px">
+                  <li>Start in |00⟩</li>
+                  <li>Apply H on qubit 1</li>
+                  <li>Apply CNOT</li>
+                </ol>
+                <div id="bellStepLabel" class="tag">Current step: Start</div>
+              </div>
+              <div class="statebox">
+                <h4>Joint state</h4>
+                <div id="bellStateText" class="mono"></div>
+              </div>
+              <div class="statebox">
+                <h4>Entanglement insight</h4>
+                <p id="bellInsight" class="explain">At the start, both qubits are independent.</p>
+              </div>
+            </div>
+
+            <div class="amp-grid" id="bellAmpGrid" style="margin-top:18px"></div>
+
+            <div class="card" style="margin-top:16px">
+              <svg id="bellCircuitSvg" viewBox="0 0 760 180">
+                <rect x="20" y="24" width="720" height="132" rx="16" fill="#fbfcff" stroke="#d7dde8"></rect>
+                <text x="48" y="70" font-size="20">q₁</text>
+                <text x="48" y="118" font-size="20">q₂</text>
+                <line x1="90" y1="62" x2="690" y2="62" stroke="#6b7280" stroke-width="2"></line>
+                <line x1="90" y1="110" x2="690" y2="110" stroke="#6b7280" stroke-width="2"></line>
+                <g id="bellGateH">
+                  <rect x="170" y="42" width="44" height="40" rx="8" fill="#eef3ff" stroke="#2a63eb"></rect>
+                  <text x="186" y="68" font-size="22" fill="#2a63eb" font-weight="700">H</text>
+                </g>
+                <g id="bellGateCNOT">
+                  <circle cx="355" cy="62" r="9" fill="#111827"></circle>
+                  <line x1="355" y1="62" x2="355" y2="110" stroke="#111827" stroke-width="2"></line>
+                  <circle cx="355" cy="110" r="15" fill="none" stroke="#111827" stroke-width="2"></circle>
+                  <line x1="355" y1="96" x2="355" y2="124" stroke="#111827" stroke-width="2"></line>
+                  <line x1="341" y1="110" x2="369" y2="110" stroke="#111827" stroke-width="2"></line>
+                </g>
+                <rect id="bellCursor" x="150" y="28" width="90" height="116" rx="12" fill="none" stroke="#7c3aed" stroke-width="3"></rect>
+              </svg>
+            </div>
+          </div>
+
+          <div class="side-stack">
+            <div class="soft-card">
+              <h4>Key message</h4>
+              <p class="explain">
+                After H and CNOT, the result is the Bell state \((|00⟩+|11⟩)/\sqrt2\), which cannot be written as a product of two single-qubit states.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Measurement behavior</h4>
+              <p class="explain">
+                Measuring the Bell state gives only correlated outcomes: 00 or 11, each with probability 1/2.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ORACLE -->
+      <section class="panel" id="oracle">
+        <span class="kicker">Module 6</span>
+        <h2 style="margin-top:10px">Oracle / Query Gate</h2>
+        <div class="section-grid">
+          <div class="card">
+            <div class="two-col">
+              <div>
+                <label for="oracleFunc"><strong>Choose Boolean function f</strong></label>
+                <select id="oracleFunc">
+                  <option value="const0">f(0)=0, f(1)=0 (constant)</option>
+                  <option value="const1">f(0)=1, f(1)=1 (constant)</option>
+                  <option value="identity">f(0)=0, f(1)=1 (balanced)</option>
+                  <option value="not">f(0)=1, f(1)=0 (balanced)</option>
+                </select>
+              </div>
+              <div>
+                <label><strong>Choose input basis state |x,y⟩</strong></label>
+                <div class="inline-controls">
+                  <select id="oracleX" style="width:90px"><option value="0">x=0</option><option value="1">x=1</option></select>
+                  <select id="oracleY" style="width:90px"><option value="0">y=0</option><option value="1">y=1</option></select>
+                  <button class="btn primary" id="oracleApply">Apply U_f</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="three-col" style="margin-top:16px">
+              <div class="statebox">
+                <h4>Oracle rule</h4>
+                <div class="mono">U<sub>f</sub>|x,y⟩ = |x, y ⊕ f(x)⟩</div>
+              </div>
+              <div class="statebox">
+                <h4>Input / Output</h4>
+                <div id="oracleInput" class="mono" style="font-size:20px"></div>
+                <div id="oracleOutput" class="mono" style="font-size:20px;margin-top:8px"></div>
+              </div>
+              <div class="statebox">
+                <h4>Classification</h4>
+                <div id="oracleClass" class="tag"></div>
+              </div>
+            </div>
+
+            <div class="two-col" style="margin-top:18px">
+              <div class="card">
+                <h4>Truth table</h4>
+                <table class="mini-table">
+                  <thead><tr><th>x</th><th>f(x)</th></tr></thead>
+                  <tbody id="oracleTruthBody"></tbody>
+                </table>
+              </div>
+              <div class="card">
+                <svg id="oracleSvg" viewBox="0 0 620 210">
+                  <rect x="20" y="24" width="580" height="160" rx="16" fill="#fbfcff" stroke="#d7dde8"></rect>
+                  <text x="54" y="72" font-size="20">x</text>
+                  <text x="54" y="122" font-size="20">y</text>
+                  <line x1="88" y1="62" x2="515" y2="62" stroke="#6b7280" stroke-width="2"></line>
+                  <line x1="88" y1="112" x2="515" y2="112" stroke="#6b7280" stroke-width="2"></line>
+                  <rect x="230" y="36" width="120" height="102" rx="12" fill="#eef3ff" stroke="#2a63eb"></rect>
+                  <text x="260" y="95" font-size="30" fill="#2a63eb" font-weight="700">U<tspan dy="-8" font-size="18">f</tspan></text>
+                  <text id="oracleSvgInput" x="108" y="148" font-size="17"></text>
+                  <text id="oracleSvgOutput" x="380" y="148" font-size="17"></text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="side-stack">
+            <div class="soft-card">
+              <h4>Why this matters</h4>
+              <p class="explain">
+                The oracle is the “black box” in the query model. Deutsch’s algorithm gains its power from how quantum states interact with this oracle.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Teacher hint</h4>
+              <p class="explain">Let students try all four Boolean functions first on basis states before moving to the superposition-based Deutsch algorithm.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RACE -->
+      <section class="panel" id="race">
+        <span class="kicker">Module 7</span>
+        <h2 style="margin-top:10px">Classical vs Quantum Query Race</h2>
+        <div class="section-grid">
+          <div class="card">
+            <div class="controls">
+              <button class="btn primary" id="raceRun">Run comparison</button>
+              <button class="btn" id="raceReset">Reset</button>
+            </div>
+
+            <div class="two-col" style="margin-top:16px">
+              <div class="card">
+                <h4>Classical strategy</h4>
+                <div class="metric"><div class="label">Queries used</div><div id="raceClassicalCount" class="value">0</div></div>
+                <div id="raceClassicalLog" class="statebox" style="margin-top:12px"></div>
+              </div>
+              <div class="card">
+                <h4>Quantum strategy (Deutsch)</h4>
+                <div class="metric"><div class="label">Queries used</div><div id="raceQuantumCount" class="value">0</div></div>
+                <div id="raceQuantumLog" class="statebox" style="margin-top:12px"></div>
+              </div>
+            </div>
+
+            <div class="note" style="margin-top:16px">
+              Classical deterministic evaluation needs both f(0) and f(1) to decide whether the function is constant or balanced.
+              Deutsch’s algorithm uses one oracle call and phase interference to extract the answer.
+            </div>
+          </div>
+
+          <div class="side-stack">
+            <div class="soft-card">
+              <h4>Lecture emphasis</h4>
+              <p class="explain">This is the conceptual “hook” for the algorithm: the quantum advantage is not magic—it comes from how superposition and interference encode global information.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEUTSCH -->
+      <section class="panel" id="deutsch">
+        <span class="kicker">Module 8</span>
+        <h2 style="margin-top:10px">Deutsch Algorithm Explorer</h2>
+        <div class="section-grid">
+          <div class="card">
+            <div class="two-col">
+              <div>
+                <label for="deutschFunc"><strong>Select f</strong></label>
+                <select id="deutschFunc">
+                  <option value="const0">f(0)=0, f(1)=0 (constant)</option>
+                  <option value="const1">f(0)=1, f(1)=1 (constant)</option>
+                  <option value="identity">f(0)=0, f(1)=1 (balanced)</option>
+                  <option value="not">f(0)=1, f(1)=0 (balanced)</option>
+                </select>
+              </div>
+              <div>
+                <label><strong>Controls</strong></label>
+                <div class="controls">
+                  <button class="btn primary" id="deutschNext">Next</button>
+                  <button class="btn" id="deutschPrev">Previous</button>
+                  <button class="btn" id="deutschPlay">Auto-play</button>
+                  <button class="btn" id="deutschReset">Reset</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card" style="margin-top:16px">
+              <svg id="deutschCircuitSvg" viewBox="0 0 880 220">
+                <rect x="20" y="24" width="840" height="160" rx="16" fill="#fbfcff" stroke="#d7dde8"></rect>
+                <text x="45" y="76" font-size="20">top</text>
+                <text x="45" y="136" font-size="20">ancilla</text>
+                <text x="76" y="76" font-size="18">|0⟩</text>
+                <text x="76" y="136" font-size="18">|1⟩</text>
+                <line x1="115" y1="68" x2="790" y2="68" stroke="#6b7280" stroke-width="2"></line>
+                <line x1="115" y1="128" x2="790" y2="128" stroke="#6b7280" stroke-width="2"></line>
+
+                <g id="dGateH1t">
+                  <rect x="180" y="48" width="42" height="40" rx="8" fill="#eef3ff" stroke="#2a63eb"></rect>
+                  <text x="194" y="74" font-size="22" fill="#2a63eb" font-weight="700">H</text>
+                </g>
+                <g id="dGateH1b">
+                  <rect x="180" y="108" width="42" height="40" rx="8" fill="#eef3ff" stroke="#2a63eb"></rect>
+                  <text x="194" y="134" font-size="22" fill="#2a63eb" font-weight="700">H</text>
+                </g>
+                <g id="dGateUf">
+                  <rect x="365" y="42" width="110" height="112" rx="12" fill="#f5efff" stroke="#7c3aed"></rect>
+                  <text x="399" y="105" font-size="30" fill="#7c3aed" font-weight="700">U<tspan dy="-8" font-size="18">f</tspan></text>
+                </g>
+                <g id="dGateH2">
+                  <rect x="615" y="48" width="42" height="40" rx="8" fill="#eef3ff" stroke="#2a63eb"></rect>
+                  <text x="629" y="74" font-size="22" fill="#2a63eb" font-weight="700">H</text>
+                </g>
+                <g id="dGateM">
+                  <rect x="732" y="42" width="46" height="52" rx="8" fill="#fff8e8" stroke="#d97706"></rect>
+                  <text x="748" y="74" font-size="20" fill="#d97706" font-weight="700">M</text>
+                </g>
+
+                <rect id="deutschCursor" x="148" y="28" width="105" height="120" rx="12" fill="none" stroke="#c62828" stroke-width="3"></rect>
+              </svg>
+            </div>
+
+            <div class="three-col" style="margin-top:16px">
+              <div class="statebox">
+                <h4>Current stage</h4>
+                <div id="deutschStage" class="tag">π₀ = initial state</div>
+                <p id="deutschStageDesc" class="explain" style="margin-top:10px"></p>
+              </div>
+              <div class="statebox">
+                <h4>State expression</h4>
+                <div id="deutschStateExpr" class="mono"></div>
+              </div>
+              <div class="statebox">
+                <h4>Decision</h4>
+                <div id="deutschDecision" class="explain">After the final Hadamard and measurement of the top qubit, 0 means constant and 1 means balanced.</div>
+              </div>
+            </div>
+
+            <div class="amp-grid" id="deutschAmpGrid" style="margin-top:18px"></div>
+          </div>
+
+          <div class="side-stack">
+            <div class="soft-card">
+              <h4>Instructional use</h4>
+              <p class="explain">
+                Step through π₀, π₁, π₂, and π₃ while discussing superposition, phase kickback, and interference.
+              </p>
+            </div>
+            <div class="card">
+              <h4>Core message</h4>
+              <p class="explain">
+                The oracle is queried once, yet the final interference pattern reveals whether the function is constant or balanced.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="footer">
+    Standalone local HTML. No external libraries required.
+  </div>
+</div>
+
+<script>
+(() => {
+  // ---------- Complex arithmetic ----------
+  function C(re, im=0){ return {re, im}; }
+  function cAdd(a,b){ return C(a.re+b.re, a.im+b.im); }
+  function cSub(a,b){ return C(a.re-b.re, a.im-b.im); }
+  function cMul(a,b){ return C(a.re*b.re - a.im*b.im, a.re*b.im + a.im*b.re); }
+  function cScale(a,s){ return C(a.re*s, a.im*s); }
+  function cConj(a){ return C(a.re, -a.im); }
+  function cAbs2(a){ return a.re*a.re + a.im*a.im; }
+  function cAbs(a){ return Math.sqrt(cAbs2(a)); }
+  function cEq(a,b,eps=1e-9){ return Math.abs(a.re-b.re)<eps && Math.abs(a.im-b.im)<eps; }
+  function normalize(vec){
+    const n = Math.sqrt(vec.reduce((s,z)=>s+cAbs2(z),0));
+    return vec.map(z => C(z.re/n, z.im/n));
+  }
+  function formatNum(x){
+    const v = Math.abs(x) < 1e-9 ? 0 : x;
+    return Number(v.toFixed(3)).toString();
+  }
+  function formatComplex(z){
+    const re = Math.abs(z.re) < 1e-9 ? 0 : z.re;
+    const im = Math.abs(z.im) < 1e-9 ? 0 : z.im;
+    if(im === 0) return formatNum(re);
+    if(re === 0){
+      if(im === 1) return "i";
+      if(im === -1) return "-i";
+      return formatNum(im) + "i";
+    }
+    const sign = im >= 0 ? "+" : "−";
+    const absIm = Math.abs(im);
+    const imStr = absIm === 1 ? "i" : formatNum(absIm) + "i";
+    return `${formatNum(re)} ${sign} ${imStr}`;
+  }
+  function realMaybe(z){
+    if(Math.abs(z.im) < 1e-9) return formatNum(z.re);
+    return formatComplex(z);
+  }
+  function stateTextSingle(state){
+    return `${formatComplex(state[0])}|0⟩ + ${formatComplex(state[1])}|1⟩`;
+  }
+  function probsSingle(state){
+    return [cAbs2(state[0]), cAbs2(state[1])];
+  }
+  function blochFromState(state){
+    const a = state[0], b = state[1];
+    const prod = cMul(cConj(a), b);
+    return {
+      x: 2*prod.re,
+      y: 2*prod.im,
+      z: cAbs2(a) - cAbs2(b)
+    };
+  }
+  function projectBloch(v){
+    const cx=220, cy=220, R=145;
+    return {
+      x: cx + R*(0.92*v.x + 0.42*v.y),
+      y: cy - R*(v.z + 0.38*v.y)
+    };
+  }
+  function lerp(a,b,t){ return a + (b-a)*t; }
+  function norm3(v){
+    const n = Math.hypot(v.x,v.y,v.z);
+    if(n===0) return {x:0,y:0,z:1};
+    return {x:v.x/n,y:v.y/n,z:v.z/n};
+  }
+  function statesAlmostEqual(s1,s2,eps=1e-6){
+    return cEq(s1[0],s2[0],eps) && cEq(s1[1],s2[1],eps);
+  }
+
+  const SQRT1_2 = 1/Math.sqrt(2);
+  const I = [[C(1),C(0)],[C(0),C(1)]];
+  const gates = {
+    X: [[C(0),C(1)],[C(1),C(0)]],
+    Y: [[C(0),C(0,-1)],[C(0,1),C(0)]],
+    Z: [[C(1),C(0)],[C(0),C(-1)]],
+    H: [[C(SQRT1_2),C(SQRT1_2)],[C(SQRT1_2),C(-SQRT1_2)]],
+    S: [[C(1),C(0)],[C(0),C(0,1)]],
+    T: [[C(1),C(0)],[C(0),C(Math.SQRT1_2,Math.SQRT1_2)]]
+  };
+  const sqGateInfo = {
+    X: ["Pauli-X", "Bit flip", "|0⟩ ↔ |1⟩", "Equivalent to a π rotation about the x-axis."],
+    Y: ["Pauli-Y", "Bit + phase behavior", "|0⟩ → i|1⟩,  |1⟩ → −i|0⟩", "Equivalent to a π rotation about the y-axis."],
+    Z: ["Pauli-Z", "Phase flip", "|0⟩ unchanged, |1⟩ gains a minus sign", "Equivalent to a π rotation about the z-axis."],
+    H: ["Hadamard", "Creates/removes superposition", "H|0⟩=|+⟩, H|1⟩=|−⟩", "Can be seen as a rotation taking z-basis states to x-basis states."],
+    S: ["S gate", "Quarter phase gate", "|1⟩ picks up a phase i", "Rotates relative phase by +90° about z."],
+    T: ["T gate", "Eighth-turn phase gate", "|1⟩ picks up phase e^{iπ/4}", "Rotates relative phase by +45° about z."]
+  };
+  const presets = {
+    "0": [C(1),C(0)],
+    "1": [C(0),C(1)],
+    "plus": [C(SQRT1_2),C(SQRT1_2)],
+    "minus": [C(SQRT1_2),C(-SQRT1_2)],
+    "plusi": [C(SQRT1_2),C(0,SQRT1_2)],
+    "minusi": [C(SQRT1_2),C(0,-SQRT1_2)]
+  };
+
+  function applySingleGate(state, gateName){
+    const M = gates[gateName];
+    const out0 = cAdd(cMul(M[0][0],state[0]), cMul(M[0][1],state[1]));
+    const out1 = cAdd(cMul(M[1][0],state[0]), cMul(M[1][1],state[1]));
+    return normalize([out0,out1]);
+  }
+
+  function kron2(A,B){
+    const out = [];
+    for(let i=0;i<2;i++){
+      for(let j=0;j<2;j++){
+        const row = [];
+        for(let k=0;k<2;k++){
+          for(let l=0;l<2;l++){
+            row.push(cMul(A[i][k], B[j][l]));
+          }
+        }
+        out.push(row);
+      }
+    }
+    return out;
+  }
+  function applyMatrix(state,U){
+    const out = new Array(U.length).fill(0).map(()=>C(0,0));
+    for(let i=0;i<U.length;i++){
+      let sum = C(0,0);
+      for(let j=0;j<U[i].length;j++){
+        sum = cAdd(sum, cMul(U[i][j], state[j]));
+      }
+      out[i] = sum;
+    }
+    return normalize(out);
+  }
+  function basisKet(n, idx){
+    return new Array(n).fill(0).map((_,i)=> i===idx ? C(1,0): C(0,0));
+  }
+  function basisLabel2(i){ return ["|00⟩","|01⟩","|10⟩","|11⟩"][i]; }
+  function stateText2(state){
+    const labels = ["|00⟩","|01⟩","|10⟩","|11⟩"];
+    const parts = [];
+    state.forEach((a,i)=>{
+      if(cAbs2(a) > 1e-8) parts.push(`${formatComplex(a)}${labels[i]}`);
+    });
+    return parts.length ? parts.join(" + ") : "0";
+  }
+  function ampGridHTML(state){
+    return state.map((a,i)=>{
+      const p = cAbs2(a);
+      const h = Math.max(2, p*100);
+      return `
+        <div class="amp-bar">
+          <div><strong>${basisLabel2(i)}</strong></div>
+          <div class="bar-outer"><div class="bar-inner" style="height:${h}%"></div></div>
+          <div class="mono" style="font-size:12px">${formatComplex(a)}</div>
+          <div class="mono" style="font-size:12px">P=${formatNum(p)}</div>
+        </div>
+      `;
+    }).join("");
+  }
+  function oracleValue(type,x){
+    if(type==="const0") return 0;
+    if(type==="const1") return 1;
+    if(type==="identity") return x;
+    if(type==="not") return x^1;
+    return 0;
+  }
+  function oracleClass(type){
+    return (type==="const0"||type==="const1") ? "constant" : "balanced";
+  }
+  function deutschOracleMatrix(type){
+    // basis ordering |00>, |01>, |10>, |11> with first bit x, second bit y
+    const U = Array.from({length:4},()=>Array.from({length:4},()=>C(0,0)));
+    for(let x=0;x<=1;x++){
+      for(let y=0;y<=1;y++){
+        const from = 2*x + y;
+        const yp = y ^ oracleValue(type,x);
+        const to = 2*x + yp;
+        U[to][from] = C(1,0);
+      }
+    }
+    return U;
+  }
+
+  // ---------- Navigation ----------
+  const navButtons = [...document.querySelectorAll(".nav-btn")];
+  const panels = [...document.querySelectorAll(".panel")];
+  navButtons.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      navButtons.forEach(b=>b.classList.remove("active"));
+      panels.forEach(p=>p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.panel).classList.add("active");
+    });
+  });
+
+  // ---------- Module 1: Single Qubit ----------
+  let sqState = presets["0"].map(z=>C(z.re,z.im));
+  let sqAnimating = false;
+
+  const sqPreset = document.getElementById("sqPreset");
+  const sqSpeed = document.getElementById("sqSpeed");
+  const sqVector = document.getElementById("sqVector");
+  const sqTip = document.getElementById("sqTip");
+  const sqArc = document.getElementById("sqArc");
+  const sqStateText1 = document.getElementById("sqStateText1");
+  const sqStateText2 = document.getElementById("sqStateText2");
+  const sqProbText = document.getElementById("sqProbText");
+  const sqBlochCoord = document.getElementById("sqBlochCoord");
+  const sqBlochCoord2 = document.getElementById("sqBlochCoord2");
+  const sqGateName = document.getElementById("sqGateName");
+  const sqGateDesc1 = document.getElementById("sqGateDesc1");
+  const sqGateDesc2 = document.getElementById("sqGateDesc2");
+  const sqGateDesc3 = document.getElementById("sqGateDesc3");
+
+  function updateSqGateInfo(g){
+    const info = sqGateInfo[g];
+    sqGateName.textContent = info[0];
+    sqGateDesc1.textContent = info[1];
+    sqGateDesc2.textContent = info[2];
+    sqGateDesc3.textContent = info[3];
+    document.querySelectorAll(".gate-btn").forEach(btn=>{
+      btn.classList.toggle("primary", btn.dataset.gate === g);
+    });
+  }
+  let currentSqGate = "X";
+  updateSqGateInfo(currentSqGate);
+
+  function updateSqStateDisplay(state){
+    const p = probsSingle(state);
+    const bloch = blochFromState(state);
+    sqStateText1.textContent = `α = ${formatComplex(state[0])}`;
+    sqStateText2.textContent = `β = ${formatComplex(state[1])}`;
+    sqProbText.textContent = `P(0) = ${formatNum(p[0])},   P(1) = ${formatNum(p[1])}`;
+    sqBlochCoord.textContent = `x=${formatNum(bloch.x)}`;
+    sqBlochCoord2.textContent = `y=${formatNum(bloch.y)}, z=${formatNum(bloch.z)}`;
+  }
+  function drawSqVectorFromBloch(v){
+    const p = projectBloch(v);
+    sqVector.setAttribute("x2", p.x);
+    sqVector.setAttribute("y2", p.y);
+    sqTip.setAttribute("cx", p.x);
+    sqTip.setAttribute("cy", p.y);
+  }
+  function arcPathBloch(a,b){
+    const pts = [];
+    for(let i=0;i<=24;i++){
+      const t = i/24;
+      const v = norm3({x:lerp(a.x,b.x,t), y:lerp(a.y,b.y,t), z:lerp(a.z,b.z,t)});
+      const p = projectBloch(v);
+      pts.push([p.x,p.y]);
+    }
+    return pts.map((p,i)=>`${i===0?"M":"L"}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
+  }
+  function animateSqToState(newState){
+    if(sqAnimating) return;
+    sqAnimating = true;
+    const startBloch = blochFromState(sqState);
+    const endBloch = blochFromState(newState);
+    sqArc.setAttribute("d", arcPathBloch(startBloch,endBloch));
+    sqArc.setAttribute("opacity","0.45");
+    const duration = Number(sqSpeed.value);
+    const t0 = performance.now();
+    function frame(now){
+      const p = Math.min(1,(now-t0)/duration);
+      const eased = 0.5 - 0.5*Math.cos(Math.PI*p);
+      const v = norm3({
+        x: lerp(startBloch.x,endBloch.x,eased),
+        y: lerp(startBloch.y,endBloch.y,eased),
+        z: lerp(startBloch.z,endBloch.z,eased)
+      });
+      drawSqVectorFromBloch(v);
+      if(p<1) requestAnimationFrame(frame);
+      else{
+        sqState = newState.map(z=>C(z.re,z.im));
+        updateSqStateDisplay(sqState);
+        drawSqVectorFromBloch(endBloch);
+        sqAnimating = false;
+        setTimeout(()=>sqArc.setAttribute("opacity","0.18"),250);
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+  function sqReset(){
+    sqState = presets[sqPreset.value].map(z=>C(z.re,z.im));
+    drawSqVectorFromBloch(blochFromState(sqState));
+    updateSqStateDisplay(sqState);
+    sqArc.setAttribute("d","");
+  }
+  document.querySelectorAll(".gate-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      currentSqGate = btn.dataset.gate;
+      updateSqGateInfo(currentSqGate);
+      const newState = applySingleGate(sqState,currentSqGate);
+      animateSqToState(newState);
+    });
+  });
+  sqPreset.addEventListener("change", sqReset);
+  document.getElementById("sqReset").addEventListener("click", sqReset);
+  sqReset();
+
+  // ---------- Module 2: Projection ----------
+  const projTheta = document.getElementById("projTheta");
+  const projThetaVal = document.getElementById("projThetaVal");
+  const projMode = document.getElementById("projMode");
+  const projVector = document.getElementById("projVector");
+  const projTip = document.getElementById("projTip");
+  const projShadowX = document.getElementById("projShadowX");
+  const projShadowY = document.getElementById("projShadowY");
+  const projAlphaLabel = document.getElementById("projAlphaLabel");
+  const projBetaLabel = document.getElementById("projBetaLabel");
+  const projStateText = document.getElementById("projStateText");
+  const projProb0 = document.getElementById("projProb0");
+  const projProb1 = document.getElementById("projProb1");
+  const projMeasureResult = document.getElementById("projMeasureResult");
+  const projPostState = document.getElementById("projPostState");
+
+  function projectionState(){
+    const mode = projMode.value;
+    if(mode === "plus") return [SQRT1_2,SQRT1_2];
+    if(mode === "minus") return [SQRT1_2,-SQRT1_2];
+    const theta = Number(projTheta.value)*Math.PI/180;
+    return [Math.cos(theta), Math.sin(theta)];
+  }
+  function updateProjection(){
+    const [a,b] = projectionState();
+    const origin = {x:110,y:340};
+    const scale = 180;
+    const tip = {x: origin.x + b*scale, y: origin.y - a*scale};
+    projVector.setAttribute("x2", tip.x);
+    projVector.setAttribute("y2", tip.y);
+    projTip.setAttribute("cx", tip.x);
+    projTip.setAttribute("cy", tip.y);
+    projShadowX.setAttribute("x1", tip.x); projShadowX.setAttribute("y1", tip.y); projShadowX.setAttribute("x2", tip.x); projShadowX.setAttribute("y2", origin.y);
+    projShadowY.setAttribute("x1", tip.x); projShadowY.setAttribute("y1", tip.y); projShadowY.setAttribute("x2", origin.x); projShadowY.setAttribute("y2", tip.y);
+    projAlphaLabel.textContent = `⟨0|ψ⟩ = ${formatNum(a)}`;
+    projBetaLabel.textContent = `⟨1|ψ⟩ = ${formatNum(b)}`;
+    projStateText.textContent = `|ψ⟩ = ${formatNum(a)}|0⟩ + ${formatNum(b)}|1⟩`;
+    projProb0.textContent = `P(0) = |${formatNum(a)}|² = ${formatNum(a*a)}`;
+    projProb1.textContent = `P(1) = |${formatNum(b)}|² = ${formatNum(b*b)}`;
+    projThetaVal.textContent = projTheta.value + "°";
+    projMeasureResult.textContent = "No measurement yet.";
+    projPostState.textContent = "";
+  }
+  projTheta.addEventListener("input", updateProjection);
+  projMode.addEventListener("change", updateProjection);
+  document.getElementById("projResetBtn").addEventListener("click", updateProjection);
+  document.getElementById("projMeasureBtn").addEventListener("click", ()=>{
+    const [a,b] = projectionState();
+    const r = Math.random();
+    const out = r < a*a ? 0 : 1;
+    projMeasureResult.textContent = `Observed outcome: ${out}`;
+    projPostState.textContent = out===0 ? "Post-state: |0⟩" : "Post-state: |1⟩";
+  });
+  updateProjection();
+
+  // ---------- Module 3: Tensor products ----------
+  const tensorA = document.getElementById("tensorA");
+  const tensorB = document.getElementById("tensorB");
+  const tensorStateA = document.getElementById("tensorStateA");
+  const tensorStateB = document.getElementById("tensorStateB");
+  const tensorExpr = document.getElementById("tensorExpr");
+  const tensorAmpGrid = document.getElementById("tensorAmpGrid");
+
+  function tensorProduct2(v,w){
+    return [
+      cMul(v[0],w[0]),
+      cMul(v[0],w[1]),
+      cMul(v[1],w[0]),
+      cMul(v[1],w[1])
+    ];
+  }
+  function updateTensor(){
+    const A = presets[tensorA.value].map(z=>C(z.re,z.im));
+    const B = presets[tensorB.value].map(z=>C(z.re,z.im));
+    const out = tensorProduct2(A,B);
+    tensorStateA.textContent = `|A⟩ = ${stateTextSingle(A)}`;
+    tensorStateB.textContent = `|B⟩ = ${stateTextSingle(B)}`;
+    tensorExpr.textContent = `|A⟩⊗|B⟩ = ${stateText2(out)}`;
+    tensorAmpGrid.innerHTML = ampGridHTML(out);
+  }
+  tensorA.addEventListener("change", updateTensor);
+  tensorB.addEventListener("change", updateTensor);
+  updateTensor();
+
+  // ---------- Module 4: Controlled gates ----------
+  const cgGate = document.getElementById("cgGate");
+  const cgBits = document.getElementById("cgBits");
+  const cgBefore = document.getElementById("cgBefore");
+  const cgAfter = document.getElementById("cgAfter");
+  const cgRule = document.getElementById("cgRule");
+  const cgWireGroup = document.getElementById("cgWireGroup");
+  let cgBitVals = [0,0,0];
+  function renderCgBits(){
+    const gate = cgGate.value;
+    const needed = (gate==="CNOT" || gate==="SWAP") ? 2 : 3;
+    cgBits.innerHTML = "";
+    for(let i=0;i<needed;i++){
+      const btn = document.createElement("button");
+      btn.className = "btn small";
+      btn.textContent = `bit ${i+1}: ${cgBitVals[i]}`;
+      btn.addEventListener("click", ()=>{
+        cgBitVals[i] ^= 1;
+        renderCgBits();
+        updateCgDisplay();
+      });
+      cgBits.appendChild(btn);
+    }
+  }
+  function applyControlledGate(){
+    const gate = cgGate.value;
+    const b = cgBitVals.slice();
+    if(gate==="CNOT"){
+      const before = `|${b[0]}${b[1]}⟩`;
+      const out = [b[0], b[1] ^ b[0]];
+      return {before, after:`|${out[0]}${out[1]}⟩`, rule:"If control bit 1 is 1, flip bit 2.", count:2};
+    }
+    if(gate==="SWAP"){
+      const before = `|${b[0]}${b[1]}⟩`;
+      const out = [b[1], b[0]];
+      return {before, after:`|${out[0]}${out[1]}⟩`, rule:"Exchange the two bits.", count:2};
+    }
+    if(gate==="TOFFOLI"){
+      const before = `|${b[0]}${b[1]}${b[2]}⟩`;
+      const out = [b[0], b[1], b[2] ^ (b[0]&b[1])];
+      return {before, after:`|${out[0]}${out[1]}${out[2]}⟩`, rule:"If both control bits are 1, flip the target bit.", count:3};
+    }
+    if(gate==="FREDKIN"){
+      const before = `|${b[0]}${b[1]}${b[2]}⟩`;
+      const out = b[0]===1 ? [b[0], b[2], b[1]] : [b[0], b[1], b[2]];
+      return {before, after:`|${out[0]}${out[1]}${out[2]}⟩`, rule:"If control bit 1 is 1, swap bits 2 and 3.", count:3};
+    }
+  }
+  function drawControlledSvg(){
+    const gate = cgGate.value;
+    const n = (gate==="CNOT"||gate==="SWAP") ? 2 : 3;
+    let html = "";
+    for(let i=0;i<n;i++){
+      const y = 60 + i*50;
+      html += `<text x="42" y="${y+6}" font-size="18">q${i+1}</text>`;
+      html += `<line x1="92" y1="${y}" x2="670" y2="${y}" stroke="#6b7280" stroke-width="2"></line>`;
+    }
+    if(gate==="CNOT"){
+      html += `<circle cx="335" cy="60" r="8" fill="#111827"></circle>
+               <line x1="335" y1="60" x2="335" y2="110" stroke="#111827" stroke-width="2"></line>
+               <circle cx="335" cy="110" r="15" fill="none" stroke="#111827" stroke-width="2"></circle>
+               <line x1="335" y1="96" x2="335" y2="124" stroke="#111827" stroke-width="2"></line>
+               <line x1="321" y1="110" x2="349" y2="110" stroke="#111827" stroke-width="2"></line>`;
+    } else if(gate==="SWAP"){
+      html += `<line x1="335" y1="60" x2="335" y2="110" stroke="#111827" stroke-width="2"></line>
+               <line x1="324" y1="49" x2="346" y2="71" stroke="#111827" stroke-width="3"></line>
+               <line x1="346" y1="49" x2="324" y2="71" stroke="#111827" stroke-width="3"></line>
+               <line x1="324" y1="99" x2="346" y2="121" stroke="#111827" stroke-width="3"></line>
+               <line x1="346" y1="99" x2="324" y2="121" stroke="#111827" stroke-width="3"></line>`;
+    } else if(gate==="TOFFOLI"){
+      html += `<circle cx="335" cy="60" r="8" fill="#111827"></circle>
+               <circle cx="335" cy="110" r="8" fill="#111827"></circle>
+               <line x1="335" y1="60" x2="335" y2="160" stroke="#111827" stroke-width="2"></line>
+               <circle cx="335" cy="160" r="15" fill="none" stroke="#111827" stroke-width="2"></circle>
+               <line x1="335" y1="146" x2="335" y2="174" stroke="#111827" stroke-width="2"></line>
+               <line x1="321" y1="160" x2="349" y2="160" stroke="#111827" stroke-width="2"></line>`;
+    } else if(gate==="FREDKIN"){
+      html += `<circle cx="335" cy="60" r="8" fill="#111827"></circle>
+               <line x1="335" y1="60" x2="335" y2="160" stroke="#111827" stroke-width="2"></line>
+               <line x1="324" y1="99" x2="346" y2="121" stroke="#111827" stroke-width="3"></line>
+               <line x1="346" y1="99" x2="324" y2="121" stroke="#111827" stroke-width="3"></line>
+               <line x1="324" y1="149" x2="346" y2="171" stroke="#111827" stroke-width="3"></line>
+               <line x1="346" y1="149" x2="324" y2="171" stroke="#111827" stroke-width="3"></line>`;
+    }
+    cgWireGroup.innerHTML = html;
+  }
+  function updateCgDisplay(){
+    const res = applyControlledGate();
+    cgBefore.textContent = res.before;
+    cgAfter.textContent = res.after;
+    cgRule.textContent = res.rule;
+  }
+  cgGate.addEventListener("change", ()=>{
+    cgBitVals = [0,0,0];
+    renderCgBits();
+    drawControlledSvg();
+    updateCgDisplay();
+  });
+  document.getElementById("cgRun").addEventListener("click", updateCgDisplay);
+  document.getElementById("cgReset").addEventListener("click", ()=>{
+    cgBitVals = [0,0,0];
+    renderCgBits();
+    updateCgDisplay();
+  });
+  renderCgBits(); drawControlledSvg(); updateCgDisplay();
+
+  // ---------- Module 5: Bell state ----------
+  const bellAmpGrid = document.getElementById("bellAmpGrid");
+  const bellStateText = document.getElementById("bellStateText");
+  const bellStepLabel = document.getElementById("bellStepLabel");
+  const bellInsight = document.getElementById("bellInsight");
+  const bellCursor = document.getElementById("bellCursor");
+  let bellStep = 0;
+  const H1 = kron2(gates.H, I);
+  const CNOT = [
+    [C(1),C(0),C(0),C(0)],
+    [C(0),C(1),C(0),C(0)],
+    [C(0),C(0),C(0),C(1)],
+    [C(0),C(0),C(1),C(0)]
+  ];
+  function bellStateAt(step){
+    let s = basisKet(4,0); // |00>
+    if(step>=1) s = applyMatrix(s,H1);
+    if(step>=2) s = applyMatrix(s,CNOT);
+    return s;
+  }
+  function updateBell(){
+    const s = bellStateAt(bellStep);
+    bellAmpGrid.innerHTML = ampGridHTML(s);
+    bellStateText.textContent = stateText2(s);
+    if(bellStep===0){
+      bellStepLabel.textContent = "Current step: Start";
+      bellInsight.textContent = "At the start, the two qubits are in the product state |00⟩.";
+      bellCursor.setAttribute("x","145");
+      bellCursor.setAttribute("width","90");
+    } else if(bellStep===1){
+      bellStepLabel.textContent = "Current step: After H on q₁";
+      bellInsight.textContent = "Now the first qubit is in superposition, but the joint state is still separable: (|00⟩+|10⟩)/√2.";
+      bellCursor.setAttribute("x","155");
+      bellCursor.setAttribute("width","74");
+    } else {
+      bellStepLabel.textContent = "Current step: After CNOT";
+      bellInsight.textContent = "Now the two qubits are entangled: (|00⟩+|11⟩)/√2. The state is no longer a product state.";
+      bellCursor.setAttribute("x","320");
+      bellCursor.setAttribute("width","74");
+    }
+  }
+  document.getElementById("bellNext").addEventListener("click", ()=>{ bellStep = Math.min(2,bellStep+1); updateBell(); });
+  document.getElementById("bellReset").addEventListener("click", ()=>{ bellStep=0; updateBell(); });
+  document.getElementById("bellMeasure").addEventListener("click", ()=>{
+    const s = bellStateAt(bellStep);
+    const probs = s.map(cAbs2);
+    const r = Math.random();
+    let cum=0, out=0;
+    for(let i=0;i<4;i++){ cum += probs[i]; if(r<=cum){ out=i; break; } }
+    alert(`Measurement outcome: ${["00","01","10","11"][out]}\nFor the Bell state step, only 00 or 11 occur.`);
+  });
+  updateBell();
+
+  // ---------- Module 6: Oracle ----------
+  const oracleFunc = document.getElementById("oracleFunc");
+  const oracleX = document.getElementById("oracleX");
+  const oracleY = document.getElementById("oracleY");
+  const oracleInput = document.getElementById("oracleInput");
+  const oracleOutput = document.getElementById("oracleOutput");
+  const oracleClassEl = document.getElementById("oracleClass");
+  const oracleTruthBody = document.getElementById("oracleTruthBody");
+  const oracleSvgInput = document.getElementById("oracleSvgInput");
+  const oracleSvgOutput = document.getElementById("oracleSvgOutput");
+  function updateOracle(){
+    const type = oracleFunc.value;
+    const x = Number(oracleX.value), y = Number(oracleY.value);
+    const f = oracleValue(type,x);
+    const yp = y ^ f;
+    oracleInput.textContent = `Input: |${x}${y}⟩`;
+    oracleOutput.textContent = `Output: U_f|${x}${y}⟩ = |${x}${yp}⟩`;
+    oracleClassEl.textContent = oracleClass(type);
+    oracleTruthBody.innerHTML = [0,1].map(v=>`<tr><td>${v}</td><td>${oracleValue(type,v)}</td></tr>`).join("");
+    oracleSvgInput.textContent = `|${x}${y}⟩`;
+    oracleSvgOutput.textContent = `|${x}${yp}⟩`;
+  }
+  [oracleFunc, oracleX, oracleY].forEach(el=>el.addEventListener("change", updateOracle));
+  document.getElementById("oracleApply").addEventListener("click", updateOracle);
+  updateOracle();
+
+  // ---------- Module 7: Race ----------
+  const raceClassicalCount = document.getElementById("raceClassicalCount");
+  const raceQuantumCount = document.getElementById("raceQuantumCount");
+  const raceClassicalLog = document.getElementById("raceClassicalLog");
+  const raceQuantumLog = document.getElementById("raceQuantumLog");
+  function resetRace(){
+    raceClassicalCount.textContent = "0";
+    raceQuantumCount.textContent = "0";
+    raceClassicalLog.innerHTML = "Classical algorithm has not started.";
+    raceQuantumLog.innerHTML = "Quantum algorithm has not started.";
+  }
+  document.getElementById("raceReset").addEventListener("click", resetRace);
+  document.getElementById("raceRun").addEventListener("click", ()=>{
+    resetRace();
+    const steps = [
+      ()=>{ raceClassicalCount.textContent="1"; raceClassicalLog.innerHTML="Query 1: ask for f(0). Still not enough to know constant vs balanced."; },
+      ()=>{ raceQuantumCount.textContent="1"; raceQuantumLog.innerHTML="Single quantum oracle query made on a superposition state."; },
+      ()=>{ raceClassicalCount.textContent="2"; raceClassicalLog.innerHTML="Query 2: ask for f(1). Now compare f(0) and f(1) to decide the answer."; },
+      ()=>{ raceQuantumLog.innerHTML="Interference after the oracle reveals whether f is constant or balanced."; }
+    ];
+    steps.forEach((fn,i)=>setTimeout(fn, i*850));
+  });
+  resetRace();
+
+  // ---------- Module 8: Deutsch ----------
+  const deutschFunc = document.getElementById("deutschFunc");
+  const deutschStage = document.getElementById("deutschStage");
+  const deutschStageDesc = document.getElementById("deutschStageDesc");
+  const deutschStateExpr = document.getElementById("deutschStateExpr");
+  const deutschDecision = document.getElementById("deutschDecision");
+  const deutschAmpGrid = document.getElementById("deutschAmpGrid");
+  const deutschCursor = document.getElementById("deutschCursor");
+  let deutschStep = 0;
+  let deutschTimer = null;
+
+  const H2 = kron2(gates.H, gates.H);
+  const HtopI = kron2(gates.H, I);
+
+  function deutschStateAt(step){
+    let s = basisKet(4,1); // |01>
+    if(step>=1) s = applyMatrix(s,H2); // π1
+    if(step>=2) s = applyMatrix(s, deutschOracleMatrix(deutschFunc.value)); // π2
+    if(step>=3) s = applyMatrix(s, HtopI); // π3
+    return s;
+  }
+  function deutschStageInfo(step){
+    if(step===0) return ["π₀ = initial state","Start with |0⟩ on the top wire and |1⟩ on the ancilla.","The algorithm prepares a special ancilla state so that the oracle can imprint information as phase."];
+    if(step===1) return ["π₁ = after H⊗H","Both qubits are now in superposition.","The ancilla becomes |−⟩ and the top qubit becomes |+⟩."];
+    if(step===2) return ["π₂ = after U_f","The oracle is applied once.","This is the phase-kickback stage: the function values affect the relative phase of the top qubit."];
+    return ["π₃ = after final H","Interference converts the phase information into a measurable basis outcome.","Measuring the top qubit gives 0 for constant and 1 for balanced."];
+  }
+  function updateDeutsch(){
+    const s = deutschStateAt(deutschStep);
+    deutschAmpGrid.innerHTML = ampGridHTML(s);
+    deutschStateExpr.textContent = stateText2(s);
+    const info = deutschStageInfo(deutschStep);
+    deutschStage.textContent = info[0];
+    deutschStageDesc.textContent = info[1] + " " + info[2];
+    if(deutschStep===0){ deutschCursor.setAttribute("x","140"); deutschCursor.setAttribute("width","98"); }
+    if(deutschStep===1){ deutschCursor.setAttribute("x","160"); deutschCursor.setAttribute("width","86"); }
+    if(deutschStep===2){ deutschCursor.setAttribute("x","346"); deutschCursor.setAttribute("width","148"); }
+    if(deutschStep===3){ deutschCursor.setAttribute("x","594"); deutschCursor.setAttribute("width","86"); }
+    if(deutschStep===3){
+      const cls = oracleClass(deutschFunc.value);
+      deutschDecision.innerHTML = `For <strong>${cls}</strong> functions, the top qubit is measured as <strong>${cls==="constant" ? "0" : "1"}</strong>.`;
+    } else {
+      deutschDecision.textContent = "After the final Hadamard and measurement of the top qubit, 0 means constant and 1 means balanced.";
+    }
+  }
+  function resetDeutsch(){
+    deutschStep = 0;
+    if(deutschTimer){ clearInterval(deutschTimer); deutschTimer = null; }
+    updateDeutsch();
+  }
+  deutschFunc.addEventListener("change", resetDeutsch);
+  document.getElementById("deutschNext").addEventListener("click", ()=>{ deutschStep = Math.min(3,deutschStep+1); updateDeutsch(); });
+  document.getElementById("deutschPrev").addEventListener("click", ()=>{ deutschStep = Math.max(0,deutschStep-1); updateDeutsch(); });
+  document.getElementById("deutschReset").addEventListener("click", resetDeutsch);
+  document.getElementById("deutschPlay").addEventListener("click", ()=>{
+    if(deutschTimer){ clearInterval(deutschTimer); deutschTimer = null; return; }
+    deutschStep = 0; updateDeutsch();
+    deutschTimer = setInterval(()=>{
+      if(deutschStep < 3){ deutschStep++; updateDeutsch(); }
+      else { clearInterval(deutschTimer); deutschTimer = null; }
+    }, 1100);
+  });
+  resetDeutsch();
+})();
+</script>
+</body>
+</html>

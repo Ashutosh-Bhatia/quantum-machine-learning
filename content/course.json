@@ -1,0 +1,31 @@
+{
+  "title": "Quantum Machine Learning",
+  "lessons": [
+    "states",
+    "gates",
+    "entanglement",
+    "classifier"
+  ],
+  "planned": [
+    {
+      "title": "Query algorithms & phase kickback",
+      "source": "Slides 1\u20137, PDF pp.55\u201397; practice Q26\u201335",
+      "needs": "Deutsch lab review; new Deutsch\u2013Jozsa / Simon exercises and GF(2) notebook."
+    },
+    {
+      "title": "Classical ML foundations & models",
+      "source": "Lecture 8 and Lecture 9",
+      "needs": "Train/test leakage examples; loss and gradient labs; baseline notebooks."
+    },
+    {
+      "title": "Encoding & quantum kernels",
+      "source": "Lecture 9 pp.19\u201332; Lecture 10 pp.22\u201332 and 43",
+      "needs": "Encoding cost comparison; kernel PSD lab; held-out kernel experiment."
+    },
+    {
+      "title": "Noise, trainability & responsible evaluation",
+      "source": "Introductory discussion in Lecture 10",
+      "needs": "Dedicated source material, noise experiments, shot budgets, barren plateaus and qualified advantage discussion."
+    }
+  ]
+}

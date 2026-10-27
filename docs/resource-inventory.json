@@ -1,0 +1,62 @@
+[
+  {
+    "path": "Animations/pauli_gate_bloch_sphere_animation.html",
+    "bytes": 12396,
+    "sha256": "a7e7b9c0ccf8e55a87f89be61803f086801e3d3bed9559d8652b9526646bfa5e",
+    "publication": "copied to interactive lab; mathematical review pending"
+  },
+  {
+    "path": "Animations/quantum_computing_interactive_companion.html",
+    "bytes": 68733,
+    "sha256": "585b5ea2b277e6e75e20f5e60945d93d0b132634cf8a2a9c0957df6e8a2f9d4d",
+    "publication": "copied to interactive lab; mathematical review pending"
+  },
+  {
+    "path": "Lecture Slides /Lecture 10 Building a Quantum Classifier 1.pdf",
+    "bytes": 1366835,
+    "sha256": "a75866f61f019d98d5972c4a98de304cc3e5ea706b3878732dea73cd3ff0691e",
+    "publication": "private source; not copied to website",
+    "pages": 44
+  },
+  {
+    "path": "Lecture Slides /Lecture 8 Classical ML Foundation.pdf",
+    "bytes": 12033470,
+    "sha256": "c7ecacccd69d47db53e555d623ac596128f83f37656fd8c7397c93f30165a103",
+    "publication": "private source; not copied to website",
+    "pages": 34
+  },
+  {
+    "path": "Lecture Slides /Lecture 9 Classical ML Models.pdf",
+    "bytes": 4804326,
+    "sha256": "2eb712619b4638a91bc9c80512727dec59957d54e5a01b9617bfa72e16ce1f7c",
+    "publication": "private source; not copied to website",
+    "pages": 35
+  },
+  {
+    "path": "Lecture Slides /Lecture Slides - 1 to 7.pdf",
+    "bytes": 718338,
+    "sha256": "b19914024a42ffc93bd9d627f155a017497acb682e5ada05c9fff261323f3457",
+    "publication": "private source; not copied to website",
+    "pages": 97
+  },
+  {
+    "path": "Lecture Slides /Lecture0-AIML ZG545.pdf",
+    "bytes": 5962476,
+    "sha256": "7ab0be79502aac971954c65865c580e8a92a622d40c3fc86bc98efa0053359a0",
+    "publication": "private source; not copied to website",
+    "pages": 29
+  },
+  {
+    "path": "Lecture Transcripts/Quantum Machine Learning (S1-26_AIMLZG545).docx",
+    "bytes": 2451350,
+    "sha256": "3c27eecc419bb47f07d93c1701e34d62abb299331e6ced1f5e456392562df555",
+    "publication": "private source; not copied to website"
+  },
+  {
+    "path": "Practice Problems/Practice_Problems.pdf",
+    "bytes": 101679,
+    "sha256": "45a4fcdc9229a0951fed35ae914b30dfb9dac00cd8df2088b2c09c1a0b20b285",
+    "publication": "private source; not copied to website",
+    "pages": 3
+  }
+]

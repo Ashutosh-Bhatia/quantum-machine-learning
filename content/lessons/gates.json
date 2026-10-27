@@ -1,0 +1,28 @@
+{
+  "id": "gates",
+  "title": "Gates, phase & interference",
+  "part": "01 · Quantum foundations",
+  "status": "Draft lesson",
+  "time": "25 min",
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pages 21–28 and 49–54; Practice Problems Q6–9.",
+  "objectives": [
+    "Apply gates in circuit order.",
+    "Convert relative phase into measurement statistics.",
+    "Recognize global-phase equivalence."
+  ],
+  "body": "<h2>Operations preserve normalization</h2><p>A closed-system quantum gate is unitary: U†U = I. The Hadamard gate maps |0⟩ to |+⟩ and |1⟩ to |−⟩. The Z gate leaves |0⟩ unchanged and negates the amplitude of |1⟩.</p><h2>Work through H → Z → H</h2><p>Start in |0⟩. The first H prepares (|0⟩+|1⟩)/√2. Z changes this to (|0⟩−|1⟩)/√2. The final H gives |1⟩. The phase difference becomes a deterministic measurement outcome. Matrix multiplication writes the same sequence as HZH|0⟩, with the rightmost operator acting first.</p><aside class=\"takeaway\"><strong>Same probabilities, different states</strong><p>|+⟩ and |−⟩ have identical computational-basis measurement probabilities. Applying H before measurement distinguishes them.</p></aside><h2>Use the existing gate lab</h2><p>Try Pauli Z on |+⟩, then compare with Z on |0⟩. Predict the end point before playing each rotation. The supplied animation is retained as a separate lab.</p><p><a href=\"animations/pauli_gate_bloch_sphere_animation.html\">Open Pauli gate / Bloch sphere lab ↗</a></p>",
+  "lab": null,
+  "quiz": {
+    "question": "What is the result of H → Z → H applied to |0⟩?",
+    "options": [
+      "|0⟩",
+      "|1⟩",
+      "A 50/50 Z-basis distribution"
+    ],
+    "answer": 1,
+    "explanation": "H prepares |+⟩, Z turns it into |−⟩, and H maps |−⟩ to |1⟩."
+  },
+  "exercise": "Solve Q6–9. Compare XZ|ψ⟩ and ZX|ψ⟩: do their different signs imply distinguishable physical states?",
+  "solution": "XZ = −ZX. For any input the outputs differ by global phase −1, so they give identical statistics for all measurements.",
+  "notebook": "01-qubit-foundations.ipynb"
+}

@@ -1,0 +1,28 @@
+{
+  "id": "entanglement",
+  "title": "Two qubits & entanglement",
+  "part": "01 · Quantum foundations",
+  "status": "Draft lesson",
+  "time": "30 min",
+  "source": "Lecture Slides - 1 to 7.pdf, PDF pages 29–47; Practice Problems Q11–25.",
+  "objectives": [
+    "Expand tensor products in a fixed basis order.",
+    "Test pure two-qubit states for separability.",
+    "Prepare and measure a Bell state in Qiskit."
+  ],
+  "body": "<h2>Two systems, one state</h2><p>We use basis order |00⟩, |01⟩, |10⟩, |11⟩. A two-qubit pure state is a|00⟩ + b|01⟩ + c|10⟩ + d|11⟩. Product states factor into two single-qubit vectors. For a nonzero normalized pure state, factorization is possible exactly when ad − bc = 0.</p><h2>Build a Bell state</h2><p>Begin at |00⟩. Apply H to the left qubit, giving (|00⟩+|10⟩)/√2. A CNOT controlled by that qubit gives (|00⟩+|11⟩)/√2. Here ad−bc=1/2, so the state is entangled.</p><p>Each individual bit is random in computational-basis measurement, but their outcomes always agree. Correlations in one measurement basis alone are not proof of entanglement: a classical mixture of 00 and 11 has those correlations too.</p><aside class=\"takeaway\"><strong>Watch the wire order</strong><p>Qiskit displays q₀ at the top, but a two-qubit ket is written |q₁q₀⟩. To implement the left-qubit Bell construction above, use h(1), then cx(1, 0).</p></aside><h2>Partial measurement</h2><p>Project onto the observed outcome and divide surviving amplitudes by the square root of its probability. For a Bell state, observing left bit 0 leaves |00⟩ and observing 1 leaves |11⟩. A zero-probability outcome has no conditional state.</p><p><a href=\"animations/quantum_computing_interactive_companion.html\">Open tensor, measurement & Bell-state companion ↗</a></p>",
+  "lab": null,
+  "quiz": {
+    "question": "For a normalized pure state with coefficients a,b,c,d, when is it separable?",
+    "options": [
+      "a+b+c+d = 1",
+      "ad−bc = 0",
+      "All four probabilities are equal"
+    ],
+    "answer": 1,
+    "explanation": "The 2×2 coefficient matrix has rank one exactly when its determinant ad−bc vanishes. This criterion applies to pure two-qubit states."
+  },
+  "exercise": "Solve Q15, Q16, Q20 and Q25. Then compare Bell-state measurements in Z and X bases in the notebook.",
+  "solution": "Q16: P(left=0)=1/2 and P(left=1)=1/2. Conditional full states are (|00⟩+|01⟩)/√2 and |11⟩. Q25: q₀=1, q₁=0 means |01⟩.",
+  "notebook": "02-bell-states.ipynb"
+}
