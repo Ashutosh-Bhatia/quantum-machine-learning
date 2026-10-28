@@ -23,7 +23,6 @@ function nav(route){
   for(const id of ch.lessons){const l=pageById(id);html+=navLink(l,route,'<span>Lesson '+l.number+'</span> '+l.title,true);}
  }
  $('#nav').innerHTML=html;
- $('#archive-nav').innerHTML=course.legacyLessons.map(l=>'<a href="#'+l.id+'" '+(route===l.id?'aria-current="page"':'')+'>'+l.title+'</a>').join('');
 }
 function mountQuizzes(page){
  for(const q of page.quizzes||[]){
