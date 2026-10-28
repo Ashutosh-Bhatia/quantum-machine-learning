@@ -15,5 +15,11 @@
   const a=Math.PI/4,e=Math.PI/9;
   return {x:150+95*(-Math.sin(a)*x+Math.cos(a)*y),y:140-95*(-Math.cos(a)*Math.sin(e)*x-Math.sin(a)*Math.sin(e)*y+Math.cos(e)*z)};
  }
- return {qubit,projection};
+ function chsh(a0,a1,b0,b1,visibility=1){
+  if([a0,a1,b0,b1].some(v=>v!==0&&v!==1)||!Number.isFinite(visibility)||visibility<0||visibility>1)throw new RangeError('Use bit answers and visibility between zero and one.');
+  const a=[a0,a1],b=[b0,b1];
+  const rows=[0,1].flatMap(x=>[0,1].map(y=>({x,y,a:a[x],b:b[y],win:(a[x]^b[y])===(x&y)})));
+  return {rows,classical:rows.filter(r=>r.win).length/4,quantum:.5+visibility*Math.SQRT2/4};
+ }
+ return {qubit,projection,chsh};
 });

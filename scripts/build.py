@@ -6,6 +6,8 @@ CONTENT=(ROOT/'content').resolve()
 course=json.loads((CONTENT/'course.json').read_text())
 def prepare(page):
     page=dict(page)
+    page.pop("source",None)
+    page.pop("status",None)
     if 'body_file' in page:
         path=(CONTENT/page['body_file']).resolve()
         assert path.is_relative_to(CONTENT)

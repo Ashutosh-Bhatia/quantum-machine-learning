@@ -35,6 +35,11 @@ for(const p of pages){
  }
  for(const m of p.body.matchAll(/<img[^>]+src="([^"]+)"/g)){assert.ok(fs.existsSync(path.join(__dirname,'../site',m[1])));figures++;}
 }
-assert.equal(pages.flatMap(p=>p.quizzes||[]).length,11);
-assert.equal(fs.readdirSync(path.join(__dirname,'../site/figures/book-opening')).filter(x=>x.endsWith('.svg')).length,10);
+assert.equal(pages.flatMap(p=>p.quizzes||[]).length,13);
+for(let bits=0;bits<16;bits++){const a=Array.from({length:4},(_,i)=>(bits>>i)&1);assert.ok(Q.chsh(...a).classical<=.75);}
+close(Q.chsh(0,0,0,0).classical,.75);close(Q.chsh(0,0,0,0).quantum,(2+Math.sqrt(2))/4);close(Q.chsh(0,0,0,0,0).quantum,.5);close(Q.chsh(0,0,0,0,1/Math.sqrt(2)).quantum,.75);
+for(const p of pages)assert.ok(!/instructor.review|draft for|review edition|Dr\. Ashutosh/i.test(p.body));
+const sectionIds=[...c.chapters[0].body.matchAll(/<section id="([^"]+)"/g)].map(m=>m[1]);
+for(const id of ['applications','history','abstraction','chsh','evolution','evaluation'])assert.ok(sectionIds.includes(id));
+assert.equal(fs.readdirSync(path.join(__dirname,'../site/figures/book-opening')).filter(x=>x.endsWith('.svg')).length,12);
 console.log('PASS: pure-qubit amplitudes, H probabilities, projected geometry, Bell/mixture comparison, reading order, stable IDs, '+equations+' math expressions and '+figures+' embedded figures.');

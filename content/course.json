@@ -40,7 +40,7 @@
       "needs": "Learning loops, optimization, feature spaces, kernels, and generalization."
     },
     {
-      "title": "Part BI · Quantum machine learning",
+      "title": "Part C · Quantum machine learning",
       "needs": "Encoding, variational classifiers, quantum kernels, and responsible evaluation."
     }
   ],
@@ -53,8 +53,7 @@
   "preface": {
     "id": "preface",
     "title": "About This Book",
-    "body_file": "pages/preface.html",
-    "source": "Adapted from the instructor’s stated audience and QML teaching goals, the introductory recording’s abstraction and software discussion, and Introduction.pptx slides 2,15–20,46–51. The learning-loop and book-roadmap figures are newly authored."
+    "body_file": "pages/preface.html"
   },
   "chapters": [
     {
@@ -64,7 +63,6 @@
       "part": "Part A · Quantum Computing Foundations",
       "body_file": "chapters/quantum-introduction/overview.html",
       "lessons": [],
-      "source": "Introduction.pptx, slides 2,15–25,40–51; introductory recording, 12:05–13:13 (abstraction), 47:15–52:01 (engineering analogies), 53:17–1:07:11 (superposition and readout), and the later discussion of systems and software. The Bloch, interference, factorization and basis-correlation calculations are newly authored supporting exposition. Figures are original review drafts.",
       "quizzes": [
         {
           "id": "intro-phase",
@@ -110,8 +108,39 @@
             "Simulation demonstrates the modeled behavior, not an end-to-end practical advantage.",
             "Correct. Compare a defined learning task with suitable classical baselines and account for preparation, training and readout."
           ]
+        },
+        {
+          "id": "intro-chsh",
+          "question": "Why can shared classical randomness not beat 75% in the stated CHSH game?",
+          "options": [
+            "It mixes deterministic strategies, each of which wins at most three of the four uniform input cases.",
+            "It lets Alice learn Bob’s input.",
+            "Randomness always lowers every strategy’s score."
+          ],
+          "answer": 0,
+          "feedback": [
+            "Correct. A weighted average cannot exceed the largest score of its components.",
+            "The rules forbid communication during a round; shared randomness does not reveal the private input.",
+            "Some randomized strategies tie the best deterministic score. The upper bound follows from averaging, not from randomness being harmful."
+          ]
+        },
+        {
+          "id": "intro-evaluation",
+          "question": "A quantum circuit uses fewer oracle calls. What else is needed to establish a practical runtime benefit?",
+          "options": [
+            "Nothing: fewer oracle calls settle the complete runtime.",
+            "Account for implementation, preparation, repetitions and processing against a suitable classical baseline.",
+            "Only the number of physical qubits."
+          ],
+          "answer": 1,
+          "feedback": [
+            "An oracle call can be expensive, and other costs can dominate.",
+            "Correct. The claim must match the complete task, accuracy and costs being compared.",
+            "Qubit count alone does not specify usable computation, reliability or workflow cost."
+          ]
         }
-      ]
+      ],
+      "notebook": "01-chsh-game.ipynb"
     },
     {
       "id": "classical-information",

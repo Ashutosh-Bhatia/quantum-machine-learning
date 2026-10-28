@@ -114,7 +114,8 @@ article h3 { font-size: 19px; }
 figure { margin: 28px 0; }
 figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
 figcaption { font-size: 13px; line-height: 1.6; color: var(--muted); margin-top: 10px; }
-.draft-label { font-style: italic; }
+.image-source { display: block; margin-top: 6px; font-size: .88em; color: var(--muted); }
+.book-author { margin-top: -8px; margin-bottom: 28px; color: var(--muted); }
 .table-wrap { overflow-x: auto; margin: 24px 0; }
 .table-wrap table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .table-wrap caption { text-align: left; font-weight: 600; margin-bottom: 12px; }
@@ -198,3 +199,8 @@ legend { font-weight: 600; padding: 0; }
 .phase-display { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px; }
 .phase-display svg { max-height: 300px; }
 @media(max-width:600px) { .phase-display { grid-template-columns: minmax(0,1fr); } }
+
+#lesson table { border-collapse: collapse; width: 100%; margin: 18px 0; font-size: .95em; }
+#lesson th, #lesson td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+#lesson th { background: #f6f8fa; }
+#lesson caption { text-align: left; font-weight: 600; margin-bottom: 8px; }
