@@ -54,7 +54,7 @@ function render(route){
   const parent=chapterFor(page),preface=page.id===course.preface.id;
   const label=parent?'<p class="breadcrumb"><a href="#'+parent.id+'">Chapter '+parent.number+'</a> / Lesson '+page.number+'</p>':'<p class="eyebrow">'+(preface?'Quantum Machine Learning · Preface':page.part+' · Chapter '+page.number)+'</p>';
   const goals=page.objectives?'<details class="learning-goals"><summary>Learning goals and prerequisites</summary><ul>'+page.objectives.map(o=>'<li>'+o+'</li>').join('')+'</ul><p>'+page.prerequisites+'</p></details>':'';
-  $('#lesson').innerHTML=label+'<h1>'+page.title+'</h1>'+(preface?'<p class="book-author">By Ashutosh Bhatia</p>':'')+goals+page.body+notebook(page)+pagination(page);
+  $('#lesson').innerHTML=label+'<h1>'+page.title+'</h1>'+(preface?'<p class="book-author">By <a href="https://www.bits-pilani.ac.in/pilani/ashutosh-bhatia/" target="_blank" rel="noopener">Ashutosh Bhatia</a><br><span class="book-affiliation">Associate Professor<br>Department of Computer Science &amp; Information Systems<br>BITS Pilani, Pilani Campus</span></p>':'')+goals+page.body+notebook(page)+pagination(page);
   mountQuizzes(page);window.mountClassicalLabs($('#lesson'));window.mountOpeningLabs($('#lesson'));window.mountMathLabs($('#lesson'));
  }else{
   $('#lesson').innerHTML=legacyMarkup(legacy);$('#legacy-quiz').onsubmit=e=>{e.preventDefault();const i=Number(new FormData(e.target).get('answer'));$('#legacy-feedback').textContent=(i===legacy.quiz.answer?'Correct. ':'Try again. ')+legacy.quiz.explanation;};if(legacy.lab==='bloch')bloch();if(legacy.lab==='classifier')classifier();

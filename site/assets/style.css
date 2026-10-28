@@ -225,3 +225,5 @@ legend { font-weight: 600; padding: 0; }
 .sidebar #nav .chapter-nav > summary::before { content: '▸'; position: absolute; left: 20px; top: 12px; color: var(--muted); }
 .sidebar #nav .chapter-nav[open] > summary::before { content: '▾'; }
 .sidebar #nav .chapter-current > summary { font-weight: 600; }
+
+.book-affiliation { display: inline-block; margin-top: 5px; font-size: 14px; line-height: 1.6; }
