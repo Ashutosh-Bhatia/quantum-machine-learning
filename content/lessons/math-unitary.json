@@ -1,0 +1,45 @@
+{
+  "id": "math-unitary",
+  "number": "3.6",
+  "title": "Unitary matrices and preserved geometry",
+  "part": "Part A · Chapter 3",
+  "chapter_id": "mathematical-language",
+  "objectives": [
+    "Verify unitarity by adjoint multiplication and column inner products.",
+    "Explain preserved inner products and distinguish unitary, Hermitian and invertible."
+  ],
+  "prerequisites": "Chapter 2’s vectors, basis labels and matrix multiplication; elementary algebra. New notation is developed in the text.",
+  "body_file": "chapters/mathematical-language/6.html",
+  "quizzes": [
+    {
+      "id": "math-unitary-check-1",
+      "question": "An invertible matrix preserves the norm of one chosen input. Is it necessarily unitary?",
+      "options": [
+        "Yes",
+        "No; the condition must hold for all inputs.",
+        "Yes, if that input is normalized."
+      ],
+      "answer": 1,
+      "feedback": [
+        "An invertible scaling can preserve one direction and stretch another.",
+        "Correct. Verify U†U=I rather than one example.",
+        "Normalization of one input does not establish a property of the full operator."
+      ]
+    },
+    {
+      "id": "math-unitary-check-2",
+      "question": "Which statement is correct about a rank-one projector in a two-dimensional space?",
+      "options": [
+        "It is always a unitary gate.",
+        "It is Hermitian and idempotent, but not invertible on the full space.",
+        "It must preserve every vector’s norm."
+      ],
+      "answer": 1,
+      "feedback": [
+        "It annihilates a perpendicular component.",
+        "Correct. These properties differ from unitarity.",
+        "Projection generally shortens a vector."
+      ]
+    }
+  ]
+}

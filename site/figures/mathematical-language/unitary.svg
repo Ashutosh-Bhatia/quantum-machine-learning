@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" role="img" aria-labelledby="t d"><title id="t">Rotation versus unequal scaling</title><desc id="d">Real rotations preserve inner products; unequal scaling generally does not.</desc><rect width="1000" height="380" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#b4bfc8;stroke-width:1.5;stroke-dasharray:5 4}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="38" font-size="26">Preserve every inner product, not just one length</text>
+<text x="40" y="90" font-size="23">Rotation: U†U = I</text>
+<ellipse cx="230" cy="210" rx="100" ry="100" fill="none" stroke="#286a9b" stroke-width="2"/>
+<path d="M230 210L330 210" class="line"/>
+<path d="M230 210L230 110" class="line"/>
+<text x="550" y="90" font-size="23">Unequal scaling: A†A ≠ I</text>
+<ellipse cx="740" cy="210" rx="145" ry="75" fill="none" stroke="#286a9b" stroke-width="2"/>
+<path d="M740 210L885 210" class="line"/>
+<path d="M740 210L740 135" class="line"/>
+<text x="30" y="350" font-size="19">The circle-to-ellipse picture illustrates the real case; complex unitarity uses adjoints.</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-labelledby="t d"><title id="t">One complex number, two coordinates</title><desc id="d">The point 1+2i and its conjugate 1−2i have equal distance from the origin.</desc><rect width="1000" height="440" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#b4bfc8;stroke-width:1.5;stroke-dasharray:5 4}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="38" font-size="26">Magnitude, phase and conjugation</text>
+<path d="M60 240L480 240" class="line"/>
+<path d="M210 405L210 60" class="line"/>
+<text x="445" y="270" font-size="20">Re</text>
+<text x="220" y="70" font-size="20">Im</text>
+<path d="M210 240L280 100" class="line"/>
+<path d="M210 240L280 380" class="line"/>
+<path d="M280 100L280 380" class="guide"/>
+<text x="320" y="105" font-size="20">1 + 2i</text>
+<text x="320" y="382" font-size="20">1 − 2i</text>
+<text x="225" y="218" font-size="20">φ</text>
+<text x="65" y="430" font-size="18">The real axis is the mirror line.</text>
+<rect x="540" y="95" width="420" height="250" rx="5" class="box"/>
+<text x="565" y="135" font-size="21">z = a + bi</text>
+<text x="565" y="178" font-size="21">z* = a − bi</text>
+<text x="565" y="221" font-size="21">|z|² = a² + b²</text>
+<text x="565" y="264" font-size="21">z = r(cos φ + i sin φ)</text>
+<text x="565" y="307" font-size="21">Conjugation changes φ to −φ.</text>
+</svg>

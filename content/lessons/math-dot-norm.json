@@ -1,0 +1,45 @@
+{
+  "id": "math-dot-norm",
+  "number": "3.2",
+  "title": "Dot products, norms and projections",
+  "part": "Part A · Chapter 3",
+  "chapter_id": "mathematical-language",
+  "objectives": [
+    "Calculate real dot products and connect their signs to angles.",
+    "Normalize nonzero vectors and distinguish scalar from vector projections."
+  ],
+  "prerequisites": "Chapter 2’s vectors, basis labels and matrix multiplication; elementary algebra. New notation is developed in the text.",
+  "body_file": "chapters/mathematical-language/2.html",
+  "quizzes": [
+    {
+      "id": "math-dot-norm-check-1",
+      "question": "For nonzero u, when does u·v equal the signed projection length of v along u?",
+      "options": [
+        "Always",
+        "When u has unit length",
+        "Only when v has unit length"
+      ],
+      "answer": 1,
+      "feedback": [
+        "For arbitrary u, divide by its length to get the signed component.",
+        "Correct. The direction vector must be normalized.",
+        "Normalizing v does not remove the scale of u."
+      ]
+    },
+    {
+      "id": "math-dot-norm-check-2",
+      "question": "Can (0,0) be normalized to a unit vector by dividing by its norm?",
+      "options": [
+        "Yes: it is already normalized.",
+        "Yes: divide each entry by 1.",
+        "No: its norm is zero."
+      ],
+      "answer": 2,
+      "feedback": [
+        "Its length is zero, not one.",
+        "That leaves a zero vector.",
+        "Correct. There is no direction to preserve and division by zero is undefined."
+      ]
+    }
+  ]
+}

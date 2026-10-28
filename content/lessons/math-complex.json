@@ -1,0 +1,45 @@
+{
+  "id": "math-complex",
+  "number": "3.1",
+  "title": "Complex numbers, magnitude and phase",
+  "part": "Part A · Chapter 3",
+  "chapter_id": "mathematical-language",
+  "objectives": [
+    "Compute conjugates, products and squared magnitudes.",
+    "Connect rectangular and polar forms without confusing the complex plane with a qubit picture."
+  ],
+  "prerequisites": "Chapter 2’s vectors, basis labels and matrix multiplication; elementary algebra. New notation is developed in the text.",
+  "body_file": "chapters/mathematical-language/1.html",
+  "quizzes": [
+    {
+      "id": "math-complex-check-1",
+      "question": "For z=(1+2i)/3, which quantity is 5/9?",
+      "options": [
+        "z squared",
+        "The squared magnitude of z",
+        "The imaginary part of z"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Squaring gives (−3+4i)/9.",
+        "Correct. Multiply z by its conjugate.",
+        "The imaginary part is 2/3."
+      ]
+    },
+    {
+      "id": "math-complex-check-2",
+      "question": "What happens to the phase at z=0?",
+      "options": [
+        "It must be π/2.",
+        "It uniquely equals zero.",
+        "It is undefined; any angle in the polar formula gives the same zero."
+      ],
+      "answer": 2,
+      "feedback": [
+        "There is no direction from the origin to itself.",
+        "A display may choose zero by convention, but that is not a unique phase.",
+        "Correct. Magnitude zero removes the angular information."
+      ]
+    }
+  ]
+}

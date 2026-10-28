@@ -204,3 +204,8 @@ legend { font-weight: 600; padding: 0; }
 #lesson th, #lesson td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
 #lesson th { background: #f6f8fa; }
 #lesson caption { text-align: left; font-weight: 600; margin-bottom: 8px; }
+
+.math-lab-display { display: grid; grid-template-columns: minmax(200px,1fr) minmax(200px,1fr); gap: 18px; align-items: center; }
+.math-lab-display svg { width: 100%; height: auto; }
+.math-lab-display [data-result] { overflow-wrap: anywhere; }
+@media (max-width: 650px) { .math-lab-display { grid-template-columns: 1fr; } }

@@ -4,13 +4,16 @@
     "classical-states",
     "classical-probability",
     "classical-operations",
-    "classical-composition"
+    "classical-composition",
+    "math-complex",
+    "math-dot-norm",
+    "math-inner",
+    "math-outer",
+    "math-matrices",
+    "math-unitary",
+    "math-tensor"
   ],
   "planned": [
-    {
-      "title": "Part A · Chapter 3 · Mathematical language",
-      "needs": "Complex numbers, inner products and Dirac notation, developed near their first use."
-    },
     {
       "title": "Part A · Chapter 4 · Qubits and measurement",
       "needs": "Pure states, Born probabilities, phase, and conditional projection."
@@ -154,6 +157,22 @@
         "classical-operations",
         "classical-composition"
       ]
+    },
+    {
+      "id": "mathematical-language",
+      "title": "Mathematical Language for Quantum Computing",
+      "number": 3,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/mathematical-language/overview.html",
+      "lessons": [
+        "math-complex",
+        "math-dot-norm",
+        "math-inner",
+        "math-outer",
+        "math-matrices",
+        "math-unitary",
+        "math-tensor"
+      ]
     }
   ],
   "reading_order": [
@@ -163,6 +182,14 @@
     "classical-states",
     "classical-probability",
     "classical-operations",
-    "classical-composition"
+    "classical-composition",
+    "mathematical-language",
+    "math-complex",
+    "math-dot-norm",
+    "math-inner",
+    "math-outer",
+    "math-matrices",
+    "math-unitary",
+    "math-tensor"
   ]
 }

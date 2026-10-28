@@ -1,0 +1,47 @@
+{
+  "id": "math-tensor",
+  "number": "3.7",
+  "title": "Tensor products and combined systems",
+  "part": "Part A · Chapter 3",
+  "chapter_id": "mathematical-language",
+  "objectives": [
+    "Expand vector and operator tensor products with explicit ordering.",
+    "Distinguish inner, outer and tensor products by purpose and shape."
+  ],
+  "prerequisites": "Chapter 2’s vectors, basis labels and matrix multiplication; elementary algebra. New notation is developed in the text.",
+  "body_file": "chapters/mathematical-language/7.html",
+  "quizzes": [
+    {
+      "id": "math-tensor-check-1",
+      "question": "How many entries does the tensor product of a 3-entry and a 2-entry column have?",
+      "options": [
+        "5",
+        "6",
+        "1"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Five would be the concatenated length, not tensor dimension.",
+        "Correct: 3×2=6 pairs of coordinates.",
+        "A scalar is an inner-product output, and unequal dimensions would not support that inner product."
+      ]
+    },
+    {
+      "id": "math-tensor-check-2",
+      "question": "Does exchanging two tensor factors always leave the displayed array unchanged?",
+      "options": [
+        "Yes",
+        "No; the subsystem order determines the coordinate order.",
+        "Yes, if both factors have unit norm."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Pairs of subsystem labels are ordered.",
+        "Correct. A swap must be expressed explicitly.",
+        "Normalization does not make tensor multiplication commutative."
+      ]
+    }
+  ],
+  "notebook": "04-mathematical-language.ipynb",
+  "notebook_kind": "mathematics"
+}

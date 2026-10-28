@@ -25,7 +25,7 @@ assert.equal(c.preface.id,'preface');assert.equal(c.chapters[0].number,1);assert
 const pages=[c.preface,...c.chapters,...c.lessons],ids=pages.map(p=>p.id);
 assert.equal(new Set(ids).size,ids.length);assert.equal(c.readingOrder.length,pages.length);
 assert.deepEqual([...c.readingOrder].sort(),[...ids].sort());
-assert.deepEqual(Array.from(c.lessons,p=>p.number),['2.1','2.2','2.3','2.4']);
+assert.deepEqual(Array.from(c.lessons,p=>p.number),['2.1','2.2','2.3','2.4','3.1','3.2','3.3','3.4','3.5','3.6','3.7']);
 assert.ok(c.legacyLessons.some(p=>p.id==='gates'));
 let equations=0,figures=0;
 for(const p of pages){
@@ -35,7 +35,7 @@ for(const p of pages){
  }
  for(const m of p.body.matchAll(/<img[^>]+src="([^"]+)"/g)){assert.ok(fs.existsSync(path.join(__dirname,'../site',m[1])));figures++;}
 }
-assert.equal(pages.flatMap(p=>p.quizzes||[]).length,13);
+assert.equal(pages.flatMap(p=>p.quizzes||[]).length,27);
 for(let bits=0;bits<16;bits++){const a=Array.from({length:4},(_,i)=>(bits>>i)&1);assert.ok(Q.chsh(...a).classical<=.75);}
 close(Q.chsh(0,0,0,0).classical,.75);close(Q.chsh(0,0,0,0).quantum,(2+Math.sqrt(2))/4);close(Q.chsh(0,0,0,0,0).quantum,.5);close(Q.chsh(0,0,0,0,1/Math.sqrt(2)).quantum,.75);
 for(const p of pages)assert.ok(!/instructor.review|draft for|review edition|Dr\. Ashutosh/i.test(p.body));

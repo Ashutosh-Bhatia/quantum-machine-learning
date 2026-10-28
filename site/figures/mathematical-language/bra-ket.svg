@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" role="img" aria-labelledby="t d"><title id="t">Ket to bra</title><desc id="d">Conjugate the entries of a column and transpose to obtain its bra.</desc><rect width="1000" height="380" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#b4bfc8;stroke-width:1.5;stroke-dasharray:5 4}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="38" font-size="26">A bra is more than a transposed complex column</text>
+<rect x="30" y="100" width="280" height="170" rx="5" class="box"/>
+<text x="45" y="137" font-size="22">Ket |v⟩</text>
+<text x="60" y="190" font-size="24">1 + i</text>
+<text x="60" y="226" font-size="24">2 − i</text>
+<rect x="360" y="100" width="280" height="170" rx="5" class="box"/>
+<text x="375" y="137" font-size="22">Conjugate entries</text>
+<text x="390" y="190" font-size="24">1 − i</text>
+<text x="390" y="226" font-size="24">2 + i</text>
+<rect x="690" y="100" width="280" height="170" rx="5" class="box"/>
+<text x="705" y="137" font-size="22">Transpose to bra</text>
+<text x="720" y="190" font-size="24">(1 − i,  2 + i)</text>
+<path d="M315 185L350 185" class="line"/>
+<path d="M645 185L680 185" class="line"/>
+<text x="30" y="335" font-size="20">For real basis columns, conjugation changes nothing. For complex entries, it matters.</text>
+</svg>

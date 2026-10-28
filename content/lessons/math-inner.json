@@ -1,0 +1,45 @@
+{
+  "id": "math-inner",
+  "number": "3.3",
+  "title": "Bras, kets and complex inner products",
+  "part": "Part A · Chapter 3",
+  "chapter_id": "mathematical-language",
+  "objectives": [
+    "Construct conjugate transposes and calculate inner products.",
+    "Check normalization and orthogonality and interpret normalized overlap."
+  ],
+  "prerequisites": "Chapter 2’s vectors, basis labels and matrix multiplication; elementary algebra. New notation is developed in the text.",
+  "body_file": "chapters/mathematical-language/3.html",
+  "quizzes": [
+    {
+      "id": "math-inner-check-1",
+      "question": "What is the squared norm of v=(1,i)?",
+      "options": [
+        "0",
+        "2",
+        "1+i"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That is the incorrect non-conjugated self-product.",
+        "Correct: |1|²+|i|²=2.",
+        "Squared norm is real and nonnegative."
+      ]
+    },
+    {
+      "id": "math-inner-check-2",
+      "question": "If an inner product equals i/2, what is its squared magnitude?",
+      "options": [
+        "−1/4",
+        "1/2",
+        "1/4"
+      ],
+      "answer": 2,
+      "feedback": [
+        "The ordinary square is −1/4; probability uses squared magnitude.",
+        "Square the magnitude 1/2.",
+        "Correct: (−i/2)(i/2)=1/4."
+      ]
+    }
+  ]
+}

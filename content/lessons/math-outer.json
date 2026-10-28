@@ -1,0 +1,45 @@
+{
+  "id": "math-outer",
+  "number": "3.4",
+  "title": "Outer products and projectors",
+  "part": "Part A · Chapter 3",
+  "chapter_id": "mathematical-language",
+  "objectives": [
+    "Distinguish scalar inner products from matrix outer products.",
+    "Construct rank-one projectors and separate projection, probability and normalization."
+  ],
+  "prerequisites": "Chapter 2’s vectors, basis labels and matrix multiplication; elementary algebra. New notation is developed in the text.",
+  "body_file": "chapters/mathematical-language/4.html",
+  "quizzes": [
+    {
+      "id": "math-outer-check-1",
+      "question": "Which expression is a matrix?",
+      "options": [
+        "⟨u|v⟩",
+        "|u⟩⟨v|",
+        "The norm of u"
+      ],
+      "answer": 1,
+      "feedback": [
+        "An inner product is a scalar.",
+        "Correct: an m×1 column times a 1×n row is an m×n matrix.",
+        "A norm is a nonnegative scalar."
+      ]
+    },
+    {
+      "id": "math-outer-check-2",
+      "question": "A projected measurement branch has squared norm p>0. How do we normalize it?",
+      "options": [
+        "Divide by p",
+        "Divide by √p",
+        "Multiply by p"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That would generally leave squared norm 1/p.",
+        "Correct. Its norm, rather than squared norm, is √p.",
+        "That shrinks the vector instead of making its norm one."
+      ]
+    }
+  ]
+}

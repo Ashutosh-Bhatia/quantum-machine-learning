@@ -1,0 +1,45 @@
+{
+  "id": "math-matrices",
+  "number": "3.5",
+  "title": "Matrices, linear maps and adjoints",
+  "part": "Part A · Chapter 3",
+  "chapter_id": "mathematical-language",
+  "objectives": [
+    "Interpret matrix columns as transformed basis vectors.",
+    "Track composition order and dimensions; calculate adjoints."
+  ],
+  "prerequisites": "Chapter 2’s vectors, basis labels and matrix multiplication; elementary algebra. New notation is developed in the text.",
+  "body_file": "chapters/mathematical-language/5.html",
+  "quizzes": [
+    {
+      "id": "math-matrices-check-1",
+      "question": "A acts first, followed by B. Which matrix describes the composition?",
+      "options": [
+        "AB",
+        "BA",
+        "A+B"
+      ],
+      "answer": 1,
+      "feedback": [
+        "The rightmost matrix acts first on a column.",
+        "Correct: B(Av)=(BA)v.",
+        "Addition combines outputs, not successive operations."
+      ]
+    },
+    {
+      "id": "math-matrices-check-2",
+      "question": "Is every Hermitian matrix unitary?",
+      "options": [
+        "Yes",
+        "No; diag(1,2) is Hermitian but not unitary.",
+        "Only when its entries are real."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Hermitian and unitary are different conditions.",
+        "Correct. Its adjoint product is diag(1,4), not identity.",
+        "Being real does not enforce norm preservation."
+      ]
+    }
+  ]
+}

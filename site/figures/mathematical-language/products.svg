@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" role="img" aria-labelledby="t d"><title id="t">Three different products</title><desc id="d">Inner gives a scalar, outer a matrix and tensor a longer column.</desc><rect width="1000" height="380" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#b4bfc8;stroke-width:1.5;stroke-dasharray:5 4}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="38" font-size="26">Check the shape before calculating</text>
+<rect x="30" y="90" width="290" height="215" rx="5" class="box"/>
+<text x="48" y="130" font-size="23">Inner product</text>
+<text x="100" y="195" font-size="26">⟨u|v⟩</text>
+<text x="45" y="265" font-size="18">(1 × d)(d × 1) → scalar</text>
+<rect x="355" y="90" width="290" height="215" rx="5" class="box"/>
+<text x="373" y="130" font-size="23">Outer product</text>
+<text x="425" y="195" font-size="26">|u⟩⟨v|</text>
+<text x="370" y="265" font-size="18">(m × 1)(1 × n) → m × n</text>
+<rect x="680" y="90" width="290" height="215" rx="5" class="box"/>
+<text x="698" y="130" font-size="23">Tensor product</text>
+<text x="750" y="195" font-size="26">u ⊗ v</text>
+<text x="695" y="265" font-size="18">m entries, n entries → mn</text>
+<text x="30" y="350" font-size="20">The bra includes conjugation; the tensor product combines separate spaces.</text>
+</svg>
