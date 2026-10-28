@@ -209,3 +209,19 @@ legend { font-weight: 600; padding: 0; }
 .math-lab-display svg { width: 100%; height: auto; }
 .math-lab-display [data-result] { overflow-wrap: anywhere; }
 @media (max-width: 650px) { .math-lab-display { grid-template-columns: 1fr; } }
+
+/* Native disclosure controls keep the book hierarchy usable by keyboard. */
+.sidebar #nav .book-part > summary { padding: 16px 20px; margin: 0; font-size: 12px; color: var(--muted); line-height: 1.6; cursor: pointer; }
+.sidebar #nav .chapter-nav { border-bottom: 1px solid var(--line); }
+.sidebar #nav .chapter-nav > summary { padding: 12px 20px; margin: 0; cursor: pointer; font-size: 14px; line-height: 1.5; color: var(--ink); }
+.sidebar #nav .chapter-nav > summary:hover { background: #fafafa; }
+.sidebar #nav .chapter-current > summary { color: var(--accent); background: #f5f8fa; font-weight: 600; }
+.nav-chapter-number { display: block; color: var(--muted); font-size: 11px; margin-bottom: 4px; font-weight: 400; }
+.chapter-children { margin-left: 20px; border-left: 1px solid var(--line); }
+.sidebar #nav .chapter-children a { padding: 10px 16px; font-size: 13px; }
+#nav summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -3px; }
+.sidebar #nav .chapter-nav > summary { list-style: none; position: relative; padding-left: 36px; font-weight: 400; }
+.sidebar #nav .chapter-nav > summary::-webkit-details-marker { display: none; }
+.sidebar #nav .chapter-nav > summary::before { content: '▸'; position: absolute; left: 20px; top: 12px; color: var(--muted); }
+.sidebar #nav .chapter-nav[open] > summary::before { content: '▾'; }
+.sidebar #nav .chapter-current > summary { font-weight: 600; }
