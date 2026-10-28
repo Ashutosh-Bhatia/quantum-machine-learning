@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 370" role="img" aria-labelledby="title desc"><title id="title">Choose a question, then a state set</title><desc id="desc">A binary switch, a six-face die and a four-setting control have two, six and four labels respectively.</desc><rect width="1000" height="370" fill="white"/><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#ccd5dc;stroke-width:1.5}.line{fill:none;stroke:#286a9b;stroke-width:2}.selected{fill:#e3eff8;stroke:#286a9b;stroke-width:2}</style>
+<text x="30" y="40" font-size="26">A state set records the distinctions our question needs</text>
+<rect x="30" y="75" width="290" height="240" rx="5" class="box"/>
+<text x="48" y="108" font-size="22">On/off switch</text>
+<text x="48" y="245" font-size="18">Which position?</text>
+<text x="48" y="283" font-size="18">{off, on}</text>
+<rect x="355" y="75" width="290" height="240" rx="5" class="box"/>
+<text x="373" y="108" font-size="22">Resting die</text>
+<text x="373" y="245" font-size="18">Which face is uppermost?</text>
+<text x="373" y="283" font-size="18">{1, 2, 3, 4, 5, 6}</text>
+<rect x="680" y="75" width="290" height="240" rx="5" class="box"/>
+<text x="698" y="108" font-size="22">Four-setting control</text>
+<text x="698" y="245" font-size="18">Which setting?</text>
+<text x="698" y="283" font-size="18">{off, low, medium, high}</text>
+<rect x="104" y="140" width="130" height="55" rx="5" class="box"/>
+<circle cx="135" cy="167" r="19" fill="#286a9b"/>
+<text x="100" y="220" font-size="17">2 possible labels</text>
+<rect x="455" y="128" width="76" height="76" rx="5" class="box"/>
+<circle cx="470" cy="143" r="5" fill="#286a9b"/><circle cx="493" cy="166" r="5" fill="#286a9b"/><circle cx="516" cy="189" r="5" fill="#286a9b"/>
+<text x="427" y="220" font-size="17">6 possible labels</text>
+<rect x="704" y="148" width="56" height="42" rx="5" class="box"/>
+<text x="709" y="175" font-size="16">off</text>
+<rect x="765" y="148" width="56" height="42" rx="5" class="box"/>
+<text x="770" y="175" font-size="16">low</text>
+<rect x="826" y="148" width="56" height="42" rx="5" class="selected"/>
+<text x="831" y="175" font-size="16">med</text>
+<rect x="887" y="148" width="56" height="42" rx="5" class="box"/>
+<text x="892" y="175" font-size="16">high</text>
+<text x="752" y="220" font-size="17">4 possible labels</text>
+<text x="30" y="350" font-size="18">We model a selected position or face, not every physical property of the object.</text>
+</svg>

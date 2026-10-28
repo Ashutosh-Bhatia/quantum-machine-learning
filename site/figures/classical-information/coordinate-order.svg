@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 410" role="img" aria-labelledby="title desc"><title id="title">The state stays medium while coordinate order changes</title><desc id="desc">Medium is the third coordinate in off-low-medium-high order, and second in high-medium-low-off order.</desc><rect width="1000" height="410" fill="white"/><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#ccd5dc;stroke-width:1.5}.line{fill:none;stroke:#286a9b;stroke-width:2}.selected{fill:#e3eff8;stroke:#286a9b;stroke-width:2}</style>
+<text x="30" y="40" font-size="26">Same setting, different coordinate conventions</text>
+<text x="45" y="90" font-size="22">Order A</text>
+<text x="275" y="90" font-size="18">column</text>
+<rect x="45" y="110" width="380" height="43" rx="5" class="box"/>
+<text x="63" y="139" font-size="20">off</text>
+<text x="305" y="139" font-size="23">0</text>
+<rect x="45" y="159" width="380" height="43" rx="5" class="box"/>
+<text x="63" y="188" font-size="20">low</text>
+<text x="305" y="188" font-size="23">0</text>
+<rect x="45" y="208" width="380" height="43" rx="5" class="selected"/>
+<text x="63" y="237" font-size="20">medium</text>
+<text x="305" y="237" font-size="23">1</text>
+<rect x="45" y="257" width="380" height="43" rx="5" class="box"/>
+<text x="63" y="286" font-size="20">high</text>
+<text x="305" y="286" font-size="23">0</text>
+<text x="545" y="90" font-size="22">Order B</text>
+<text x="775" y="90" font-size="18">column</text>
+<rect x="545" y="110" width="380" height="43" rx="5" class="box"/>
+<text x="563" y="139" font-size="20">high</text>
+<text x="805" y="139" font-size="23">0</text>
+<rect x="545" y="159" width="380" height="43" rx="5" class="selected"/>
+<text x="563" y="188" font-size="20">medium</text>
+<text x="805" y="188" font-size="23">1</text>
+<rect x="545" y="208" width="380" height="43" rx="5" class="box"/>
+<text x="563" y="237" font-size="20">low</text>
+<text x="805" y="237" font-size="23">0</text>
+<rect x="545" y="257" width="380" height="43" rx="5" class="box"/>
+<text x="563" y="286" font-size="20">off</text>
+<text x="805" y="286" font-size="23">0</text>
+<text x="45" y="355" font-size="22">The 1 follows the label “medium”.</text>
+<text x="45" y="387" font-size="19">The device has not changed; its fixed binary code remains 10.</text>
+</svg>
