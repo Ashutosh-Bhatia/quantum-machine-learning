@@ -1,0 +1,45 @@
+{
+  "id": "qubit-update",
+  "number": "4.4",
+  "title": "What happens after a measurement?",
+  "part": "Part A · Chapter 4",
+  "chapter_id": "qubits-measurement",
+  "objectives": [
+    "Calculate a branch, its probability and its conditional normalized state.",
+    "Separate immediate remeasurement from repeated fresh preparations."
+  ],
+  "prerequisites": "Chapter 3’s complex amplitudes, normalization, inner products and projectors; Chapter 2’s probability and count distinction.",
+  "body_file": "chapters/qubits-measurement/4.html",
+  "quizzes": [
+    {
+      "id": "q4-branch",
+      "question": "A branch has probability p>0. What normalizes its amplitude column?",
+      "options": [
+        "Divide by p",
+        "Divide by sqrt(p)",
+        "Multiply by sqrt(p)"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That generally leaves the wrong norm.",
+        "Correct: sqrt(p) is the branch norm.",
+        "This shrinks rather than normalizes the branch."
+      ]
+    },
+    {
+      "id": "q4-repeat",
+      "question": "After an ideal Z outcome 0, what happens in an immediate ideal Z remeasurement with no intervening operation?",
+      "options": [
+        "It gives 0 with certainty.",
+        "It returns the original preparation probabilities.",
+        "It reveals the original relative phase."
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: the conditional state lies in the outcome-0 subspace.",
+        "That would require fresh preparation of the original state.",
+        "Repeated Z readout does not reveal the lost relative-phase information."
+      ]
+    }
+  ]
+}

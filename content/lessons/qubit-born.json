@@ -1,0 +1,45 @@
+{
+  "id": "qubit-born",
+  "number": "4.2",
+  "title": "The Born rule: amplitudes, probabilities and counts",
+  "part": "Part A · Chapter 4",
+  "chapter_id": "qubits-measurement",
+  "objectives": [
+    "Calculate Born probabilities from complex amplitudes.",
+    "Separate amplitudes, probabilities, expected counts and sampled frequencies."
+  ],
+  "prerequisites": "Chapter 3’s complex amplitudes, normalization, inner products and projectors; Chapter 2’s probability and count distinction.",
+  "body_file": "chapters/qubits-measurement/2.html",
+  "quizzes": [
+    {
+      "id": "q4-born",
+      "question": "If beta=i/2, what is the Z probability of outcome 1?",
+      "options": [
+        "i/2",
+        "1/2",
+        "1/4"
+      ],
+      "answer": 2,
+      "feedback": [
+        "An amplitude is not a probability.",
+        "The magnitude is 1/2; square it.",
+        "Correct: |i/2|²=1/4."
+      ]
+    },
+    {
+      "id": "q4-counts",
+      "question": "A known preparation has P(0)=5/9. Must 90 fresh shots contain exactly 50 zeros?",
+      "options": [
+        "Yes",
+        "No; 50 is the expected count, and actual batches fluctuate.",
+        "No; the expected count is 5/9."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The expected count is not a guaranteed result.",
+        "Correct. Probability and observed count are different quantities.",
+        "Multiply probability by the number of trials to get expected count."
+      ]
+    }
+  ]
+}

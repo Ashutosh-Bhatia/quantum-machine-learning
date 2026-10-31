@@ -11,13 +11,15 @@
     "math-outer",
     "math-matrices",
     "math-unitary",
-    "math-tensor"
+    "math-tensor",
+    "qubit-states",
+    "qubit-born",
+    "qubit-phase",
+    "qubit-update",
+    "qubit-bloch",
+    "qubit-evidence"
   ],
   "planned": [
-    {
-      "title": "Part A · Chapter 4 · Qubits and measurement",
-      "needs": "Pure states, Born probabilities, phase, and conditional projection."
-    },
     {
       "title": "Part A · Chapter 5 · Gates, interference and measurement bases",
       "needs": "Unitary evolution, gates, rotations, and Bloch geometry."
@@ -173,6 +175,21 @@
         "math-unitary",
         "math-tensor"
       ]
+    },
+    {
+      "id": "qubits-measurement",
+      "title": "Qubits and Measurement",
+      "number": 4,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/qubits-measurement/overview.html",
+      "lessons": [
+        "qubit-states",
+        "qubit-born",
+        "qubit-phase",
+        "qubit-update",
+        "qubit-bloch",
+        "qubit-evidence"
+      ]
     }
   ],
   "reading_order": [
@@ -190,6 +207,13 @@
     "math-outer",
     "math-matrices",
     "math-unitary",
-    "math-tensor"
+    "math-tensor",
+    "qubits-measurement",
+    "qubit-states",
+    "qubit-born",
+    "qubit-phase",
+    "qubit-update",
+    "qubit-bloch",
+    "qubit-evidence"
   ]
 }

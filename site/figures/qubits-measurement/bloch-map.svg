@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 440" role="img" aria-labelledby="t d"><title id="t">Pure state Bloch map</title><desc id="d">The poles, equator and a sample pure-state vector appear beside amplitudes and probability formulas.</desc><rect width="1000" height="440" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#c3cbd2;stroke-width:1.5}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="40" font-size="25">A point on the sphere is a state map, not an amplitude column</text>
+<circle cx="240" cy="235" r="135" fill="none" stroke="#b5c2cc"/><ellipse cx="240" cy="235" rx="135" ry="43" fill="none" stroke="#c8d1d8"/>
+<path d="M240 235L240 100" class="line"/>
+<path d="M240 235L145 268" class="line"/>
+<path d="M240 235L335 268" class="line"/>
+<path d="M240 235L320 155" class="line"/>
+<text x="248" y="88" font-size="20">z · |0⟩</text>
+<text x="248" y="395" font-size="20">|1⟩</text>
+<text x="125" y="293" font-size="20">x</text>
+<text x="342" y="293" font-size="20">y</text>
+<text x="326" y="150" font-size="20">|ψ⟩</text>
+<text x="248" y="190" font-size="20">θ</text>
+<text x="130" y="420" font-size="18">Equator: equal Z probabilities</text>
+<rect x="490" y="100" width="475" height="265" rx="5" class="box"/>
+<text x="510" y="139" font-size="21">α = cos(θ/2)</text>
+<text x="510" y="178" font-size="21">β = exp(iφ) sin(θ/2)</text>
+<text x="510" y="217" font-size="21">z = cos θ</text>
+<text x="510" y="256" font-size="21">PZ(0) = (1 + z)/2</text>
+<text x="510" y="295" font-size="21">PZ(1) = (1 − z)/2</text>
+<text x="510" y="334" font-size="18">φ labels azimuth around the z-axis.</text>
+</svg>

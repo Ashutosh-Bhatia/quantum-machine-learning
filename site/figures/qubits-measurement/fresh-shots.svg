@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-labelledby="t d"><title id="t">Fresh shots</title><desc id="d">Every shot uses a new preparation before the measurement.</desc><rect width="1000" height="430" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#c3cbd2;stroke-width:1.5}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="40" font-size="26">Repeat the preparation, not just the readout</text>
+<rect x="35" y="80" width="250" height="55" rx="5" class="box"/>
+<text x="50" y="115" font-size="21">Prepare the same |ψ⟩</text>
+<rect x="400" y="80" width="200" height="55" rx="5" class="box"/>
+<text x="415" y="115" font-size="21">Measure Z</text>
+<rect x="720" y="80" width="230" height="55" rx="5" class="box"/>
+<text x="735" y="115" font-size="21">Record 0</text>
+<path d="M285 108L390 108" class="line"/>
+<path d="M600 108L710 108" class="line"/>
+<rect x="35" y="175" width="250" height="55" rx="5" class="box"/>
+<text x="50" y="210" font-size="21">Prepare the same |ψ⟩</text>
+<rect x="400" y="175" width="200" height="55" rx="5" class="box"/>
+<text x="415" y="210" font-size="21">Measure Z</text>
+<rect x="720" y="175" width="230" height="55" rx="5" class="box"/>
+<text x="735" y="210" font-size="21">Record 1</text>
+<path d="M285 203L390 203" class="line"/>
+<path d="M600 203L710 203" class="line"/>
+<rect x="35" y="270" width="250" height="55" rx="5" class="box"/>
+<text x="50" y="305" font-size="21">Prepare the same |ψ⟩</text>
+<rect x="400" y="270" width="200" height="55" rx="5" class="box"/>
+<text x="415" y="305" font-size="21">Measure Z</text>
+<rect x="720" y="270" width="230" height="55" rx="5" class="box"/>
+<text x="735" y="305" font-size="21">Record 0</text>
+<path d="M285 298L390 298" class="line"/>
+<path d="M600 298L710 298" class="line"/>
+<text x="30" y="395" font-size="19">These records are illustrative. Counts fluctuate around the prediction across batches.</text>
+</svg>

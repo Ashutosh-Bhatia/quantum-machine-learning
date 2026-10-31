@@ -1,0 +1,45 @@
+{
+  "id": "qubit-states",
+  "number": "4.1",
+  "title": "What is a qubit state?",
+  "part": "Part A · Chapter 4",
+  "chapter_id": "qubits-measurement",
+  "objectives": [
+    "Interpret a normalized complex column as a pure-qubit state in a declared basis.",
+    "Distinguish coherent superposition from a randomized preparation."
+  ],
+  "prerequisites": "Chapter 3’s complex amplitudes, normalization, inner products and projectors; Chapter 2’s probability and count distinction.",
+  "body_file": "chapters/qubits-measurement/1.html",
+  "quizzes": [
+    {
+      "id": "q4-state-valid",
+      "question": "Which column is already a normalized pure-qubit state?",
+      "options": [
+        "(1,i)",
+        "(1,i)/sqrt(2)",
+        "(0,0)"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Its squared norm is 2.",
+        "Correct: the squared magnitudes sum to 1.",
+        "The zero vector has norm zero and cannot be normalized."
+      ]
+    },
+    {
+      "id": "q4-preparation",
+      "question": "Does ket notation alone make a column a quantum state?",
+      "options": [
+        "Yes",
+        "No; its space, normalization and interpretation must be specified.",
+        "Only if the entries are positive."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Kets can also label the classical basis columns used in Chapter 2.",
+        "Correct. Notation does not supply the state model.",
+        "Complex or negative amplitudes are allowed; positivity is a rule for classical probabilities."
+      ]
+    }
+  ]
+}

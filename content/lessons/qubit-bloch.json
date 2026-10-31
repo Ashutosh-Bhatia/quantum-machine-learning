@@ -1,0 +1,45 @@
+{
+  "id": "qubit-bloch",
+  "number": "4.5",
+  "title": "The Bloch sphere as a map of pure states",
+  "part": "Part A · Chapter 4",
+  "chapter_id": "qubits-measurement",
+  "objectives": [
+    "Translate pure-state amplitudes to a Bloch point up to global phase.",
+    "Interpret poles, relative phase and measurement probabilities."
+  ],
+  "prerequisites": "Chapter 3’s complex amplitudes, normalization, inner products and projectors; Chapter 2’s probability and count distinction.",
+  "body_file": "chapters/qubits-measurement/5.html",
+  "quizzes": [
+    {
+      "id": "q4-bloch",
+      "question": "If the Bloch z-coordinate is −1/2, what is PZ(1)?",
+      "options": [
+        "−1/2",
+        "1/4",
+        "3/4"
+      ],
+      "answer": 2,
+      "feedback": [
+        "A coordinate can be negative; a probability cannot.",
+        "That is PZ(0).",
+        "Correct: (1−z)/2=3/4."
+      ]
+    },
+    {
+      "id": "q4-pole",
+      "question": "At the south pole, do different phi values specify different pure-qubit states?",
+      "options": [
+        "Yes, all angles are physically different.",
+        "No; the remaining component changes only by a global phase.",
+        "Only when phi is negative."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The 0 component vanishes, so this azimuth is not a distinct physical direction.",
+        "Correct. Relative phase between two nonzero components is unavailable here.",
+        "The sign convention for angles does not change the pole."
+      ]
+    }
+  ]
+}

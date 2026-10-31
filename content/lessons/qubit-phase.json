@@ -1,0 +1,45 @@
+{
+  "id": "qubit-phase",
+  "number": "4.3",
+  "title": "Global phase and relative phase",
+  "part": "Part A · Chapter 4",
+  "chapter_id": "qubits-measurement",
+  "objectives": [
+    "Distinguish coordinate equality, global-phase equivalence and equal Z statistics.",
+    "Demonstrate relative phase through X-basis overlaps."
+  ],
+  "prerequisites": "Chapter 3’s complex amplitudes, normalization, inner products and projectors; Chapter 2’s probability and count distinction.",
+  "body_file": "chapters/qubits-measurement/3.html",
+  "quizzes": [
+    {
+      "id": "q4-global",
+      "question": "Which state differs from |+⟩ only by a global phase?",
+      "options": [
+        "|−⟩",
+        "−|+⟩ (negate the entire column)",
+        "|0⟩"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Minus reverses one relative sign.",
+        "Correct: the whole vector is multiplied by −1.",
+        "Basis 0 has different Z probabilities."
+      ]
+    },
+    {
+      "id": "q4-relative",
+      "question": "For (|0>+exp(i phi)|1>)/sqrt(2), which statement holds?",
+      "options": [
+        "Z probabilities determine phi uniquely.",
+        "X-positive probability can change while Z probabilities stay fixed.",
+        "Changing phi is always a global phase."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Z probabilities are 1/2 for all phi.",
+        "Correct: PX(+)=(1+cos(phi))/2.",
+        "Changing one component phase can change relative phase."
+      ]
+    }
+  ]
+}

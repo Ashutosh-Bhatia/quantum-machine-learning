@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-labelledby="t d"><title id="t">Two preparation procedures</title><desc id="d">Pure plus and an equal random basis preparation agree in Z but differ in X.</desc><rect width="1000" height="480" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#c3cbd2;stroke-width:1.5}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="40" font-size="26">Choose a measurement on each freshly prepared trial</text>
+<rect x="30" y="105" width="360" height="90" rx="5" class="box"/>
+<text x="45" y="157" font-size="20">Pure plus</text>
+<rect x="530" y="75" width="430" height="60" rx="5" class="box"/>
+<text x="550" y="113" font-size="22">Z: (1/2, 1/2)</text>
+<rect x="530" y="160" width="430" height="60" rx="5" class="box"/>
+<text x="550" y="198" font-size="22">X: (1, 0)</text>
+<path d="M390 150H465M465 150V105H520M465 150V190H520" fill="none" stroke="#286a9b" stroke-width="2"/>
+<rect x="30" y="300" width="360" height="90" rx="5" class="box"/>
+<text x="45" y="352" font-size="20">Fair random choice: 0 or 1</text>
+<rect x="530" y="270" width="430" height="60" rx="5" class="box"/>
+<text x="550" y="308" font-size="22">Z: (1/2, 1/2)</text>
+<rect x="530" y="355" width="430" height="60" rx="5" class="box"/>
+<text x="550" y="393" font-size="22">X: (1/2, 1/2)</text>
+<path d="M390 345H465M465 345V300H520M465 345V385H520" fill="none" stroke="#286a9b" stroke-width="2"/>
+<text x="30" y="460" font-size="19">The branches are alternative detector choices, not successive Z and X readouts.</text>
+</svg>

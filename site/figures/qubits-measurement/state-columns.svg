@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 380" role="img" aria-labelledby="t d"><title id="t">Classical probabilities and quantum amplitudes</title><desc id="d">Two different column types have different normalization rules.</desc><rect width="1000" height="380" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#c3cbd2;stroke-width:1.5}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="40" font-size="27">Same basis labels, different meanings</text>
+<rect x="35" y="85" width="430" height="230" rx="5" class="box"/>
+<text x="53" y="122" font-size="22">Randomized 0/1 preparation</text>
+<text x="75" y="180" font-size="18">label 0</text>
+<text x="240" y="180" font-size="25">1/2</text>
+<text x="75" y="228" font-size="18">label 1</text>
+<text x="240" y="228" font-size="25">1/2</text>
+<text x="75" y="285" font-size="23">p₀ + p₁ = 1</text>
+<rect x="535" y="85" width="430" height="230" rx="5" class="box"/>
+<text x="553" y="122" font-size="22">Pure quantum amplitude column</text>
+<text x="575" y="180" font-size="18">label 0</text>
+<text x="740" y="180" font-size="25">1/√2</text>
+<text x="575" y="228" font-size="18">label 1</text>
+<text x="740" y="228" font-size="25">1/√2</text>
+<text x="575" y="285" font-size="23">|α|² + |β|² = 1</text>
+<text x="30" y="355" font-size="20">A random 0/1 qubit preparation and pure plus agree in Z, but can differ in X.</text>
+</svg>

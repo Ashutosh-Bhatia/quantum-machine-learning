@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 410" role="img" aria-labelledby="t d"><title id="t">Global and relative phase</title><desc id="d">A common phase changes both amplitude arrows; a relative phase changes their relation.</desc><rect width="1000" height="410" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#c3cbd2;stroke-width:1.5}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="40" font-size="26">Global phase and relative phase ask different questions</text>
+<rect x="35" y="75" width="430" height="275" rx="5" class="box"/>
+<text x="53" y="112" font-size="23">Common phase γ</text>
+<circle cx="145" cy="240" r="55" fill="none" stroke="#d3dbe1"/>
+<path d="M145 240L145.0 195.0" class="line"/>
+<text x="137" y="320" font-size="23">α</text>
+<circle cx="335" cy="240" r="55" fill="none" stroke="#d3dbe1"/>
+<path d="M335 240L335.0 195.0" class="line"/>
+<text x="327" y="320" font-size="23">β</text>
+<text x="53" y="335" font-size="17">All measurement probabilities unchanged</text>
+<rect x="535" y="75" width="430" height="275" rx="5" class="box"/>
+<text x="553" y="112" font-size="23">Relative phase φ</text>
+<circle cx="645" cy="240" r="55" fill="none" stroke="#d3dbe1"/>
+<path d="M645 240L690.0 240.0" class="line"/>
+<text x="637" y="320" font-size="23">α</text>
+<circle cx="835" cy="240" r="55" fill="none" stroke="#d3dbe1"/>
+<path d="M835 240L835.0 195.0" class="line"/>
+<text x="827" y="320" font-size="23">β</text>
+<text x="553" y="335" font-size="17">Another basis can reveal a difference</text>
+<text x="30" y="390" font-size="20">Arrows represent complex amplitudes; this is not a Bloch-sphere diagram.</text>
+</svg>

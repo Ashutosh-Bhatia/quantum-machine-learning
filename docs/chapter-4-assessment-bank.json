@@ -1,0 +1,367 @@
+{
+  "status": "Authoring assessment bank used by Chapter 4; this file is not rendered as lesson content.",
+  "quizzes": [
+    {
+      "id": "q4-state-valid",
+      "lesson": "4.1",
+      "question": "Which column is already a normalized pure-qubit state?",
+      "options": [
+        "(1,i)",
+        "(1,i)/sqrt(2)",
+        "(0,0)"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Its squared norm is 2.",
+        "Correct: the squared magnitudes sum to 1.",
+        "The zero vector has norm zero and cannot be normalized."
+      ]
+    },
+    {
+      "id": "q4-preparation",
+      "lesson": "4.1",
+      "question": "Does ket notation alone make a column a quantum state?",
+      "options": [
+        "Yes",
+        "No; its space, normalization and interpretation must be specified.",
+        "Only if the entries are positive."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Kets can also label the classical basis columns used in Chapter 2.",
+        "Correct. Notation does not supply the state model.",
+        "Complex or negative amplitudes are allowed; positivity is a rule for classical probabilities."
+      ]
+    },
+    {
+      "id": "q4-born",
+      "lesson": "4.2",
+      "question": "If beta=i/2, what is the Z probability of outcome 1?",
+      "options": [
+        "i/2",
+        "1/2",
+        "1/4"
+      ],
+      "answer": 2,
+      "feedback": [
+        "An amplitude is not a probability.",
+        "The magnitude is 1/2; square it.",
+        "Correct: |i/2|²=1/4."
+      ]
+    },
+    {
+      "id": "q4-counts",
+      "lesson": "4.2",
+      "question": "A known preparation has P(0)=5/9. Must 90 fresh shots contain exactly 50 zeros?",
+      "options": [
+        "Yes",
+        "No; 50 is the expected count, and actual batches fluctuate.",
+        "No; the expected count is 5/9."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The expected count is not a guaranteed result.",
+        "Correct. Probability and observed count are different quantities.",
+        "Multiply probability by the number of trials to get expected count."
+      ]
+    },
+    {
+      "id": "q4-global",
+      "lesson": "4.3",
+      "question": "Which state differs from |+⟩ only by a global phase?",
+      "options": [
+        "|−⟩",
+        "−|+⟩ (negate the entire column)",
+        "|0⟩"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Minus reverses one relative sign.",
+        "Correct: the whole vector is multiplied by −1.",
+        "Basis 0 has different Z probabilities."
+      ]
+    },
+    {
+      "id": "q4-relative",
+      "lesson": "4.3",
+      "question": "For (|0>+exp(i phi)|1>)/sqrt(2), which statement holds?",
+      "options": [
+        "Z probabilities determine phi uniquely.",
+        "X-positive probability can change while Z probabilities stay fixed.",
+        "Changing phi is always a global phase."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Z probabilities are 1/2 for all phi.",
+        "Correct: PX(+)=(1+cos(phi))/2.",
+        "Changing one component phase can change relative phase."
+      ]
+    },
+    {
+      "id": "q4-branch",
+      "lesson": "4.4",
+      "question": "A branch has probability p>0. What normalizes its amplitude column?",
+      "options": [
+        "Divide by p",
+        "Divide by sqrt(p)",
+        "Multiply by sqrt(p)"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That generally leaves the wrong norm.",
+        "Correct: sqrt(p) is the branch norm.",
+        "This shrinks rather than normalizes the branch."
+      ]
+    },
+    {
+      "id": "q4-repeat",
+      "lesson": "4.4",
+      "question": "After an ideal Z outcome 0, what happens in an immediate ideal Z remeasurement with no intervening operation?",
+      "options": [
+        "It gives 0 with certainty.",
+        "It returns the original preparation probabilities.",
+        "It reveals the original relative phase."
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: the conditional state lies in the outcome-0 subspace.",
+        "That would require fresh preparation of the original state.",
+        "Repeated Z readout does not reveal the lost relative-phase information."
+      ]
+    },
+    {
+      "id": "q4-bloch",
+      "lesson": "4.5",
+      "question": "If the Bloch z-coordinate is −1/2, what is PZ(1)?",
+      "options": [
+        "−1/2",
+        "1/4",
+        "3/4"
+      ],
+      "answer": 2,
+      "feedback": [
+        "A coordinate can be negative; a probability cannot.",
+        "That is PZ(0).",
+        "Correct: (1−z)/2=3/4."
+      ]
+    },
+    {
+      "id": "q4-pole",
+      "lesson": "4.5",
+      "question": "At the south pole, do different phi values specify different pure-qubit states?",
+      "options": [
+        "Yes, all angles are physically different.",
+        "No; the remaining component changes only by a global phase.",
+        "Only when phi is negative."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The 0 component vanishes, so this azimuth is not a distinct physical direction.",
+        "Correct. Relative phase between two nonzero components is unavailable here.",
+        "The sign convention for angles does not change the pole."
+      ]
+    },
+    {
+      "id": "q4-mixture",
+      "lesson": "4.6",
+      "question": "Plus and an equal random choice of basis 0/1 have the same Z statistics. What distinguishes them in this example?",
+      "options": [
+        "Their X measurement statistics",
+        "The number of qubits: plus requires two",
+        "A single Z shot always distinguishes them"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: X-positive probability is 1 for plus and 1/2 for the randomized preparation.",
+        "Both preparations describe a single qubit.",
+        "Either can return 0 or 1 in Z."
+      ]
+    },
+    {
+      "id": "q4-state-readout",
+      "lesson": "4.6",
+      "question": "Does one measurement outcome reveal both amplitudes of an unknown qubit?",
+      "options": [
+        "Yes, if a simulator shows its statevector.",
+        "No; simulator model access differs from physical measurement.",
+        "Yes, if the outcome is 0."
+      ],
+      "answer": 1,
+      "feedback": [
+        "A simulator can expose stored model data that a physical shot does not provide.",
+        "Correct. One recorded outcome is not a statevector readout.",
+        "Outcome 0 does not uniquely specify the original preparation."
+      ]
+    }
+  ],
+  "practice": [
+    {
+      "id": "p4-01",
+      "lesson": "4.1",
+      "question": "Normalize the column (1−i,2) with a positive real factor.",
+      "hint": "Find its squared norm first.",
+      "solution": "N=1/√(6); the normalized column is ((1−i)/√(6),2/√(6))."
+    },
+    {
+      "id": "p4-02",
+      "lesson": "4.1",
+      "question": "Which of (1/√(3),√(2/3)), (1,i), ((1+i)/2,(1−i)/2) are already unit vectors?",
+      "hint": "Sum squared magnitudes for each column.",
+      "solution": "The first and third are unit vectors; the second has squared norm 2."
+    },
+    {
+      "id": "p4-03",
+      "lesson": "4.1",
+      "question": "Explain why coefficients (3/4,1/4) in a classical probability column cannot be read as the same quantum amplitudes.",
+      "hint": "Compare sum of entries with sum of squared magnitudes.",
+      "solution": "The sum is 1 but squared norm is 10/16, not 1. A pure state with Z probabilities (3/4,1/4) could instead use amplitudes (√(3)/2,1/2)."
+    },
+    {
+      "id": "p4-04",
+      "lesson": "4.2",
+      "question": "Find Z probabilities for ((1+2i)/3,−2/3).",
+      "hint": "Use complex conjugates.",
+      "solution": "P0=5/9; P1=4/9."
+    },
+    {
+      "id": "p4-05",
+      "lesson": "4.2",
+      "question": "For (√(3)/2,i/2), find probabilities and expected counts in 200 shots.",
+      "hint": "Expected count is shots times probability.",
+      "solution": "Probabilities 3/4 and 1/4; expected counts 150 and 50. Actual counts need not equal these."
+    },
+    {
+      "id": "p4-06",
+      "lesson": "4.2",
+      "question": "A batch has 58 zeros and 42 ones. What is the empirical P(1), and does it uniquely specify the state?",
+      "hint": "Keep the count denominator and unknown phase in view.",
+      "solution": "The empirical frequency is 0.42. A finite-batch estimate is not an exact probability, and even exact Z probabilities do not specify relative phase."
+    },
+    {
+      "id": "p4-07",
+      "lesson": "4.3",
+      "question": "Classify plus, the negative of plus and minus by coordinate equality, global equivalence and Z probability equality.",
+      "hint": "Inspect both coefficients, not just their magnitudes.",
+      "solution": "All three have the same Z probabilities. Plus and the negative of plus have different coordinate vectors but equivalent pure states. Minus is neither equal nor globally equivalent to plus."
+    },
+    {
+      "id": "p4-08",
+      "lesson": "4.3",
+      "question": "Evaluate PX(+) for φ=0, π/2 and pi in the phase family.",
+      "hint": "Calculate (1+cos(phi))/2.",
+      "solution": "The values are 1, 1/2 and 0."
+    },
+    {
+      "id": "p4-09",
+      "lesson": "4.3",
+      "question": "Prove global-phase invariance for an arbitrary normalized measurement vector m.",
+      "hint": "Factor the phase out of <m|exp(i gamma)psi>.",
+      "solution": "The squared magnitude becomes |exp(i gamma)|² |<m|psi>|², equal to the original probability because the first factor is 1."
+    },
+    {
+      "id": "p4-10",
+      "lesson": "4.4",
+      "question": "For (1/2,√(3)/2), calculate the outcome-1 branch, probability and conditional state.",
+      "hint": "Apply diag(0,1), then divide by the branch norm.",
+      "solution": "Branch (0,√(3)/2), probability 3/4, conditional state (0,1)."
+    },
+    {
+      "id": "p4-11",
+      "lesson": "4.4",
+      "question": "For the complex slide state, find the conditional vector after outcome 0 and compare it with |0>.",
+      "hint": "Retain the complex coefficient when normalizing.",
+      "solution": "The vector is ((1+2i)/√(5),0), differing from |0> only by a unit-modulus overall phase."
+    },
+    {
+      "id": "p4-12",
+      "lesson": "4.4",
+      "question": "From |0>, measure X and then Z. Give probabilities for both Z outcomes even after recording X-positive.",
+      "hint": "Use the plus state as the conditional X-positive state.",
+      "solution": "X-positive and X-negative each have probability 1/2. Conditioned on either, Z gives 0/1 each with probability 1/2."
+    },
+    {
+      "id": "p4-13",
+      "lesson": "4.5",
+      "question": "For θ=2π/3, φ=pi/2, find amplitudes, Bloch coordinates and Z probabilities.",
+      "hint": "Remember the half-angle in the amplitudes.",
+      "solution": "Amplitudes (1/2,i √(3)/2); coordinates (0,√(3)/2,−1/2); probabilities (1/4,3/4)."
+    },
+    {
+      "id": "p4-14",
+      "lesson": "4.5",
+      "question": "Identify the points of plus, minus and plus-i.",
+      "hint": "Use θ=pi/2 for the equator.",
+      "solution": "Their points are (1,0,0), (−1,0,0) and (0,1,0)."
+    },
+    {
+      "id": "p4-15",
+      "lesson": "4.5",
+      "question": "If PZ(1)=1/4, what is z, and is the whole Bloch point determined?",
+      "hint": "Solve PZ(1)=(1−z)/2.",
+      "solution": "z=1/2. The azimuth remains undetermined, so the full pure-state point is not fixed."
+    },
+    {
+      "id": "p4-16",
+      "lesson": "4.6",
+      "question": "Compare Z/X probabilities for pure plus and the equal randomized 0/1 preparation.",
+      "hint": "Average the predictions for the two randomized branches.",
+      "solution": "Z is (1/2,1/2) for both. X is (1,0) for plus and (1/2,1/2) for the randomized procedure."
+    },
+    {
+      "id": "p4-17",
+      "lesson": "4.6",
+      "question": "Does seeing one zero show the original preparation was |0>?",
+      "hint": "Find another state capable of producing zero.",
+      "solution": "No. Plus and many other states can produce the same outcome. The outcome constrains, but does not identify, the original preparation."
+    },
+    {
+      "id": "p4-18",
+      "lesson": "4.6",
+      "question": "Explain the difference between ten fresh measurements of plus in Z and ten Z measurements on the same qubit after its first Z measurement.",
+      "hint": "Ask whether preparation is repeated.",
+      "solution": "Fresh preparations yield ten independent Bernoulli trials. Without intervening changes, the reused system repeats the first recorded result in the ideal projective model."
+    },
+    {
+      "id": "p4-C1",
+      "lesson": "cumulative",
+      "question": "For ((1+2i)/3,−2/3), calculate Z and X probabilities.",
+      "hint": "Use (alpha±beta)/√(2) for X amplitudes.",
+      "solution": "Z=(5/9,4/9); X=(5/18,13/18)."
+    },
+    {
+      "id": "p4-C2",
+      "lesson": "cumulative",
+      "question": "Multiply that state by i. Which Z/X probabilities change?",
+      "hint": "Prove it is one common phase factor.",
+      "solution": "None change. The coordinate amplitudes change, while all the specified measurement probabilities remain unchanged."
+    },
+    {
+      "id": "p4-C3",
+      "lesson": "cumulative",
+      "question": "Normalize (1−i,2), find Z probabilities and the normalized outcome-0 branch.",
+      "hint": "Do not discard the component phase prematurely.",
+      "solution": "N=1/√(6), probabilities (1/3,2/3), branch ((1−i)/√(2),0), globally equivalent to |0>."
+    },
+    {
+      "id": "p4-C4",
+      "lesson": "cumulative",
+      "question": "Write a procedure that estimates Z probabilities without claiming to read both amplitudes.",
+      "hint": "Specify preparation, one shot, reset and a count denominator.",
+      "solution": "Prepare the same known state for each trial, measure Z once per trial, record classical outcomes, and divide counts by the total. The histogram estimates Z probabilities, not relative phase."
+    },
+    {
+      "id": "p4-C5",
+      "lesson": "cumulative",
+      "question": "Show why a projector is not an ordinary reversible gate.",
+      "hint": "Compare P0 with the identity and check its action on |1>.",
+      "solution": "P0 maps |1> to zero and has no full-space inverse; P0†P0=P0≠I. It is used with outcome probabilities and conditional-state rules."
+    },
+    {
+      "id": "p4-C6",
+      "lesson": "cumulative",
+      "question": "Name assumptions needed for immediate measurement repeatability.",
+      "hint": "Consider noise, basis changes and intervening gates.",
+      "solution": "An ideal projective measurement, the same measurement basis, retained system, and no intervening evolution or disturbance. Fresh preparation is a different procedure."
+    }
+  ]
+}
