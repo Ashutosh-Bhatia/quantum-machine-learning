@@ -1,0 +1,46 @@
+{
+  "id": "joint-controlled",
+  "number": "6.4",
+  "title": "Controlled gates and the Bell preparation",
+  "part": "Part A · Chapter 6",
+  "chapter_id": "composite-systems",
+  "objectives": [
+    "Apply CNOT by its basis permutation.",
+    "Distinguish coherent control from measuring a control bit."
+  ],
+  "prerequisites": "Chapters 3–5: tensor products, complex amplitudes, unitary gates, Born probabilities and measurement bases.",
+  "body_file": "chapters/composite-systems/4.html",
+  "quizzes": [
+    {
+      "id": "q6-cx",
+      "question": "What does CNOT with A control do to |10⟩?",
+      "options": [
+        "|10⟩",
+        "|11⟩",
+        "|01⟩"
+      ],
+      "answer": 1,
+      "feedback": [
+        "A=1 activates the target flip.",
+        "Correct: retain A and flip B.",
+        "That exchanges the subsystems."
+      ]
+    },
+    {
+      "id": "q6-cx-ent",
+      "question": "Does CNOT always create entanglement?",
+      "options": [
+        "Yes, for every pure input.",
+        "No: it depends on the input.",
+        "No: it can never create entanglement."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Basis inputs remain basis states.",
+        "Correct: plus⊗zero becomes entangled, while plus⊗plus does not.",
+        "The Bell preparation is a counterexample."
+      ]
+    }
+  ],
+  "notebook": "07-composite-systems-and-entanglement.ipynb"
+}

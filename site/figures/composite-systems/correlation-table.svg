@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="t d"><title id="t">Correlation comparison</title><desc id="d">Bell and random zero-zero or one-one preparations share ZZ statistics but differ in XX.</desc><rect width="1000" height="360" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">One matching histogram is not enough</text>
+<text x="35" y="115" font-size="23">Preparation</text>
+<text x="455" y="115" font-size="23">Equal Z records</text>
+<text x="735" y="115" font-size="23">Equal X records</text>
+<text x="35" y="190" font-size="25">Bell Φ-positive</text>
+<text x="510" y="190" font-size="27">1</text>
+<text x="790" y="190" font-size="27">1</text>
+<text x="35" y="265" font-size="25">Fair random 00/11</text>
+<text x="510" y="265" font-size="27">1</text>
+<text x="790" y="265" font-size="27">1/2</text>
+<text x="35" y="330" font-size="21">Both local marginals are uniform. Compare measurements under stated assumptions.</text>
+</svg>

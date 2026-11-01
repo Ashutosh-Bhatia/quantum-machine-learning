@@ -23,13 +23,15 @@
     "gate-hadamard",
     "gate-interference",
     "gate-rotations",
-    "gate-circuits"
+    "gate-circuits",
+    "joint-states",
+    "joint-product",
+    "joint-local",
+    "joint-controlled",
+    "joint-measurement",
+    "joint-correlation"
   ],
   "planned": [
-    {
-      "title": "Part A · Chapter 6 · Composite systems and entanglement",
-      "needs": "Tensor products, controlled gates, Bell states, and partial measurement."
-    },
     {
       "title": "Part A · Chapter 7 · Registers, conventions and oracles",
       "needs": "Circuit/readout ordering and reversible oracle access."
@@ -207,6 +209,21 @@
         "gate-rotations",
         "gate-circuits"
       ]
+    },
+    {
+      "id": "composite-systems",
+      "title": "Composite Systems and Entanglement",
+      "number": 6,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/composite-systems/overview.html",
+      "lessons": [
+        "joint-states",
+        "joint-product",
+        "joint-local",
+        "joint-controlled",
+        "joint-measurement",
+        "joint-correlation"
+      ]
     }
   ],
   "reading_order": [
@@ -238,6 +255,13 @@
     "gate-hadamard",
     "gate-interference",
     "gate-rotations",
-    "gate-circuits"
+    "gate-circuits",
+    "composite-systems",
+    "joint-states",
+    "joint-product",
+    "joint-local",
+    "joint-controlled",
+    "joint-measurement",
+    "joint-correlation"
   ]
 }

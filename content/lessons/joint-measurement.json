@@ -1,0 +1,46 @@
+{
+  "id": "joint-measurement",
+  "number": "6.5",
+  "title": "Measuring one part of a system",
+  "part": "Part A · Chapter 6",
+  "chapter_id": "composite-systems",
+  "objectives": [
+    "Compute a partial-measurement branch and its probability.",
+    "Separate conditional predictions from ignored-record marginals."
+  ],
+  "prerequisites": "Chapters 3–5: tensor products, complex amplitudes, unitary gates, Born probabilities and measurement bases.",
+  "body_file": "chapters/composite-systems/5.html",
+  "quizzes": [
+    {
+      "id": "q6-branch",
+      "question": "For (1,i,1,0)/√3, what is B conditioned on A=0?",
+      "options": [
+        "(1,i)/√2",
+        "(1,i)/√3",
+        "(1,0)"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: divide the two-entry branch by √(2/3).",
+        "This branch is not normalized.",
+        "That belongs to A=1."
+      ]
+    },
+    {
+      "id": "q6-signal",
+      "question": "Can Alice choose her random Bell outcome to transmit a bit to Bob?",
+      "options": [
+        "Yes, by selecting a measurement basis.",
+        "No; his unconditioned local statistics do not reveal that choice.",
+        "Yes, because their Z results match."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Basis choice does not change his local marginal.",
+        "Correct: conditional correlations require comparison of classical records.",
+        "Matching random records are not a controllable signal."
+      ]
+    }
+  ],
+  "notebook": "07-composite-systems-and-entanglement.ipynb"
+}

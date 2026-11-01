@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 370" role="img" aria-labelledby="t d"><title id="t">Local gate pairing</title><desc id="d">H on A pairs a with c and b with d; H on B pairs a with b and c with d.</desc><rect width="1000" height="370" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">Which entries can a local gate mix?</text>
+<rect x="35" y="90" width="430" height="210" rx="5" class="box"/>
+<text x="60" y="135" font-size="26">H on A: H ⊗ I</text>
+<text x="60" y="200" font-size="25">(a, c): same B=0</text>
+<text x="60" y="250" font-size="25">(b, d): same B=1</text>
+<rect x="535" y="90" width="430" height="210" rx="5" class="box"/>
+<text x="560" y="135" font-size="26">H on B: I ⊗ H</text>
+<text x="560" y="200" font-size="25">(a, b): same A=0</text>
+<text x="560" y="250" font-size="25">(c, d): same A=1</text>
+<text x="35" y="345" font-size="22">Each local action is represented on the whole joint column. Factor order matters.</text>
+</svg>

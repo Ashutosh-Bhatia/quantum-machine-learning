@@ -1,0 +1,46 @@
+{
+  "id": "joint-product",
+  "number": "6.2",
+  "title": "Product states and entangled states",
+  "part": "Part A · Chapter 6",
+  "chapter_id": "composite-systems",
+  "objectives": [
+    "Test pure-state factorization.",
+    "Distinguish entanglement from uncertainty in local outcomes."
+  ],
+  "prerequisites": "Chapters 3–5: tensor products, complex amplitudes, unitary gates, Born probabilities and measurement bases.",
+  "body_file": "chapters/composite-systems/2.html",
+  "quizzes": [
+    {
+      "id": "q6-product",
+      "question": "Which pure state is entangled?",
+      "options": [
+        "Plus⊗plus",
+        "(00+11)/√2",
+        "Zero⊗plus"
+      ],
+      "answer": 1,
+      "feedback": [
+        "It factors into two local pure states.",
+        "Correct: ad−bc is nonzero.",
+        "It is already written as a product."
+      ]
+    },
+    {
+      "id": "q6-pure",
+      "question": "Can the determinant test classify an arbitrary mixed preparation from a Z histogram?",
+      "options": [
+        "Yes, every correlated histogram is entangled.",
+        "No: it tests a specified pure-state column.",
+        "Yes, replace amplitudes by probabilities."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Classical preparations can have correlated records.",
+        "Correct: the pure-state assumption matters.",
+        "Probabilities are not amplitudes."
+      ]
+    }
+  ],
+  "notebook": "07-composite-systems-and-entanglement.ipynb"
+}

@@ -1,0 +1,46 @@
+{
+  "id": "joint-correlation",
+  "number": "6.6",
+  "title": "Entanglement, correlation and the evidence",
+  "part": "Part A · Chapter 6",
+  "chapter_id": "composite-systems",
+  "objectives": [
+    "Compare Bell and classical randomized preparations in multiple bases.",
+    "Connect the comparison to CHSH without confusing correlation with certification."
+  ],
+  "prerequisites": "Chapters 3–5: tensor products, complex amplitudes, unitary gates, Born probabilities and measurement bases.",
+  "body_file": "chapters/composite-systems/6.html",
+  "quizzes": [
+    {
+      "id": "q6-correl",
+      "question": "Does matching Z readout alone certify a Bell state?",
+      "options": [
+        "Yes, all correlations are quantum.",
+        "No: a fair random choice of 00/11 matches it.",
+        "Yes, if the sample is large."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Classical preparations can be correlated.",
+        "Correct: another measurement choice is needed to distinguish these models.",
+        "More of the same insufficient measurement does not resolve the ambiguity."
+      ]
+    },
+    {
+      "id": "q6-cert",
+      "question": "What is the status of the X comparison in our activity?",
+      "options": [
+        "It is automatically a loophole-free CHSH experiment.",
+        "It distinguishes two specified ideal preparation models.",
+        "It proves every QML model is faster."
+      ],
+      "answer": 1,
+      "feedback": [
+        "CHSH requires its full setting and scoring protocol.",
+        "Correct: broader certification needs stated assumptions and statistics.",
+        "No computational advantage follows from this comparison."
+      ]
+    }
+  ],
+  "notebook": "07-composite-systems-and-entanglement.ipynb"
+}

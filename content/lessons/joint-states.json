@@ -1,0 +1,46 @@
+{
+  "id": "joint-states",
+  "number": "6.1",
+  "title": "Describing two qubits together",
+  "part": "Part A · Chapter 6",
+  "chapter_id": "composite-systems",
+  "objectives": [
+    "Expand tensor products in a declared basis order.",
+    "Calculate joint and marginal probabilities."
+  ],
+  "prerequisites": "Chapters 3–5: tensor products, complex amplitudes, unitary gates, Born probabilities and measurement bases.",
+  "body_file": "chapters/composite-systems/1.html",
+  "quizzes": [
+    {
+      "id": "q6-order",
+      "question": "In our |AB⟩ order, what is |+⟩⊗|1⟩?",
+      "options": [
+        "(0,1/√2,0,1/√2)ᵀ",
+        "(0,0,1/√2,1/√2)ᵀ",
+        "(1/√2,0,0,1/√2)ᵀ"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: the second bit is always 1.",
+        "That column has the first bit fixed to 1.",
+        "That is a Bell state."
+      ]
+    },
+    {
+      "id": "q6-marginal",
+      "question": "How is PA(0) calculated from (a,b,c,d)ᵀ?",
+      "options": [
+        "|a+b|²",
+        "|a|²+|b|²",
+        "a+b"
+      ],
+      "answer": 1,
+      "feedback": [
+        "These are different joint records, not coherent contributions to one record.",
+        "Correct: sum over both possible B outcomes.",
+        "A marginal probability is a real nonnegative number."
+      ]
+    }
+  ],
+  "notebook": "07-composite-systems-and-entanglement.ipynb"
+}

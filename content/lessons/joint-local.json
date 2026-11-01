@@ -1,0 +1,46 @@
+{
+  "id": "joint-local",
+  "number": "6.3",
+  "title": "Local gates on a joint state",
+  "part": "Part A · Chapter 6",
+  "chapter_id": "composite-systems",
+  "objectives": [
+    "Construct U⊗I and I⊗V.",
+    "Explain why local unitary gates cannot create entanglement from a product state."
+  ],
+  "prerequisites": "Chapters 3–5: tensor products, complex amplitudes, unitary gates, Born probabilities and measurement bases.",
+  "body_file": "chapters/composite-systems/3.html",
+  "quizzes": [
+    {
+      "id": "q6-local",
+      "question": "Which operator applies H to A in |AB⟩ order?",
+      "options": [
+        "I⊗H",
+        "H⊗I",
+        "H+I"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That applies H to B.",
+        "Correct: the factor positions match the state labels.",
+        "A sum is not the local tensor action."
+      ]
+    },
+    {
+      "id": "q6-local-ent",
+      "question": "Can U⊗V entangle a product pure input?",
+      "options": [
+        "Yes, whenever U=H.",
+        "No; its output still factors.",
+        "Only if Z probabilities are uniform."
+      ],
+      "answer": 1,
+      "feedback": [
+        "H can create local superposition without entangling.",
+        "Correct: it maps u⊗v to Uu⊗Vv.",
+        "A histogram does not determine factorization."
+      ]
+    }
+  ],
+  "notebook": "07-composite-systems-and-entanglement.ipynb"
+}
