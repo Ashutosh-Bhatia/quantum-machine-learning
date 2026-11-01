@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" role="img" aria-labelledby="t d"><title id="t">Distinguishing promised pure states</title><desc id="d">Orthogonal zero and one have disjoint Z outcomes; zero and plus share possible outcome zero.</desc><rect width="1000" height="350" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#c3cbd2;stroke-width:1.5}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="27">Can the recorded outcome identify the input?</text>
+<rect x="30" y="80" width="450" height="220" rx="5" class="box"/>
+<text x="48" y="118" font-size="23">Orthogonal inputs in Z</text>
+<text x="48" y="163" font-size="24">|0⟩</text>
+<text x="125" y="163" font-size="18">0 with certainty</text>
+<text x="48" y="211" font-size="24">|1⟩</text>
+<text x="125" y="211" font-size="18">1 with certainty</text>
+<text x="48" y="278" font-size="19">No shared possible outcome</text>
+<rect x="520" y="80" width="450" height="220" rx="5" class="box"/>
+<text x="538" y="118" font-size="23">Non-orthogonal inputs in Z</text>
+<text x="538" y="163" font-size="24">|0⟩</text>
+<text x="615" y="163" font-size="18">0 with certainty</text>
+<text x="538" y="211" font-size="24">|+⟩</text>
+<text x="615" y="211" font-size="18">0 or 1, each probability 1/2</text>
+<text x="538" y="278" font-size="19">Record 0 is compatible with both</text>
+<text x="30" y="335" font-size="19">For non-orthogonal pure states, no measurement gives certain identification from one copy.</text>
+</svg>

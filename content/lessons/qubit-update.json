@@ -2,13 +2,13 @@
   "id": "qubit-update",
   "number": "4.4",
   "title": "What happens after a measurement?",
-  "part": "Part A · Chapter 4",
+  "part": "Part A \u00b7 Chapter 4",
   "chapter_id": "qubits-measurement",
   "objectives": [
     "Calculate a branch, its probability and its conditional normalized state.",
     "Separate immediate remeasurement from repeated fresh preparations."
   ],
-  "prerequisites": "Chapter 3’s complex amplitudes, normalization, inner products and projectors; Chapter 2’s probability and count distinction.",
+  "prerequisites": "Chapter 3\u2019s complex amplitudes, normalization, inner products and projectors; Chapter 2\u2019s probability and count distinction.",
   "body_file": "chapters/qubits-measurement/4.html",
   "quizzes": [
     {
@@ -39,6 +39,21 @@
         "Correct: the conditional state lies in the outcome-0 subspace.",
         "That would require fresh preparation of the original state.",
         "Repeated Z readout does not reveal the lost relative-phase information."
+      ]
+    },
+    {
+      "id": "q4-completeness",
+      "question": "Why must the projectors of a complete projective measurement sum to the identity?",
+      "options": [
+        "So every normalized input has total outcome probability one.",
+        "So every outcome is equally likely.",
+        "So measurement becomes a reversible gate."
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: summing the Born probabilities gives the expectation of the identity.",
+        "Completeness does not require equal probabilities.",
+        "Projective measurement includes a recorded outcome and conditional update."
       ]
     }
   ]

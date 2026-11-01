@@ -2,13 +2,13 @@
   "id": "qubit-evidence",
   "number": "4.6",
   "title": "What can a measurement tell us?",
-  "part": "Part A · Chapter 4",
+  "part": "Part A \u00b7 Chapter 4",
   "chapter_id": "qubits-measurement",
   "objectives": [
     "Identify what one outcome and one-basis histograms do not determine.",
     "Compare coherent and randomized preparations using Z and X measurements."
   ],
-  "prerequisites": "Chapter 3’s complex amplitudes, normalization, inner products and projectors; Chapter 2’s probability and count distinction.",
+  "prerequisites": "Chapter 3\u2019s complex amplitudes, normalization, inner products and projectors; Chapter 2\u2019s probability and count distinction.",
   "body_file": "chapters/qubits-measurement/6.html",
   "quizzes": [
     {
@@ -39,6 +39,21 @@
         "A simulator can expose stored model data that a physical shot does not provide.",
         "Correct. One recorded outcome is not a statevector readout.",
         "Outcome 0 does not uniquely specify the original preparation."
+      ]
+    },
+    {
+      "id": "q4-discrimination",
+      "question": "Can one copy of either basis state 0 or plus always be identified perfectly?",
+      "options": [
+        "Yes, with Z measurement.",
+        "Yes, with X measurement.",
+        "No: these states have nonzero overlap."
+      ],
+      "answer": 2,
+      "feedback": [
+        "Z outcome 0 is compatible with both.",
+        "X outcome + is compatible with both.",
+        "Correct: perfect single-copy discrimination of pure states requires orthogonality."
       ]
     }
   ],

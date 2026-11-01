@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 350" role="img" aria-labelledby="t d"><title id="t">A complete X measurement</title><desc id="d">Basis state zero has two orthogonal projected branches, each of probability one half.</desc><rect width="1000" height="350" fill="white"/><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.line{fill:none;stroke:#286a9b;stroke-width:2;marker-end:url(#a)}.guide{fill:none;stroke:#c3cbd2;stroke-width:1.5}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="27">One input, two outcomes, total probability one</text>
+<rect x="30" y="120" width="215" height="100" rx="5" class="box"/>
+<text x="50" y="160" font-size="25">Input: |0⟩</text>
+<text x="50" y="195" font-size="20">column (1, 0)ᵀ</text>
+<path d="M250 170L350 125" class="line"/>
+<rect x="360" y="80" width="600" height="110" rx="5" class="box"/>
+<text x="380" y="109" font-size="22">Outcome + · probability 1/2</text>
+<text x="380" y="142" font-size="21">branch (1/2, 1/2)ᵀ</text>
+<text x="680" y="142" font-size="20">conditional state |+⟩</text>
+<path d="M250 170L350 255" class="line"/>
+<rect x="360" y="210" width="600" height="110" rx="5" class="box"/>
+<text x="380" y="239" font-size="22">Outcome − · probability 1/2</text>
+<text x="380" y="272" font-size="21">branch (1/2, −1/2)ᵀ</text>
+<text x="680" y="272" font-size="20">conditional state |−⟩</text>
+<text x="30" y="340" font-size="19">P₊ + P₋ = I       P₊P₋ = 0       Each branch is normalized after its outcome is recorded.</text>
+</svg>

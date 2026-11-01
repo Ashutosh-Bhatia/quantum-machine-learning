@@ -44,5 +44,10 @@
   function run(n){const b=h.querySelector('[data-basis]').value,mode=h.querySelector('[data-prep]').value;for(let i=0;i<n;i++){const prep=mode==='plus'?'plus':Math.random()<.5?'zero':'one',t=Q.trial(Q.preset(prep),b);counts[t.outcome]++;records.push({prep,label:labels(b)[t.outcome]});}update();}
   function reset(){counts=[0,0];records=[];update();}h.querySelectorAll('select').forEach(e=>e.onchange=reset);h.querySelector('[data-one]').onclick=()=>run(1);h.querySelector('[data-batch]').onclick=()=>run(100);h.querySelector('[data-reset]').onclick=reset;update();
  }
- window.mountQubitLabs=scope=>scope.querySelectorAll('[data-qubit-lab]').forEach(h=>({editor,sampler,phase,timeline,bloch,evidence}[h.dataset.qubitLab]?.(h)));
+ function discrimination(h){
+  shell(h,'Compare two promised inputs','<label>Candidate pair<select data-pair><option value="one">Basis 0 and basis 1</option><option value="plus">Basis 0 and plus</option></select></label><label>Measurement<select data-basis><option value="Z">Z</option><option value="X">X</option></select></label><p>Predict whether any possible record is shared by both inputs. These are exact predictions, not sampled counts.</p><div data-result aria-live="polite"></div>');
+  function update(){const name=h.querySelector('[data-pair]').value,b=h.querySelector('[data-basis]').value,u=Q.preset('zero'),v=Q.preset(name),p=Q.probabilities(u,b),q=Q.probabilities(v,b),shared=p.some((x,i)=>x>1e-12&&q[i]>1e-12);h.querySelector('[data-result]').innerHTML=bars(p,labels(b),'Input: basis 0')+bars(q,labels(b),'Input: '+(name==='one'?'basis 1':'plus'))+'<p>Overlap magnitude = '+fmt(Math.sqrt(M.abs2(M.inner(u,v))))+'. '+(shared?'At least one possible outcome is shared: this readout cannot always identify the input.':'The possible outcomes are disjoint: this ideal readout identifies either input with certainty.')+'</p>';}
+  h.querySelectorAll('select').forEach(e=>e.onchange=update);update();
+ }
+ window.mountQubitLabs=scope=>scope.querySelectorAll('[data-qubit-lab]').forEach(h=>({editor,sampler,phase,timeline,bloch,evidence,discrimination}[h.dataset.qubitLab]?.(h)));
 })();

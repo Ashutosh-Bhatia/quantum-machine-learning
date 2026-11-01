@@ -48,3 +48,16 @@ for y,prep,z,x in [(75,'Pure plus','Z: (1/2, 1/2)','X: (1, 0)'),(270,'Fair rando
  for Y,t in [(y,z),(y+85,x)]:box(s,530,Y,430,60);text(s,550,Y+38,t,22)
  s.append(f'<path d="M390 {y+75}H465M465 {y+75}V{y+30}H520M465 {y+75}V{y+115}H520" fill="none" stroke="#286a9b" stroke-width="2"/>')
 text(s,30,460,'The branches are alternative detector choices, not successive Z and X readouts.',19);save(s,'preparation-comparison')
+s=start('A complete X measurement','Basis state zero has two orthogonal projected branches, each of probability one half.',350)
+text(s,30,42,'One input, two outcomes, total probability one',27)
+box(s,30,120,215,100);text(s,50,160,'Input: |0⟩',25);text(s,50,195,'column (1, 0)ᵀ',20)
+for y,title,branch,state in [(80,'Outcome +','branch (1/2, 1/2)ᵀ','conditional state |+⟩'),(210,'Outcome −','branch (1/2, −1/2)ᵀ','conditional state |−⟩')]:
+ line(s,250,170,350,y+45);box(s,360,y,600,110);text(s,380,y+29,title+' · probability 1/2',22);text(s,380,y+62,branch,21);text(s,680,y+62,state,20)
+text(s,30,340,'P₊ + P₋ = I       P₊P₋ = 0       Each branch is normalized after its outcome is recorded.',19);save(s,'complete-projectors')
+s=start('Distinguishing promised pure states','Orthogonal zero and one have disjoint Z outcomes; zero and plus share possible outcome zero.',350)
+text(s,30,42,'Can the recorded outcome identify the input?',27)
+for x,title,rows,note in [(30,'Orthogonal inputs in Z',[('|0⟩','0 with certainty'),('|1⟩','1 with certainty')],'No shared possible outcome'),(520,'Non-orthogonal inputs in Z',[('|0⟩','0 with certainty'),('|+⟩','0 or 1, each probability 1/2')],'Record 0 is compatible with both')]:
+ box(s,x,80,450,220);text(s,x+18,118,title,23)
+ for j,(a,b) in enumerate(rows):text(s,x+18,163+j*48,a,24);text(s,x+95,163+j*48,b,18)
+ text(s,x+18,278,note,19)
+text(s,30,335,'For non-orthogonal pure states, no measurement gives certain identification from one copy.',19);save(s,'state-distinction')
