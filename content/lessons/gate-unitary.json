@@ -1,0 +1,46 @@
+{
+  "id": "gate-unitary",
+  "number": "5.1",
+  "title": "From a state to a transformed state",
+  "part": "Part A · Chapter 5",
+  "chapter_id": "gates-interference",
+  "objectives": [
+    "Calculate the output of a linear unitary operation.",
+    "Explain norm preservation and inverse evolution."
+  ],
+  "prerequisites": "Chapter 3: matrix multiplication, adjoints and unitarity. Chapter 4: amplitudes, relative phase, Born probabilities and the Bloch sphere.",
+  "body_file": "chapters/gates-interference/1.html",
+  "quizzes": [
+    {
+      "id": "q5-unitary",
+      "question": "What must you add before applying the Born rule?",
+      "options": [
+        "Contributions to each complex output amplitude",
+        "The input probabilities instead of amplitudes",
+        "The measurement outcomes"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: add amplitudes first, then take squared magnitudes.",
+        "This loses phase and interference.",
+        "Outcomes do not exist yet in this calculation."
+      ]
+    },
+    {
+      "id": "q5-inverse",
+      "question": "Which operation undoes a unitary U?",
+      "options": [
+        "Always U itself",
+        "Its adjoint U†",
+        "A Z measurement"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Only self-inverse gates satisfy U²=I.",
+        "Correct: U†U=I.",
+        "Measurement does not generally restore the input."
+      ]
+    }
+  ],
+  "notebook": "06-gates-and-interference.ipynb"
+}

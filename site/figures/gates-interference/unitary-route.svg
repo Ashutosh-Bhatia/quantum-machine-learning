@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="t d"><title id="t">Unitary evolution and its inverse</title><desc id="d">A state is transformed by U and returned by U adjoint. Measurement is separate.</desc><rect width="1000" height="360" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">Coherent transformation is reversible</text>
+<rect x="30" y="100" width="180" height="90" rx="5" class="box"/>
+<text x="50" y="155" font-size="25">Input |ψ⟩</text>
+<rect x="280" y="100" width="150" height="90" rx="5" class="box"/>
+<text x="300" y="155" font-size="25">U</text>
+<rect x="500" y="100" width="180" height="90" rx="5" class="box"/>
+<text x="520" y="155" font-size="25">U|ψ⟩</text>
+<rect x="750" y="100" width="150" height="90" rx="5" class="box"/>
+<text x="770" y="155" font-size="25">U†</text>
+<path d="M215 145L270 145" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M435 145L490 145" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M685 145L740 145" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="245" font-size="24">U†U|ψ⟩ = |ψ⟩      Squared norm before and after = 1</text>
+<text x="35" y="300" font-size="22">A gate produces a transformed state; a measurement produces an outcome record.</text>
+</svg>

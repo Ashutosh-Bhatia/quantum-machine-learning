@@ -1,0 +1,46 @@
+{
+  "id": "gate-rotations",
+  "number": "5.5",
+  "title": "Phase gates and parameterized rotations",
+  "part": "Part A · Chapter 5",
+  "chapter_id": "gates-interference",
+  "objectives": [
+    "Calculate S, T and axis rotations with radians.",
+    "Connect tunable angles to Bloch geometry and QML parameters."
+  ],
+  "prerequisites": "Chapter 3: matrix multiplication, adjoints and unitarity. Chapter 4: amplitudes, relative phase, Born probabilities and the Bloch sphere.",
+  "body_file": "chapters/gates-interference/5.html",
+  "quizzes": [
+    {
+      "id": "q5-tpower",
+      "question": "Which exact identity is correct?",
+      "options": [
+        "T⁴=I",
+        "T⁴=Z and T⁸=I",
+        "S²=I"
+      ],
+      "answer": 1,
+      "feedback": [
+        "T⁴ changes the relative sign.",
+        "Correct: the phase on basis 1 is exp(iπ) after four T gates.",
+        "S²=Z."
+      ]
+    },
+    {
+      "id": "q5-angle",
+      "question": "For Ry(π/2)|0⟩, what is PZ(1)?",
+      "options": [
+        "1",
+        "1/2",
+        "0"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Use sin²(θ/2), not sin²θ.",
+        "Correct: sin²(π/4)=1/2.",
+        "The output has both nonzero components."
+      ]
+    }
+  ],
+  "notebook": "06-gates-and-interference.ipynb"
+}

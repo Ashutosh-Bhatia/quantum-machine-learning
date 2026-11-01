@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="t d"><title id="t">Pauli rotations</title><desc id="d">Half-turns reverse two coordinates and fix the coordinate on their own axis.</desc><rect width="1000" height="360" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="27">Pauli gates as half-turns of the Bloch state map</text>
+<rect x="30" y="90" width="290" height="200" rx="5" class="box"/>
+<text x="55" y="135" font-size="32">X</text>
+<text x="55" y="200" font-size="25">(x, −y, −z)</text>
+<text x="55" y="255" font-size="21">Fixes the x-axis</text>
+<rect x="355" y="90" width="290" height="200" rx="5" class="box"/>
+<text x="380" y="135" font-size="32">Y</text>
+<text x="380" y="200" font-size="25">(−x, y, −z)</text>
+<text x="380" y="255" font-size="21">Fixes the y-axis</text>
+<rect x="680" y="90" width="290" height="200" rx="5" class="box"/>
+<text x="705" y="135" font-size="32">Z</text>
+<text x="705" y="200" font-size="25">(−x, −y, z)</text>
+<text x="705" y="255" font-size="21">Fixes the z-axis</text>
+<text x="30" y="335" font-size="20">Input coordinates (x,y,z). A fixed Bloch point may still acquire a statevector global phase.</text>
+</svg>

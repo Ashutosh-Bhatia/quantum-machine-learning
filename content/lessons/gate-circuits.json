@@ -1,0 +1,46 @@
+{
+  "id": "gate-circuits",
+  "number": "5.6",
+  "title": "Reading circuits and choosing a measurement basis",
+  "part": "Part A · Chapter 5",
+  "chapter_id": "gates-interference",
+  "objectives": [
+    "Translate circuit order into matrix order.",
+    "Implement X and Y readout using gates followed by Z measurement."
+  ],
+  "prerequisites": "Chapter 3: matrix multiplication, adjoints and unitarity. Chapter 4: amplitudes, relative phase, Born probabilities and the Bloch sphere.",
+  "body_file": "chapters/gates-interference/6.html",
+  "quizzes": [
+    {
+      "id": "q5-order",
+      "question": "H then S then H then T corresponds to which output?",
+      "options": [
+        "HSHT|ψ⟩",
+        "THSH|ψ⟩",
+        "TSHH|ψ⟩"
+      ],
+      "answer": 1,
+      "feedback": [
+        "The rightmost matrix acts first.",
+        "Correct: time order and written matrix order run oppositely.",
+        "Preserve the order of every gate."
+      ]
+    },
+    {
+      "id": "q5-yread",
+      "question": "Which time order implements Y readout using a final Z measurement?",
+      "options": [
+        "H, then S†, then measure Z",
+        "S†, then H, then measure Z",
+        "S, then measure Z"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Those gates are in the wrong order.",
+        "Correct: HS† maps plus-i and minus-i to zero and one.",
+        "A diagonal phase alone does not change Z probabilities."
+      ]
+    }
+  ],
+  "notebook": "06-gates-and-interference.ipynb"
+}

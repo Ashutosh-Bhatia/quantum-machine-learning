@@ -1,0 +1,46 @@
+{
+  "id": "gate-pauli",
+  "number": "5.2",
+  "title": "The Pauli gates: changing components and signs",
+  "part": "Part A · Chapter 5",
+  "chapter_id": "gates-interference",
+  "objectives": [
+    "Apply I, X, Y and Z to complex state columns.",
+    "Relate Pauli action to half-turns of the Bloch sphere."
+  ],
+  "prerequisites": "Chapter 3: matrix multiplication, adjoints and unitarity. Chapter 4: amplitudes, relative phase, Born probabilities and the Bloch sphere.",
+  "body_file": "chapters/gates-interference/2.html",
+  "quizzes": [
+    {
+      "id": "q5-pauli",
+      "question": "What is Y(α,β)ᵀ?",
+      "options": [
+        "(β,α)ᵀ",
+        "(−iβ,iα)ᵀ",
+        "(α,−β)ᵀ"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That is X.",
+        "Correct: retain both factors of i.",
+        "That is Z."
+      ]
+    },
+    {
+      "id": "q5-pauli-phase",
+      "question": "Why can Z change plus observably while leaving basis 1 physically equivalent?",
+      "options": [
+        "It acts randomly.",
+        "A sign on the only nonzero component is global; a sign between two components is relative.",
+        "Z measures the state."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The ideal gate is deterministic and linear.",
+        "Correct: the input determines whether the sign is global or relative.",
+        "Z is a unitary gate, not a measurement."
+      ]
+    }
+  ],
+  "notebook": "06-gates-and-interference.ipynb"
+}

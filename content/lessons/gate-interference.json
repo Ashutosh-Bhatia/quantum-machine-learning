@@ -1,0 +1,46 @@
+{
+  "id": "gate-interference",
+  "number": "5.4",
+  "title": "Interference: turning phase into a probability",
+  "part": "Part A · Chapter 5",
+  "chapter_id": "gates-interference",
+  "objectives": [
+    "Derive a single-qubit interference fringe.",
+    "Distinguish coherent addition from averaging classical alternatives."
+  ],
+  "prerequisites": "Chapter 3: matrix multiplication, adjoints and unitarity. Chapter 4: amplitudes, relative phase, Born probabilities and the Bloch sphere.",
+  "body_file": "chapters/gates-interference/4.html",
+  "quizzes": [
+    {
+      "id": "q5-fringe",
+      "question": "For H→P(π)→H on zero, what is the final Z outcome?",
+      "options": [
+        "0 certainly",
+        "1 certainly",
+        "0 or 1 equally"
+      ],
+      "answer": 1,
+      "feedback": [
+        "At π the output-0 contributions cancel.",
+        "Correct: this circuit maps zero to one.",
+        "That occurs at π/2, not π."
+      ]
+    },
+    {
+      "id": "q5-cross",
+      "question": "What term is missing if you add |a|² and |b|² for coherent contributions?",
+      "options": [
+        "2 Re(a* b), with a* the complex conjugate",
+        "An automatic measurement update",
+        "A normalization chosen to force outcome 0"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: this phase-dependent cross term produces interference.",
+        "A gate does not imply measurement.",
+        "Normalization is already preserved by the unitary circuit."
+      ]
+    }
+  ],
+  "notebook": "06-gates-and-interference.ipynb"
+}

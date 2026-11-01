@@ -1,0 +1,46 @@
+{
+  "id": "gate-hadamard",
+  "number": "5.3",
+  "title": "Hadamard: a mixer and a recombiner",
+  "part": "Part A · Chapter 5",
+  "chapter_id": "gates-interference",
+  "objectives": [
+    "Derive the action of H on arbitrary amplitudes.",
+    "Explain H²=I through addition and cancellation."
+  ],
+  "prerequisites": "Chapter 3: matrix multiplication, adjoints and unitarity. Chapter 4: amplitudes, relative phase, Born probabilities and the Bloch sphere.",
+  "body_file": "chapters/gates-interference/3.html",
+  "quizzes": [
+    {
+      "id": "q5-h",
+      "question": "What does H do to minus?",
+      "options": [
+        "Returns basis 1",
+        "Always creates equal Z probabilities",
+        "Returns plus"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: the output-0 amplitude cancels.",
+        "H depends on the input.",
+        "Substitute α=1/√2 and β=−1/√2."
+      ]
+    },
+    {
+      "id": "q5-h-measure",
+      "question": "Starting from zero, compare H→H with H→Z measurement→H (ignore the intermediate record).",
+      "options": [
+        "Both always give final zero.",
+        "The first gives final zero certainly; the second gives final Z probabilities 1/2,1/2.",
+        "Both are measurements of X."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The intervening measurement removes the coherent recombination.",
+        "Correct: condition on the intermediate branches, then average their predictions.",
+        "The intermediate measurement changes the procedure."
+      ]
+    }
+  ],
+  "notebook": "06-gates-and-interference.ipynb"
+}

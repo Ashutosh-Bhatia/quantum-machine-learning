@@ -17,13 +17,15 @@
     "qubit-phase",
     "qubit-update",
     "qubit-bloch",
-    "qubit-evidence"
+    "qubit-evidence",
+    "gate-unitary",
+    "gate-pauli",
+    "gate-hadamard",
+    "gate-interference",
+    "gate-rotations",
+    "gate-circuits"
   ],
   "planned": [
-    {
-      "title": "Part A · Chapter 5 · Gates, interference and measurement bases",
-      "needs": "Unitary evolution, gates, rotations, and Bloch geometry."
-    },
     {
       "title": "Part A · Chapter 6 · Composite systems and entanglement",
       "needs": "Tensor products, controlled gates, Bell states, and partial measurement."
@@ -190,6 +192,21 @@
         "qubit-bloch",
         "qubit-evidence"
       ]
+    },
+    {
+      "id": "gates-interference",
+      "title": "Gates, Interference and Measurement Bases",
+      "number": 5,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/gates-interference/overview.html",
+      "lessons": [
+        "gate-unitary",
+        "gate-pauli",
+        "gate-hadamard",
+        "gate-interference",
+        "gate-rotations",
+        "gate-circuits"
+      ]
     }
   ],
   "reading_order": [
@@ -214,6 +231,13 @@
     "qubit-phase",
     "qubit-update",
     "qubit-bloch",
-    "qubit-evidence"
+    "qubit-evidence",
+    "gates-interference",
+    "gate-unitary",
+    "gate-pauli",
+    "gate-hadamard",
+    "gate-interference",
+    "gate-rotations",
+    "gate-circuits"
   ]
 }

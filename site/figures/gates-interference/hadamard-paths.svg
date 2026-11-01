@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-labelledby="t d"><title id="t">Hadamard recombination</title><desc id="d">For plus input, the contributions to zero reinforce and those to one cancel.</desc><rect width="1000" height="430" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">Add amplitudes first; square the final sum</text>
+<text x="40" y="110" font-size="23">Input components of |+⟩</text>
+<text x="70" y="175" font-size="26">α = 1/√2</text>
+<text x="70" y="285" font-size="26">β = 1/√2</text>
+<path d="M250 165L490 145" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M250 165L490 285" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M250 275L490 145" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M250 275L490 285" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="510" y="95" width="445" height="95" rx="5" class="box"/>
+<text x="530" y="132" font-size="25">Output 0: 1/2 + 1/2 = 1</text>
+<text x="530" y="168" font-size="22">Probability = |1|² = 1</text>
+<rect x="510" y="245" width="445" height="95" rx="5" class="box"/>
+<text x="530" y="282" font-size="25">Output 1: 1/2 − 1/2 = 0</text>
+<text x="530" y="318" font-size="22">Probability = |0|² = 0</text>
+<text x="30" y="400" font-size="23">No measurement is made on the two contributions before they recombine.</text>
+</svg>

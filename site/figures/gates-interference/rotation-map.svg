@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-labelledby="t d"><title id="t">Two rotation paths</title><desc id="d">Ry rotates the north pole along a meridian; Rz rotates an equatorial point.</desc><rect width="1000" height="420" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="27">Rotation axes determine which coordinates change</text>
+<circle cx="260" cy="215" r="105" fill="white" stroke="#bbb"/><ellipse cx="260" cy="215" rx="105" ry="32" fill="none" stroke="#ddd"/>
+<text x="175" y="90" font-size="24">Ry(θ) on |0⟩</text>
+<text x="268" y="105" font-size="20">+z</text>
+<path d="M260 215L260 115" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M260 110 A105 105 0 0 1 365 215" fill="none" stroke="#286a9b" stroke-width="4"/>
+<text x="130" y="365" font-size="22">Output: (sin θ, 0, cos θ)</text>
+<circle cx="750" cy="215" r="105" fill="white" stroke="#bbb"/><ellipse cx="750" cy="215" rx="105" ry="32" fill="none" stroke="#ddd"/>
+<text x="665" y="90" font-size="24">Rz(φ) on |+⟩</text>
+<text x="758" y="105" font-size="20">+z</text>
+<path d="M750 215L850 215" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M855 215 A105 32 0 0 1 750 247" fill="none" stroke="#286a9b" stroke-width="4"/>
+<text x="580" y="365" font-size="22">Output: (cos φ, sin φ, 0)</text>
+<text x="30" y="405" font-size="21">These are Bloch coordinates. Statevector coefficients use the rotation half-angle.</text>
+</svg>
