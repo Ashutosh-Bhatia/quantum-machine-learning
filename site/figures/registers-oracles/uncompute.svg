@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 390" role="img" aria-labelledby="t d"><title id="t">Compute copy uncompute</title><desc id="d">Temporary registers are restored by the inverse computation after the target update.</desc><rect width="1000" height="390" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="27">Clean workspace without measuring the input branch</text>
+<rect x="30" y="100" width="290" height="130" rx="5" class="box"/>
+<text x="50" y="145" font-size="26">Compute C</text>
+<text x="50" y="202" font-size="21">work holds g(x), f(x)</text>
+<rect x="355" y="100" width="290" height="130" rx="5" class="box"/>
+<text x="375" y="145" font-size="26">Toggle target</text>
+<text x="375" y="202" font-size="21">y becomes y ⊕ f(x)</text>
+<rect x="680" y="100" width="290" height="130" rx="5" class="box"/>
+<text x="700" y="145" font-size="26">Uncompute C†</text>
+<text x="700" y="202" font-size="21">work returns to zero</text>
+<path d="M325 165L345 165" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M650 165L670 165" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="35" y="295" font-size="23">Input x is retained throughout. The useful target is excluded from C†.</text>
+<text x="35" y="350" font-size="22">Measuring or ignoring correlated workspace is not the same as reversing it.</text>
+</svg>

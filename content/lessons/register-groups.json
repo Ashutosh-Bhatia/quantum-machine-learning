@@ -1,0 +1,46 @@
+{
+  "id": "register-groups",
+  "number": "7.1",
+  "title": "Registers: grouping qubits by their role",
+  "part": "Part A · Chapter 7",
+  "chapter_id": "registers-oracles",
+  "objectives": [
+    "Describe input, target and workspace registers.",
+    "Expand a multi-register state with declared dimensions."
+  ],
+  "prerequisites": "Chapters 3–6: tensor products, unitary gates, joint-state order, coherent control and measurement.",
+  "body_file": "chapters/registers-oracles/1.html",
+  "quizzes": [
+    {
+      "id": "q7-dimension",
+      "question": "Two input qubits plus one target have how many joint basis states?",
+      "options": [
+        "3",
+        "6",
+        "8"
+      ],
+      "answer": 2,
+      "feedback": [
+        "Three is the number of qubits.",
+        "Dimensions multiply rather than add.",
+        "Correct: 2² × 2 = 8."
+      ]
+    },
+    {
+      "id": "q7-factor",
+      "question": "Does naming registers X and Y imply their joint state factors?",
+      "options": [
+        "Yes, by definition.",
+        "No; operations can entangle registers.",
+        "Only if the diagram uses separate wires."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Register names describe roles.",
+        "Correct: use a joint state when factorization fails.",
+        "Separate wires do not establish a product state."
+      ]
+    }
+  ],
+  "notebook": "08-registers-oracles-and-kickback.ipynb"
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 390" role="img" aria-labelledby="t d"><title id="t">Register roles</title><desc id="d">Input, target and temporary workspace are parts of one joint state.</desc><rect width="1000" height="390" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">Group qubits by purpose; keep the full state</text>
+<rect x="30" y="95" width="290" height="205" rx="5" class="box"/>
+<text x="50" y="140" font-size="27">Input X</text>
+<text x="50" y="200" font-size="23">n qubits, 2ⁿ labels</text>
+<text x="50" y="255" font-size="22">Keep the input x</text>
+<rect x="355" y="95" width="290" height="205" rx="5" class="box"/>
+<text x="375" y="140" font-size="27">Target Y</text>
+<text x="375" y="200" font-size="23">1 qubit, labels 0/1</text>
+<text x="375" y="255" font-size="22">Update y ⊕ f(x)</text>
+<rect x="680" y="95" width="290" height="205" rx="5" class="box"/>
+<text x="700" y="140" font-size="27">Workspace W</text>
+<text x="700" y="200" font-size="23">Temporary work</text>
+<text x="700" y="255" font-size="22">Restore coherently</text>
+<text x="30" y="350" font-size="23">Register names specify roles. They do not imply the joint state is a product.</text>
+</svg>

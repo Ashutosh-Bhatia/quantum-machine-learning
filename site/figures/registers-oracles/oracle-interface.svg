@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" role="img" aria-labelledby="t d"><title id="t">XOR oracle interface</title><desc id="d">An oracle leaves x unchanged and flips y only where the truth table is one.</desc><rect width="1000" height="360" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">Define the action on both target inputs</text>
+<text x="35" y="125" font-size="29">|x, 0⟩</text>
+<rect x="330" y="80" width="230" height="75" rx="5" class="box"/>
+<text x="415" y="127" font-size="30">U_f</text>
+<path d="M185 115L320 115" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M565 115L700 115" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="720" y="125" font-size="27">|x, f(x)⟩</text>
+<text x="35" y="250" font-size="29">|x, 1⟩</text>
+<rect x="330" y="205" width="230" height="75" rx="5" class="box"/>
+<text x="415" y="252" font-size="30">U_f</text>
+<path d="M185 240L320 240" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M565 240L700 240" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="720" y="250" font-size="27">|x, 1 ⊕ f(x)⟩</text>
+<text x="35" y="335" font-size="23">Applying this full basis permutation twice returns the original state.</text>
+</svg>

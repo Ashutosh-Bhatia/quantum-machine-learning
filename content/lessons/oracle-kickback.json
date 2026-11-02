@@ -1,0 +1,46 @@
+{
+  "id": "oracle-kickback",
+  "number": "7.6",
+  "title": "Phase kickback: the target stays minus",
+  "part": "Part A · Chapter 7",
+  "chapter_id": "registers-oracles",
+  "objectives": [
+    "Derive the phase-oracle action from an XOR oracle.",
+    "Explain global versus relative signs and the role of a final mixer."
+  ],
+  "prerequisites": "Chapters 3–6: tensor products, unitary gates, joint-state order, coherent control and measurement.",
+  "body_file": "chapters/registers-oracles/6.html",
+  "quizzes": [
+    {
+      "id": "q7-minus",
+      "question": "Why is minus a useful target for phase kickback?",
+      "options": [
+        "X maps it to itself with eigenvalue −1.",
+        "It makes all measurements deterministic.",
+        "It copies f into two unknown states."
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: the conditional eigenvalue becomes a branch-dependent sign.",
+        "The readout depends on the input and later circuit.",
+        "This is controlled phase accumulation, not cloning."
+      ]
+    },
+    {
+      "id": "q7-relative",
+      "question": "For one-input f with f(0)≠f(1), what happens to a plus input with minus target?",
+      "options": [
+        "The input becomes globally equivalent to minus.",
+        "Only a common phase changes.",
+        "The target must become zero."
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: the two input components gain opposite signs.",
+        "Opposite component signs are relative.",
+        "The target stays minus and factors out."
+      ]
+    }
+  ],
+  "notebook": "08-registers-oracles-and-kickback.ipynb"
+}

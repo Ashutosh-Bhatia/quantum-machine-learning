@@ -1,0 +1,46 @@
+{
+  "id": "oracle-definition",
+  "number": "7.4",
+  "title": "The oracle as a precisely defined operation",
+  "part": "Part A · Chapter 7",
+  "chapter_id": "registers-oracles",
+  "objectives": [
+    "Define a Boolean oracle on every basis state.",
+    "Translate simple truth tables into gate circuits."
+  ],
+  "prerequisites": "Chapters 3–6: tensor products, unitary gates, joint-state order, coherent control and measurement.",
+  "body_file": "chapters/registers-oracles/4.html",
+  "quizzes": [
+    {
+      "id": "q7-table",
+      "question": "Which two-input truth table represents parity x1⊕x0 in order 00,01,10,11?",
+      "options": [
+        "0001",
+        "0110",
+        "0011"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That is AND.",
+        "Correct: the output is one when exactly one input bit is one.",
+        "That is the left input bit x1."
+      ]
+    },
+    {
+      "id": "q7-interface",
+      "question": "Does an oracle-query count include the full physical cost of building Uf?",
+      "options": [
+        "Always.",
+        "No; implementation and data-access costs require separate analysis.",
+        "Oracles need no implementation."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Query complexity treats calls through a stated interface.",
+        "Correct: resource models must be kept explicit.",
+        "A black-box model is not a physical implementation."
+      ]
+    }
+  ],
+  "notebook": "08-registers-oracles-and-kickback.ipynb"
+}

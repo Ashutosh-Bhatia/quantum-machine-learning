@@ -29,13 +29,15 @@
     "joint-local",
     "joint-controlled",
     "joint-measurement",
-    "joint-correlation"
+    "joint-correlation",
+    "register-groups",
+    "register-order",
+    "oracle-reversible",
+    "oracle-definition",
+    "oracle-superposition",
+    "oracle-kickback"
   ],
   "planned": [
-    {
-      "title": "Part A · Chapter 7 · Registers, conventions and oracles",
-      "needs": "Circuit/readout ordering and reversible oracle access."
-    },
     {
       "title": "Part A · Chapter 8 · Learning from quantum algorithms",
       "needs": "Fully worked kickback and Deutsch; a promised Deutsch–Jozsa example. Simon is an optional extension."
@@ -224,6 +226,21 @@
         "joint-measurement",
         "joint-correlation"
       ]
+    },
+    {
+      "id": "registers-oracles",
+      "title": "Registers, Conventions and Oracles",
+      "number": 7,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/registers-oracles/overview.html",
+      "lessons": [
+        "register-groups",
+        "register-order",
+        "oracle-reversible",
+        "oracle-definition",
+        "oracle-superposition",
+        "oracle-kickback"
+      ]
     }
   ],
   "reading_order": [
@@ -262,6 +279,13 @@
     "joint-local",
     "joint-controlled",
     "joint-measurement",
-    "joint-correlation"
+    "joint-correlation",
+    "registers-oracles",
+    "register-groups",
+    "register-order",
+    "oracle-reversible",
+    "oracle-definition",
+    "oracle-superposition",
+    "oracle-kickback"
   ]
 }

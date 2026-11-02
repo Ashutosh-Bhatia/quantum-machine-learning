@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 370" role="img" aria-labelledby="t d"><title id="t">Bit positions and measurement wiring</title><desc id="d">The label 100 is index four; reversed classical wiring stores 001.</desc><rect width="1000" height="370" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="27">Quantum state order and classical record layout</text>
+<text x="35" y="110" font-size="27">Ket |q2 q1 q0⟩ = |100⟩</text>
+<text x="35" y="158" font-size="25">Column index: 4×1 + 2×0 + 0 = 4</text>
+<rect x="35" y="210" width="425" height="95" rx="5" class="box"/>
+<text x="55" y="249" font-size="25">qi → ci</text>
+<text x="55" y="284" font-size="23">Record c2c1c0 = 100</text>
+<rect x="535" y="210" width="425" height="95" rx="5" class="box"/>
+<text x="555" y="249" font-size="22">q2 → c0, q1 → c1, q0 → c2</text>
+<text x="555" y="284" font-size="23">Record c2c1c0 = 001</text>
+<text x="35" y="350" font-size="23">Changing a drawing does not apply a SWAP gate or change the circuit.</text>
+</svg>

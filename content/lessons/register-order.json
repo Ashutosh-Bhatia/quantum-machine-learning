@@ -1,0 +1,46 @@
+{
+  "id": "register-order",
+  "number": "7.2",
+  "title": "From wires to kets, integers and records",
+  "part": "Part A · Chapter 7",
+  "chapter_id": "registers-oracles",
+  "objectives": [
+    "Translate bit labels into amplitude indices.",
+    "Distinguish drawing order from measurement wiring."
+  ],
+  "prerequisites": "Chapters 3–6: tensor products, unitary gates, joint-state order, coherent control and measurement.",
+  "body_file": "chapters/registers-oracles/2.html",
+  "quizzes": [
+    {
+      "id": "q7-index",
+      "question": "What is the amplitude index for |101⟩ in |x1 x0 y⟩ order?",
+      "options": [
+        "5",
+        "3",
+        "6"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: 4+0+1=5.",
+        "That index represents 011.",
+        "That index represents 110."
+      ]
+    },
+    {
+      "id": "q7-drawing",
+      "question": "Does reverse_bits=True on the circuit drawing physically swap qubits?",
+      "options": [
+        "Yes.",
+        "No, it only changes the drawing.",
+        "It reverses all gate matrices."
+      ],
+      "answer": 1,
+      "feedback": [
+        "A display option is not a SWAP operation.",
+        "Correct: the circuit action stays the same.",
+        "Gate matrices do not change under that drawing option."
+      ]
+    }
+  ],
+  "notebook": "08-registers-oracles-and-kickback.ipynb"
+}
