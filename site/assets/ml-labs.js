@@ -1,0 +1,29 @@
+(()=>{const M=MLMath,f=x=>x===null?'undefined':Number(x.toPrecision(5)).toString();
+ const slider=(label,key,min,max,value,step=.1)=>'<label>'+label+'<input data-'+key+' type="range" min="'+min+'" max="'+max+'" step="'+step+'" value="'+value+'"></label>';
+ function chart(w,b){return '<svg viewBox="0 0 400 240" role="img" aria-label="Three fixed training points and the current regression line"><path d="M40 15V210H380" stroke="#aaa" fill="none"/>'+M.data.map(([x,y])=>'<circle cx="'+(60+130*x)+'" cy="'+(200-28*y)+'" r="5" fill="#286a9b"/>').join('')+'<path d="M60 '+(200-28*b)+'L320 '+(200-28*(2*w+b))+'" stroke="#555" fill="none" stroke-width="2"/><text x="350" y="232">x</text></svg>';}
+ function mount(h){const mode=h.dataset.mlLab;let controls='',w=0,b=0,steps=0;
+ if(mode==='data')controls=slider('Top-left pixel','a',0,1,0)+slider('Top-right pixel','b',0,1,1)+slider('Bottom-left pixel','c',0,1,1)+slider('Bottom-right pixel','d',0,1,0);
+ if(mode==='fit')controls=slider('Slope w','w',-1,4,0)+slider('Intercept b','b',-2,4,0);
+ if(mode==='gradient')controls=slider('Learning rate η','eta',.01,.8,.1,.01)+'<button data-step type="button">One gradient step</button> <button data-reset type="button">Reset parameters</button>';
+ if(mode==='metrics')controls=slider('Positive-class decision threshold','threshold',0,1,.5,.05);
+ if(mode==='sigmoid')controls=slider('Weight w','w',-5,5,2)+slider('Bias b','b',-5,5,-1)+slider('Input x','x',-2,2,.5);
+ if(mode==='regularization')controls=slider('Penalty λ','lambda',0,10,0,.1);
+ if(mode==='features')controls=slider('First coordinate of x','x',-3,3,1)+slider('Second coordinate of x','y',-3,3,2)+'<p>Compare with fixed z=(2,1).</p>';
+ if(mode==='margin')controls=slider('Weight norm ||w|| (hard-margin scale)','norm',.2,5,2)+slider('RBF γ','gamma',.1,5,1)+slider('Squared distance to another point','dist',0,5,1);
+ if(mode==='quantumkernel')controls=slider('Angle x (radians)','x',-3.14159,3.14159,0,.01)+slider('Angle z (radians)','z',-3.14159,3.14159,1,.01);
+ h.innerHTML='<section class="lab"><p class="eyebrow">Predict, calculate, compare</p><h3>Explore the worked model</h3>'+controls+'<div data-output aria-live="polite"></div><p class="meta">Fixed teaching examples and exact model calculations; results are not estimates of real-world performance.</p></section>';
+ const val=k=>Number(h.querySelector('[data-'+k+']').value);
+ function update(){let s='';
+ if(mode==='data'){const v=['a','b','c','d'].map(val);s='<p>Row-major feature vector: ('+v.map(f).join(', ')+'). Dimension: 4. Mean intensity: '+f(v.reduce((a,b)=>a+b)/4)+'. No category label is inferred from brightness alone.</p><svg viewBox="0 0 200 200" role="img" aria-label="Editable two by two grayscale image">'+v.map((x,i)=>'<rect x="'+(i%2*100)+'" y="'+(Math.floor(i/2)*100)+'" width="100" height="100" stroke="#777" fill="rgb('+Array(3).fill(Math.round(x*255)).join(',')+')"/>').join('')+'</svg>';}
+ if(mode==='fit'||mode==='gradient'){const W=mode==='fit'?val('w'):w,B=mode==='fit'?val('b'):b,g=M.gradient(W,B);s=chart(W,B)+'<p>w='+f(W)+', b='+f(B)+'. MSE='+f(M.loss(W,B))+'. Gradient=('+g.map(f).join(', ')+').</p>'+(mode==='gradient'?'<p>Simultaneous updates performed: '+steps+'. Large steps can increase loss. Least-squares reference: w=2,b=1.</p>':'');}
+ if(mode==='metrics'){const m=M.metrics(val('threshold'));s='<p>Threshold '+f(val('threshold'))+'. Fixed probabilities: 0.9,0.8,0.6,0.4,0.3,0.1; true labels: 1,0,1,1,0,0.</p><p>TP='+m.tp+', FP='+m.fp+', TN='+m.tn+', FN='+m.fn+'.</p><p>Accuracy='+f(m.accuracy)+', precision='+f(m.precision)+', recall='+f(m.recall)+'. Undefined denominators are reported explicitly.</p>';}
+ if(mode==='sigmoid'){const a=val('w')*val('x')+val('b'),p=M.sigmoid(a);s='<p>Score='+f(a)+'. Sigmoid probability='+f(p)+'. Label at threshold 0.5: '+Number(p>=.5)+'. For y=1, score derivative of cross-entropy is '+f(p-1)+'.</p><svg viewBox="0 0 400 180" role="img" aria-label="Sigmoid probability curve"><path d="'+Array.from({length:101},(_,i)=>(i?'L':'M')+(i*4)+' '+(170-160*M.sigmoid(-6+12*i/100))).join(' ')+'" fill="none" stroke="#286a9b" stroke-width="2"/></svg><p>The curve shows sigmoid versus score from −6 to 6; it is not a fitted neural network.</p>';}
+ if(mode==='regularization'){const l=val('lambda'),v=2/(1+l);s='<p>λ='+f(l)+'. Exact minimizer of (w−2)²+λw² is w*='+f(v)+'. Data-fit term='+f((v-2)**2)+', penalty='+f(l*v*v)+', total='+f((v-2)**2+l*v*v)+'.</p>';}
+ if(mode==='features'){const x=[val('x'),val('y')],z=[2,1],u=M.feature(x),v=M.feature(z);s='<p>φ(x)=('+u.map(f).join(', ')+'). φ(z)=('+v.map(f).join(', ')+').</p><p>Explicit feature dot product='+f(M.dot(u,v))+'. Direct (xᵀz)²='+f(M.dot(x,z)**2)+'. The two calculations agree.</p>';}
+ if(mode==='margin')s='<p>Hard-margin width 2/||w||='+f(2/val('norm'))+'. This scale assumes supporting planes at scores ±1.</p><p>RBF similarity exp(−γd²)='+f(Math.exp(-val('gamma')*val('dist')))+'. These controls inspect formulas; they do not solve an SVM optimization.</p>';
+ if(mode==='quantumkernel')s='<p>Angle difference='+f(val('x')-val('z'))+' radians. Fidelity kernel cos²((x−z)/2)='+f(M.qkernel(val('x'),val('z')))+'.</p><p>This is the analytic ideal overlap of Ry feature states, computed classically. No quantum hardware or advantage claim is involved.</p>';
+ h.querySelector('[data-output]').innerHTML=s;}
+ h.querySelectorAll('input').forEach(e=>e.oninput=update);
+ if(mode==='gradient'){h.querySelector('[data-step]').onclick=()=>{const g=M.gradient(w,b),eta=val('eta');const W=w-eta*g[0],B=b-eta*g[1];if(!Number.isFinite(M.loss(W,B))||Math.abs(W)>1e6||Math.abs(B)>1e6){h.querySelector('[data-output]').textContent='Updates have diverged. Reset and try a smaller learning rate.';return;}w=W;b=B;steps++;update();};h.querySelector('[data-reset]').onclick=()=>{w=b=steps=0;update();};}update();}
+ window.mountMLLabs=scope=>scope.querySelectorAll('[data-ml-lab]').forEach(mount);
+})();

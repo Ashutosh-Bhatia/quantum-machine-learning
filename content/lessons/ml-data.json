@@ -1,0 +1,47 @@
+{
+  "id": "ml-data",
+  "title": "Data, representations and learning tasks",
+  "number": "10.1",
+  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "chapter_id": "ml-foundations",
+  "objectives": [
+    "Explain the model and its assumptions.",
+    "Calculate predictions and assess the evidence."
+  ],
+  "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
+  "body_file": "chapters/ml-foundations/1.html",
+  "quizzes": [
+    {
+      "id": "ml-data-check1",
+      "question": "What is a learned slope?",
+      "options": [
+        "A feature",
+        "A parameter",
+        "A held-out label"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Revisit the definition and worked example above.",
+        "The slope belongs to the fitted model.",
+        "Revisit the definition and worked example above."
+      ]
+    },
+    {
+      "id": "ml-data-check2",
+      "question": "Which task predicts a continuous price?",
+      "options": [
+        "Regression",
+        "Clustering",
+        "Binary classification"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Regression predicts a numerical target.",
+        "Check the assumptions and formula in this lesson.",
+        "Check the assumptions and formula in this lesson."
+      ]
+    }
+  ],
+  "notebook": "10-ml-foundations.ipynb",
+  "notebook_kind": "machine-learning"
+}

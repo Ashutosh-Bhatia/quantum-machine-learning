@@ -25,7 +25,7 @@ assert.equal(c.preface.id,'preface');assert.equal(c.chapters[0].number,1);assert
 const pages=[c.preface,...c.chapters,...c.lessons],ids=pages.map(p=>p.id);
 assert.equal(new Set(ids).size,ids.length);assert.equal(c.readingOrder.length,pages.length);
 assert.deepEqual([...c.readingOrder].sort(),[...ids].sort());
-assert.deepEqual(Array.from(c.lessons,p=>p.number),['2.1','2.2','2.3','2.4','3.1','3.2','3.3','3.4','3.5','3.6','3.7','4.1','4.2','4.3','4.4','4.5','4.6','5.1','5.2','5.3','5.4','5.5','5.6','6.1','6.2','6.3','6.4','6.5','6.6','7.1','7.2','7.3','7.4','7.5','7.6','8.1','8.2','8.3','8.4','8.5']);
+assert.deepEqual(Array.from(c.lessons,p=>p.number),['2.1','2.2','2.3','2.4','3.1','3.2','3.3','3.4','3.5','3.6','3.7','4.1','4.2','4.3','4.4','4.5','4.6','5.1','5.2','5.3','5.4','5.5','5.6','6.1','6.2','6.3','6.4','6.5','6.6','7.1','7.2','7.3','7.4','7.5','7.6','8.1','8.2','8.3','8.4','8.5','10.1','10.2','10.3','11.1','11.2','11.3','12.1','12.2','12.3']);
 assert.ok(c.legacyLessons.some(p=>p.id==='gates'));
 let equations=0,figures=0;
 for(const p of pages){
@@ -35,7 +35,7 @@ for(const p of pages){
  }
  for(const m of p.body.matchAll(/<img[^>]+src="([^"]+)"/g)){assert.ok(fs.existsSync(path.join(__dirname,'../site',m[1])));figures++;}
 }
-assert.equal(pages.flatMap(p=>p.quizzes||[]).length,87);
+assert.equal(pages.flatMap(p=>p.quizzes||[]).length,105);
 for(let bits=0;bits<16;bits++){const a=Array.from({length:4},(_,i)=>(bits>>i)&1);assert.ok(Q.chsh(...a).classical<=.75);}
 close(Q.chsh(0,0,0,0).classical,.75);close(Q.chsh(0,0,0,0).quantum,(2+Math.sqrt(2))/4);close(Q.chsh(0,0,0,0,0).quantum,.5);close(Q.chsh(0,0,0,0,1/Math.sqrt(2)).quantum,.75);
 for(const p of pages)assert.ok(!/instructor.review|draft for|review edition|Dr\. Ashutosh/i.test(p.body));

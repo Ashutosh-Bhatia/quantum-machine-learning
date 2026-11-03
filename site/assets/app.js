@@ -12,8 +12,8 @@ function progress(){const checks=pages.flatMap(p=>p.quizzes||[]);$('#progress').
 function math(scope){if(window.renderMathInElement)window.renderMathInElement(scope,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false,strict:'warn',trust:false});}
 function notebook(l){
  if(!l.notebook)return '';
- const classical=l.notebook_kind==='classical',mathematics=l.notebook_kind==='mathematics';
- return '<section class="notebook" id="programming"><h2>'+(classical||mathematics?'Programming companion · Python and NumPy':'Programming companion · Qiskit')+'</h2><p>'+(mathematics?'Use Python and NumPy to reproduce the complex arithmetic, inner products, projectors, unitary checks and tensor expansions in Chapter 3. No hardware account is required.':classical?'The companion follows Chapter 2’s switch, envelope, joint-probability and operation examples: predict, calculate by hand, run and explain. It uses Python and NumPy; Qiskit enters with quantum circuits. Written explanations do not depend on running it.':'Run an ideal quantum simulation and compare it with your predictions. No hardware account is required.')+'</p><a href="https://colab.research.google.com/github/Ashutosh-Bhatia/quantum-machine-learning/blob/main/notebooks/'+l.notebook+'" target="_blank" rel="noopener">Open in Google Colab ↗</a> · <a download href="notebooks/'+l.notebook+'">Download notebook ↓</a><p class="meta">In Colab choose Runtime → Run all. The setup cell installs the notebook’s Python dependencies.</p></section>';
+ const ml=l.notebook_kind==='machine-learning',classical=l.notebook_kind==='classical',mathematics=l.notebook_kind==='mathematics';
+ return '<section class="notebook" id="programming"><h2>'+(ml?'Programming companion · Python, NumPy and scikit-learn':classical||mathematics?'Programming companion · Python and NumPy':'Programming companion · Qiskit')+'</h2><p>'+(ml?'Run reproducible classical learning experiments with NumPy and scikit-learn. Fit preprocessing on training data and compare models on held-out examples. No quantum hardware is required.':mathematics?'Use Python and NumPy to reproduce the complex arithmetic, inner products, projectors, unitary checks and tensor expansions in Chapter 3. No hardware account is required.':classical?'The companion follows Chapter 2’s switch, envelope, joint-probability and operation examples: predict, calculate by hand, run and explain. It uses Python and NumPy; Qiskit enters with quantum circuits. Written explanations do not depend on running it.':'Run an ideal quantum simulation and compare it with your predictions. No hardware account is required.')+'</p><a href="https://colab.research.google.com/github/Ashutosh-Bhatia/quantum-machine-learning/blob/main/notebooks/'+l.notebook+'" target="_blank" rel="noopener">Open in Google Colab ↗</a> · <a download href="notebooks/'+l.notebook+'">Download notebook ↓</a><p class="meta">In Colab choose Runtime → Run all. The setup cell installs the notebook’s Python dependencies.</p></section>';
 }
 function navLink(p,route,label,sub=false){return '<a href="#'+p.id+'" class="'+(route===p.id?'active':'')+' '+(sub?'nav-lesson':'')+'" '+(route===p.id?'aria-current="page"':'')+'>'+label+'</a>';}
 let navExpanded={};
@@ -22,16 +22,21 @@ function nav(route){
  const host=$('#nav');
  host.querySelectorAll('details[data-nav-group]').forEach(d=>navExpanded[d.dataset.navGroup]=d.open);
  const activeChapter=course.chapters.find(ch=>ch.id===route||ch.lessons.includes(route));
- const partOpen=activeChapter||navExpanded['part-a']!==false;
- let html=navLink(course.preface,route,'Preface · About this book')+'<details class="book-part" data-nav-group="part-a" '+(partOpen?'open':'')+'><summary>Part A · Quantum computing foundations</summary>';
- for(const ch of course.chapters){
-  if(!ch.lessons.length){html+=navLink(ch,route,'<span>Chapter '+ch.number+'</span> '+escapeHTML(ch.title));continue;}
-  const current=activeChapter?.id===ch.id,open=current||navExpanded[ch.id]===true;
-  html+='<details class="chapter-nav'+(current?' chapter-current':'')+'" data-nav-group="'+ch.id+'" '+(open?'open':'')+'><summary><span class="nav-chapter-number">Chapter '+ch.number+'</span>'+escapeHTML(ch.title)+'</summary><div class="chapter-children">'+navLink(ch,route,'Chapter overview');
-  for(const id of ch.lessons){const l=pageById(id);html+=navLink(l,route,'<span>Lesson '+l.number+'</span> '+escapeHTML(l.title),true);}
-  html+='</div></details>';
+ let html=navLink(course.preface,route,'Preface · About this book');
+ const groups=[['part-a','Part A · Quantum computing foundations',ch=>!ch.part.startsWith('Part B')],['part-b','Part B · Classical machine learning bridge',ch=>ch.part.startsWith('Part B')]];
+ for(const [key,label,belongs] of groups){
+  const active=activeChapter&&belongs(activeChapter),open=active||navExpanded[key]===true||(key==='part-a'&&navExpanded[key]!==false);
+  html+='<details class="book-part" data-nav-group="'+key+'" '+(open?'open':'')+'><summary>'+label+'</summary>';
+  for(const ch of course.chapters.filter(belongs)){
+   if(!ch.lessons.length){html+=navLink(ch,route,'<span>Chapter '+ch.number+'</span> '+escapeHTML(ch.title));continue;}
+   const current=activeChapter?.id===ch.id,expanded=current||navExpanded[ch.id]===true;
+   html+='<details class="chapter-nav'+(current?' chapter-current':'')+'" data-nav-group="'+ch.id+'" '+(expanded?'open':'')+'><summary><span class="nav-chapter-number">Chapter '+ch.number+'</span>'+escapeHTML(ch.title)+'</summary><div class="chapter-children">'+navLink(ch,route,'Chapter overview');
+   for(const id of ch.lessons){const l=pageById(id);html+=navLink(l,route,'<span>Lesson '+l.number+'</span> '+escapeHTML(l.title),true);}
+   html+='</div></details>';
+  }
+  html+='</details>';
  }
- host.innerHTML=html+'</details>';
+ host.innerHTML=html;
  host.querySelectorAll('details[data-nav-group]').forEach(d=>d.addEventListener('toggle',()=>{navExpanded[d.dataset.navGroup]=d.open;try{sessionStorage.setItem('qml-navigation-v1',JSON.stringify(navExpanded));}catch{}}));
 }
 function mountQuizzes(page){
@@ -45,7 +50,7 @@ function toc(route){$('#toc').innerHTML=[...$('#lesson').querySelectorAll('secti
 function shortLabel(p){return p.id===course.preface.id?'Preface':p.number?(p.chapter_id?'Lesson ':'Chapter ')+p.number:p.title;}
 function pagination(page){
  const i=course.readingOrder.indexOf(page.id),prev=pageById(course.readingOrder[i-1]),next=pageById(course.readingOrder[i+1]);
- return '<nav class="lesson-pagination" aria-label="Previous and next page">'+(prev?'<a href="#'+prev.id+'">← '+shortLabel(prev)+'</a>':'<span></span>')+(next?'<a href="#'+next.id+'">'+shortLabel(next)+' →</a>':'<a href="#'+course.preface.id+'">Return to the Preface →</a>')+'</nav>'+(!next?'<p class="meta">Next planned: Part A, Chapter 9 · Observables, statistics and noisy devices. Later material is not published yet.</p>':'');
+ return '<nav class="lesson-pagination" aria-label="Previous and next page">'+(prev?'<a href="#'+prev.id+'">← '+shortLabel(prev)+'</a>':'<span></span>')+(next?'<a href="#'+next.id+'">'+shortLabel(next)+' →</a>':'<a href="#'+course.preface.id+'">Return to the Preface →</a>')+'</nav>'+(!next?'<p class="meta">Next: Part C · Quantum machine learning. Chapter 9 on quantum observables and noise is deferred.</p>':'');
 }
 function legacyMarkup(l){return '<p class="eyebrow">Earlier prototype archive</p><h1>'+l.title+'</h1><p class="review-note">These additional examples are outside the book’s main reading sequence.</p>'+l.body+'<div id="lab"></div><section class="quiz"><h2>'+l.quiz.question+'</h2><form id="legacy-quiz"><fieldset><legend>Choose one answer</legend>'+l.quiz.options.map((o,i)=>'<label><input type="radio" name="answer" value="'+i+'" required> '+o+'</label>').join('')+'</fieldset><button>Check answer</button></form><p class="feedback" id="legacy-feedback" role="status"></p></section><h2>Practice</h2><p>'+l.exercise+'</p><details><summary>Reveal a hint / worked answer</summary><p>'+l.solution+'</p></details>'+notebook(l);}
 function render(route){
@@ -55,7 +60,7 @@ function render(route){
   const label=parent?'<p class="breadcrumb"><a href="#'+parent.id+'">Chapter '+parent.number+'</a> / Lesson '+page.number+'</p>':'<p class="eyebrow">'+(preface?'Quantum Machine Learning · Preface':page.part+' · Chapter '+page.number)+'</p>';
   const goals=page.objectives?'<details class="learning-goals"><summary>Learning goals and prerequisites</summary><ul>'+page.objectives.map(o=>'<li>'+o+'</li>').join('')+'</ul><p>'+page.prerequisites+'</p></details>':'';
   $('#lesson').innerHTML=label+'<h1>'+page.title+'</h1>'+(preface?'<p class="book-author">By <a href="https://www.bits-pilani.ac.in/pilani/ashutosh-bhatia/" target="_blank" rel="noopener">Ashutosh Bhatia</a><br><span class="book-affiliation">Associate Professor<br>Department of Computer Science &amp; Information Systems<br>BITS Pilani, Pilani Campus</span></p>':'')+goals+page.body+notebook(page)+pagination(page);
-  mountQuizzes(page);window.mountClassicalLabs($('#lesson'));window.mountOpeningLabs($('#lesson'));window.mountMathLabs($('#lesson'));window.mountQubitLabs($('#lesson'));window.mountGateLabs($('#lesson'));window.mountJointLabs($('#lesson'));window.mountOracleLabs($('#lesson'));window.mountAlgorithmLabs($('#lesson'));
+  mountQuizzes(page);window.mountClassicalLabs($('#lesson'));window.mountOpeningLabs($('#lesson'));window.mountMathLabs($('#lesson'));window.mountQubitLabs($('#lesson'));window.mountGateLabs($('#lesson'));window.mountJointLabs($('#lesson'));window.mountOracleLabs($('#lesson'));window.mountAlgorithmLabs($('#lesson'));window.mountMLLabs($('#lesson'));
  }else{
   $('#lesson').innerHTML=legacyMarkup(legacy);$('#legacy-quiz').onsubmit=e=>{e.preventDefault();const i=Number(new FormData(e.target).get('answer'));$('#legacy-feedback').textContent=(i===legacy.quiz.answer?'Correct. ':'Try again. ')+legacy.quiz.explanation;};if(legacy.lab==='bloch')bloch();if(legacy.lab==='classifier')classifier();
  }

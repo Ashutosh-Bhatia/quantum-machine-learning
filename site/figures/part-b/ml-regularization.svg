@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" role="img" aria-labelledby="t d"><title id="t">Select capacity using held-out evidence</title><desc id="d">Model family → Penalty λ → Validation → Final test</desc><rect width="1000" height="300" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="45" font-size="27">Select capacity using held-out evidence</text>
+<rect x="30" y="110" width="215" height="95" rx="5" class="box"/>
+<text x="45" y="165" font-size="22">Model family</text>
+<path d="M248 155L270 155" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="275" y="110" width="215" height="95" rx="5" class="box"/>
+<text x="290" y="165" font-size="22">Penalty λ</text>
+<path d="M493 155L515 155" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="520" y="110" width="215" height="95" rx="5" class="box"/>
+<text x="535" y="165" font-size="22">Validation</text>
+<path d="M738 155L760 155" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="765" y="110" width="215" height="95" rx="5" class="box"/>
+<text x="780" y="165" font-size="22">Final test</text>
+<text x="30" y="265" font-size="22">Read the calculation and assumptions alongside the diagram.</text>
+</svg>

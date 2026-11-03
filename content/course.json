@@ -40,16 +40,21 @@
     "algorithm-deutsch",
     "algorithm-interference",
     "algorithm-dj",
-    "algorithm-costs"
+    "algorithm-costs",
+    "ml-data",
+    "ml-objective",
+    "ml-evaluation",
+    "ml-linear",
+    "ml-neural",
+    "ml-regularization",
+    "ml-features",
+    "ml-svm",
+    "ml-comparison"
   ],
   "planned": [
     {
       "title": "Part A · Chapter 9 · Observables, statistics and noisy devices",
       "needs": "Readout and finite-shot estimates before QML use, with linked depth on mixtures, reduced states and noise."
-    },
-    {
-      "title": "Part B · Classical machine learning bridge",
-      "needs": "Learning loops, optimization, feature spaces, kernels, and generalization."
     },
     {
       "title": "Part C · Quantum machine learning",
@@ -256,6 +261,42 @@
         "algorithm-dj",
         "algorithm-costs"
       ]
+    },
+    {
+      "id": "ml-foundations",
+      "title": "From Data to Learning",
+      "number": 10,
+      "part": "Part B · Classical Machine Learning Bridge",
+      "body_file": "chapters/ml-foundations/overview.html",
+      "lessons": [
+        "ml-data",
+        "ml-objective",
+        "ml-evaluation"
+      ]
+    },
+    {
+      "id": "ml-models",
+      "title": "Classical Models and Training",
+      "number": 11,
+      "part": "Part B · Classical Machine Learning Bridge",
+      "body_file": "chapters/ml-models/overview.html",
+      "lessons": [
+        "ml-linear",
+        "ml-neural",
+        "ml-regularization"
+      ]
+    },
+    {
+      "id": "ml-kernels",
+      "title": "Feature Maps, Kernels and the QML Bridge",
+      "number": 12,
+      "part": "Part B · Classical Machine Learning Bridge",
+      "body_file": "chapters/ml-kernels/overview.html",
+      "lessons": [
+        "ml-features",
+        "ml-svm",
+        "ml-comparison"
+      ]
     }
   ],
   "reading_order": [
@@ -307,6 +348,18 @@
     "algorithm-deutsch",
     "algorithm-interference",
     "algorithm-dj",
-    "algorithm-costs"
+    "algorithm-costs",
+    "ml-foundations",
+    "ml-data",
+    "ml-objective",
+    "ml-evaluation",
+    "ml-models",
+    "ml-linear",
+    "ml-neural",
+    "ml-regularization",
+    "ml-kernels",
+    "ml-features",
+    "ml-svm",
+    "ml-comparison"
   ]
 }

@@ -1,0 +1,47 @@
+{
+  "id": "ml-linear",
+  "title": "Linear regression and numerical fitting",
+  "number": "11.1",
+  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "chapter_id": "ml-models",
+  "objectives": [
+    "Explain the model and its assumptions.",
+    "Calculate predictions and assess the evidence."
+  ],
+  "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
+  "body_file": "chapters/ml-models/1.html",
+  "quizzes": [
+    {
+      "id": "ml-linear-check1",
+      "question": "For y=wx+b, what is \u2202L/\u2202b under MSE?",
+      "options": [
+        "Mean residual",
+        "Twice the mean residual",
+        "Always zero"
+      ],
+      "answer": 1,
+      "feedback": [
+        "Revisit the definition and worked example above.",
+        "Differentiate each squared residual.",
+        "Revisit the definition and worked example above."
+      ]
+    },
+    {
+      "id": "ml-linear-check2",
+      "question": "Is fitting a polynomial feature model necessarily nonlinear in its coefficients?",
+      "options": [
+        "No",
+        "Yes",
+        "Only in QML"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Fixed nonlinear features can feed a linear coefficient model.",
+        "Check the assumptions and formula in this lesson.",
+        "Check the assumptions and formula in this lesson."
+      ]
+    }
+  ],
+  "notebook": "11-ml-models.ipynb",
+  "notebook_kind": "machine-learning"
+}

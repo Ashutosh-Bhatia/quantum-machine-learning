@@ -1,0 +1,47 @@
+{
+  "id": "ml-evaluation",
+  "title": "Generalization, splits and reliable evaluation",
+  "number": "10.3",
+  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "chapter_id": "ml-foundations",
+  "objectives": [
+    "Explain the model and its assumptions.",
+    "Calculate predictions and assess the evidence."
+  ],
+  "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
+  "body_file": "chapters/ml-foundations/3.html",
+  "quizzes": [
+    {
+      "id": "ml-evaluation-check1",
+      "question": "Which data fits a standard scaler?",
+      "options": [
+        "Training data only",
+        "All data before splitting",
+        "Test data only"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Fit preprocessing within the training procedure.",
+        "Revisit the definition and worked example above.",
+        "Revisit the definition and worked example above."
+      ]
+    },
+    {
+      "id": "ml-evaluation-check2",
+      "question": "Can 90% accuracy hide zero positive recall?",
+      "options": [
+        "Yes",
+        "No",
+        "Only for regression"
+      ],
+      "answer": 0,
+      "feedback": [
+        "An all-negative predictor on an imbalanced dataset can do this.",
+        "Check the assumptions and formula in this lesson.",
+        "Check the assumptions and formula in this lesson."
+      ]
+    }
+  ],
+  "notebook": "10-ml-foundations.ipynb",
+  "notebook_kind": "machine-learning"
+}
