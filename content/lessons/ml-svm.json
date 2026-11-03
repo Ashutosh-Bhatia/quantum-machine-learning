@@ -40,6 +40,21 @@
         "Check the assumptions and formula in this lesson.",
         "Check the assumptions and formula in this lesson."
       ]
+    },
+    {
+      "id": "ml-svm-alpha-optimum",
+      "question": "Do the box and equality constraints on \u03b1 alone guarantee an optimized SVM?",
+      "options": [
+        "Yes, every feasible vector is optimal.",
+        "No; the dual objective and complementary conditions also matter.",
+        "Only when the displayed strip is wide."
+      ],
+      "answer": 1,
+      "feedback": [
+        "Feasible candidates can have different objective values.",
+        "Correct: the explorer separates feasibility, margins and optimality.",
+        "A wide strip can contain training points that violate its margins."
+      ]
     }
   ],
   "notebook": "12-ml-kernels.ipynb",
