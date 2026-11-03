@@ -2,11 +2,11 @@
   "id": "ml-svm",
   "title": "Margins, support vectors and kernel classifiers",
   "number": "12.2",
-  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "part": "Part B · Classical Machine Learning Bridge",
   "chapter_id": "ml-kernels",
   "objectives": [
-    "Explain the model and its assumptions.",
-    "Calculate predictions and assess the evidence."
+    "Reconstruct an SVM normal from labelled dual weights and interpret margins.",
+    "Distinguish hard and soft margins, dual feasibility and fitted optimality."
   ],
   "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
   "body_file": "chapters/ml-kernels/2.html",
@@ -43,7 +43,7 @@
     },
     {
       "id": "ml-svm-alpha-optimum",
-      "question": "Do the box and equality constraints on \u03b1 alone guarantee an optimized SVM?",
+      "question": "Do the box and equality constraints on α alone guarantee an optimized SVM?",
       "options": [
         "Yes, every feasible vector is optimal.",
         "No; the dual objective and complementary conditions also matter.",
@@ -54,6 +54,21 @@
         "Feasible candidates can have different objective values.",
         "Correct: the explorer separates feasibility, margins and optimality.",
         "A wide strip can contain training points that violate its margins."
+      ]
+    },
+    {
+      "id": "ml-svm-application",
+      "question": "At a soft-margin optimum, a point has 0<αᵢ<C. Where must it lie?",
+      "options": [
+        "Strictly outside its margin",
+        "Necessarily misclassified",
+        "Exactly on its margin"
+      ],
+      "answer": 2,
+      "feedback": [
+        "A strictly inactive constraint has zero coefficient.",
+        "Interior dual weights do not imply misclassification.",
+        "Correct: complementary optimality conditions give yᵢf(xᵢ)=1."
       ]
     }
   ],

@@ -2,18 +2,18 @@
   "id": "ml-features",
   "title": "Feature maps and inner-product geometry",
   "number": "12.1",
-  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "part": "Part B · Classical Machine Learning Bridge",
   "chapter_id": "ml-kernels",
   "objectives": [
-    "Explain the model and its assumptions.",
-    "Calculate predictions and assess the evidence."
+    "Relate nonlinear input boundaries to linear feature-space separators.",
+    "Construct a polynomial Gram matrix and explain positive semidefiniteness."
   ],
   "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
   "body_file": "chapters/ml-kernels/1.html",
   "quizzes": [
     {
       "id": "ml-features-check1",
-      "question": "For k(x,z)=(x\u1d40z)\u00b2, why include \u221a2 in the cross feature?",
+      "question": "For k(x,z)=(xᵀz)², why include √2 in the cross feature?",
       "options": [
         "To reproduce the factor 2 cross term",
         "To normalize every input",
@@ -39,6 +39,21 @@
         "Positive semidefiniteness is also required.",
         "Check the assumptions and formula in this lesson.",
         "Check the assumptions and formula in this lesson."
+      ]
+    },
+    {
+      "id": "ml-features-application",
+      "question": "For k(x,z)=(xᵀz)² and x=(1,1), what is k(x,x)?",
+      "options": [
+        "1, because every diagonal is normalized",
+        "4, from (1+1)²",
+        "2, the input squared norm"
+      ],
+      "answer": 1,
+      "feedback": [
+        "This polynomial kernel is not normalized.",
+        "Correct: self-similarity is the squared feature norm and can exceed one.",
+        "The kernel squares the input dot product once more."
       ]
     }
   ],

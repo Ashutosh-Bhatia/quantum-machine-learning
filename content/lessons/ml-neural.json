@@ -2,11 +2,11 @@
   "id": "ml-neural",
   "title": "Logistic models, activations and neural networks",
   "number": "11.2",
-  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "part": "Part B · Classical Machine Learning Bridge",
   "chapter_id": "ml-models",
   "objectives": [
-    "Explain the model and its assumptions.",
-    "Calculate predictions and assess the evidence."
+    "Trace hidden activations for XOR and distinguish scores from probabilities.",
+    "Apply the chain rule through an active ReLU and sigmoid loss."
   ],
   "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
   "body_file": "chapters/ml-models/2.html",
@@ -39,6 +39,21 @@
         "Affine compositions remain affine.",
         "Check the assumptions and formula in this lesson.",
         "Check the assumptions and formula in this lesson."
+      ]
+    },
+    {
+      "id": "ml-neural-application",
+      "question": "For h=ReLU(u), a=2h−2, target y=1 and u=1, what is the binary cross-entropy derivative with respect to u?",
+      "options": [
+        "−1/2",
+        "0",
+        "−1"
+      ],
+      "answer": 2,
+      "feedback": [
+        "−1/2 is the derivative with respect to the logit; multiply by the output weight 2.",
+        "The hidden unit is active at u=1, so its ReLU derivative is one.",
+        "Correct: (p−y) × 2 × 1 = (1/2−1) × 2 = −1."
       ]
     }
   ],

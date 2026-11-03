@@ -2,18 +2,18 @@
   "id": "ml-linear",
   "title": "Linear regression and numerical fitting",
   "number": "11.1",
-  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "part": "Part B · Classical Machine Learning Bridge",
   "chapter_id": "ml-models",
   "objectives": [
-    "Explain the model and its assumptions.",
-    "Calculate predictions and assess the evidence."
+    "Calculate a gradient step and compare it with a least-squares solution.",
+    "Distinguish linearity in coefficients from linearity in raw inputs."
   ],
   "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
   "body_file": "chapters/ml-models/1.html",
   "quizzes": [
     {
       "id": "ml-linear-check1",
-      "question": "For y=wx+b, what is \u2202L/\u2202b under MSE?",
+      "question": "For y=wx+b, what is ∂L/∂b under MSE?",
       "options": [
         "Mean residual",
         "Twice the mean residual",
@@ -39,6 +39,21 @@
         "Fixed nonlinear features can feed a linear coefficient model.",
         "Check the assumptions and formula in this lesson.",
         "Check the assumptions and formula in this lesson."
+      ]
+    },
+    {
+      "id": "ml-linear-application",
+      "question": "Is y=a x²+b linear in its fitted coefficients a,b?",
+      "options": [
+        "No, because the graph is curved",
+        "Yes, with x² treated as a feature",
+        "Only if a=0"
+      ],
+      "answer": 1,
+      "feedback": [
+        "The definition concerns fitted coefficients, not the graph in raw x.",
+        "Correct: the fixed features are x² and 1.",
+        "It is linear in coefficients for every a,b."
       ]
     }
   ],

@@ -2,18 +2,18 @@
   "id": "ml-regularization",
   "title": "Optimization, capacity and regularization",
   "number": "11.3",
-  "part": "Part B \u00b7 Classical Machine Learning Bridge",
+  "part": "Part B · Classical Machine Learning Bridge",
   "chapter_id": "ml-models",
   "objectives": [
-    "Explain the model and its assumptions.",
-    "Calculate predictions and assess the evidence."
+    "Explain how capacity, penalty strength and feature scales affect fitting.",
+    "Select model settings within validation while reserving the test set."
   ],
   "prerequisites": "Chapter 3 vector and matrix mathematics; prior lessons in Part B as listed in the reading order.",
   "body_file": "chapters/ml-models/3.html",
   "quizzes": [
     {
       "id": "ml-regularization-check1",
-      "question": "For (w\u22122)\u00b2+\u03bbw\u00b2 with \u03bb=1, what is the minimizer?",
+      "question": "For (w−2)²+λw² with λ=1, what is the minimizer?",
       "options": [
         "2",
         "1",
@@ -22,7 +22,7 @@
       "answer": 1,
       "feedback": [
         "Revisit the definition and worked example above.",
-        "Set 2(w\u22122)+2\u03bbw=0.",
+        "Set 2(w−2)+2λw=0.",
         "Revisit the definition and worked example above."
       ]
     },
@@ -39,6 +39,21 @@
         "Reserve the test set for evaluation after selection.",
         "Check the assumptions and formula in this lesson.",
         "Check the assumptions and formula in this lesson."
+      ]
+    },
+    {
+      "id": "ml-regularization-application",
+      "question": "A degree-8 curve nearly interpolates nine noisy points. What follows?",
+      "options": [
+        "Training fit is good; generalization remains to be evaluated",
+        "It must be the best predictor",
+        "Regularization can no longer help"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: matching observed noise is not evidence of future prediction quality.",
+        "Near-zero training loss does not establish held-out performance.",
+        "A penalty can change the curve between observations."
       ]
     }
   ],

@@ -35,7 +35,7 @@ for(const p of pages){
  }
  for(const m of p.body.matchAll(/<img[^>]+src="([^"]+)"/g)){assert.ok(fs.existsSync(path.join(__dirname,'../site',m[1])));figures++;}
 }
-assert.equal(pages.flatMap(p=>p.quizzes||[]).length,106);
+assert.equal(pages.flatMap(p=>p.quizzes||[]).length,115);
 for(let bits=0;bits<16;bits++){const a=Array.from({length:4},(_,i)=>(bits>>i)&1);assert.ok(Q.chsh(...a).classical<=.75);}
 close(Q.chsh(0,0,0,0).classical,.75);close(Q.chsh(0,0,0,0).quantum,(2+Math.sqrt(2))/4);close(Q.chsh(0,0,0,0,0).quantum,.5);close(Q.chsh(0,0,0,0,1/Math.sqrt(2)).quantum,.75);
 for(const p of pages)assert.ok(!/instructor.review|draft for|review edition|Dr\. Ashutosh/i.test(p.body));
