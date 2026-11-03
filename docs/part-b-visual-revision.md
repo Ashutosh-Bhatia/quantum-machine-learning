@@ -25,3 +25,9 @@ Chapter 9 remains deferred, consistent with the user's earlier instruction. Lect
 ## Validation
 
 Numerical checks reconstruct normals from dual sums, verify feasibility, nonnegative gap and known optimum across a parameter grid, and solve polynomial models across degrees/penalties. Notebook checks compare an independently fitted scikit-learn SVM normal/margins and a symmetric dual solution. Build checks validate math, routes and image references. Browser checks exercise all four new activities and the alpha animation.
+
+## Supplied classroom animation integrated
+
+The subsequently added resources/Animations/SVM_Alpha_Classroom.html is now adapted as the main activity in Lesson 12.2. Decode the export iframe, retain the actual classroom markup, D3 bundle and application logic, replace export theme/host scaffolding with standalone academic CSS, and remove unused widget state/messaging dependencies. The resource original remains unchanged. Retain D3's license.
+
+Explain the separable hard-margin constraint, individual-alpha exploration and nearest-projection strip. Preserve the four-point C=1 explorer as the following worked derivation; its margin and optimality diagnostics use different, explicitly stated conventions. Include a full-window link and keyboard coordinate controls.

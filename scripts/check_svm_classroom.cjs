@@ -1,0 +1,7 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const file=fs.readFileSync(path.join(__dirname,'../site/animations/svm-alpha-classroom.html'),'utf8'),scripts=[...file.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]),app=scripts.find(s=>s.includes("const root=document.getElementById('svm-alpha-lab')"));
+assert.ok(app);assert.ok(!file.includes('postToHost'));assert.ok(!app.includes('window.openai'));
+const numeric=app.slice(app.indexOf('function rebalance('),app.indexOf('const svg='))+app.slice(app.indexOf('function pairStep('),app.indexOf('function positionControls('));
+const context={result:null};vm.runInNewContext(`const points=[{x:1,y:1,c:1},{x:2,y:-.5,c:1},{x:2,y:2,c:1},{x:-1,y:-1,c:-1},{x:-2,y:.5,c:-1},{x:-2,y:-2,c:-1}];let a=Array(6).fill(.1),balance=true,fitted=false;${numeric};fit();result={first:model(),alpha:a.slice()};points[0].x=.3;fit();result.moved=model();result.margins=points.map(p=>p.c*(result.moved.w[0]*p.x+result.moved.w[1]*p.y+result.moved.b));`,context);
+const r=context.result;assert.ok(Math.abs(r.first.w[0]-.6)<1e-5);assert.ok(Math.abs(r.first.w[1]-.4)<1e-5);assert.ok(Math.abs(r.first.residual)<1e-6);assert.ok(Math.abs(r.moved.residual)<1e-6);assert.ok(r.margins.every(x=>x>1-1e-5));assert.ok(r.moved.gap<r.first.gap);
+console.log('PASS: standalone asset, no host bridge, expected fitted normal, alpha balance, moved-point refit and margin feasibility.');
