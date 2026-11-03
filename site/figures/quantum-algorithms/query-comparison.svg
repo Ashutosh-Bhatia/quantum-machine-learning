@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-labelledby="t d"><title id="t">Query comparisons</title><desc id="d">Exact deterministic worst-case queries and bounded-error sampling have different criteria.</desc><rect width="1000" height="420" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="27">State the resource and the success requirement</text>
+<rect x="35" y="90" width="925" height="80" rx="5" class="box"/>
+<text x="55" y="120" font-size="24">Classical, exact worst case</text>
+<text x="55" y="153" font-size="23">N/2 + 1 distinct function evaluations</text>
+<rect x="35" y="185" width="925" height="80" rx="5" class="box"/>
+<text x="55" y="215" font-size="24">Quantum, ideal exact promise problem</text>
+<text x="55" y="248" font-size="23">1 coherent oracle call</text>
+<rect x="35" y="280" width="925" height="80" rx="5" class="box"/>
+<text x="55" y="310" font-size="24">Classical, independent random samples</text>
+<text x="55" y="343" font-size="23">k queries: balanced-case error 2 raised to (1−k)</text>
+<text x="35" y="405" font-size="22">An oracle-query count does not include all implementation or hardware costs.</text>
+</svg>

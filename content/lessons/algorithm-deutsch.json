@@ -1,0 +1,46 @@
+{
+  "id": "algorithm-deutsch",
+  "number": "8.2",
+  "title": "Deutsch’s algorithm, one state at a time",
+  "part": "Part A · Chapter 8",
+  "chapter_id": "quantum-algorithms",
+  "objectives": [
+    "Derive the full ideal circuit state sequence.",
+    "Interpret the input-register measurement and query count."
+  ],
+  "prerequisites": "Chapters 5–7: Hadamard interference, joint states, XOR oracle action, phase kickback and bit ordering.",
+  "body_file": "chapters/quantum-algorithms/2.html",
+  "quizzes": [
+    {
+      "id": "q8-target",
+      "question": "Why initialize the target to one before H?",
+      "options": [
+        "H then prepares minus, an X eigenstate with eigenvalue −1.",
+        "It copies both function values.",
+        "One is already the measured answer."
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: this enables phase kickback.",
+        "The target does not store both answers as classical data.",
+        "The answer depends on the input readout after the circuit."
+      ]
+    },
+    {
+      "id": "q8-final",
+      "question": "For table 10, what is the final input Z record?",
+      "options": [
+        "0 certainly",
+        "1 certainly",
+        "Uniformly random"
+      ],
+      "answer": 1,
+      "feedback": [
+        "The function values differ.",
+        "Correct: the overall negative sign does not change the outcome.",
+        "Randomness occurs if the final mixer is omitted."
+      ]
+    }
+  ],
+  "notebook": "09-deutsch-and-deutsch-jozsa.ipynb"
+}

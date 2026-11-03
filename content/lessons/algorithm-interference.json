@@ -1,0 +1,46 @@
+{
+  "id": "algorithm-interference",
+  "number": "8.3",
+  "title": "Why the final Hadamard reveals the answer",
+  "part": "Part A · Chapter 8",
+  "chapter_id": "quantum-algorithms",
+  "objectives": [
+    "Calculate the signed contributions to each output.",
+    "Distinguish coherent interference from an intermediate measurement."
+  ],
+  "prerequisites": "Chapters 5–7: Hadamard interference, joint states, XOR oracle action, phase kickback and bit ordering.",
+  "body_file": "chapters/quantum-algorithms/3.html",
+  "quizzes": [
+    {
+      "id": "q8-cancel",
+      "question": "For a=1,b=−1, what is the output-zero amplitude?",
+      "options": [
+        "1",
+        "0",
+        "1/2"
+      ],
+      "answer": 1,
+      "feedback": [
+        "The two signed contributions cancel.",
+        "Correct: (a+b)/2=0.",
+        "Do not square the contributions before adding them."
+      ]
+    },
+    {
+      "id": "q8-early",
+      "question": "Insert a Z measurement of the input after the oracle, ignore its record, then apply H. What are the final input probabilities?",
+      "options": [
+        "The ideal Deutsch answer is still certain.",
+        "Both are 1/2.",
+        "Both are zero."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The measurement removes the useful coherent relative phase.",
+        "Correct: each conditional basis state gives a uniform H readout.",
+        "Probabilities must sum to one."
+      ]
+    }
+  ],
+  "notebook": "09-deutsch-and-deutsch-jozsa.ipynb"
+}

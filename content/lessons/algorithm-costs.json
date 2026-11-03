@@ -1,0 +1,46 @@
+{
+  "id": "algorithm-costs",
+  "number": "8.5",
+  "title": "Promises, query counts and practical claims",
+  "part": "Part A · Chapter 8",
+  "chapter_id": "quantum-algorithms",
+  "objectives": [
+    "Compare exact deterministic and randomized classical queries.",
+    "Separate ideal query advantages from end-to-end computational performance."
+  ],
+  "prerequisites": "Chapters 5–7: Hadamard interference, joint states, XOR oracle action, phase kickback and bit ordering.",
+  "body_file": "chapters/quantum-algorithms/5.html",
+  "quizzes": [
+    {
+      "id": "q8-random",
+      "question": "For k=5 independent uniform classical samples with replacement, what is the balanced-function misclassification probability?",
+      "options": [
+        "1/16",
+        "1/32",
+        "1/2"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: 2^(1−5)=1/16.",
+        "Either all-zero or all-one sampled outputs can cause error.",
+        "The error decreases as more independent samples are taken."
+      ]
+    },
+    {
+      "id": "q8-cost",
+      "question": "What does one ideal oracle query establish about practical running time?",
+      "options": [
+        "It guarantees practical speedup.",
+        "It states an access count under an ideal model; implementation costs remain to be evaluated.",
+        "It means the oracle uses one elementary gate."
+      ],
+      "answer": 1,
+      "feedback": [
+        "The complete resource costs and success assumptions matter.",
+        "Correct: query complexity and elapsed-time performance are distinct.",
+        "An oracle can require a large circuit."
+      ]
+    }
+  ],
+  "notebook": "09-deutsch-and-deutsch-jozsa.ipynb"
+}

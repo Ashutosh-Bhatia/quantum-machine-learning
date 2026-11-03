@@ -35,13 +35,14 @@
     "oracle-reversible",
     "oracle-definition",
     "oracle-superposition",
-    "oracle-kickback"
+    "oracle-kickback",
+    "algorithm-problem",
+    "algorithm-deutsch",
+    "algorithm-interference",
+    "algorithm-dj",
+    "algorithm-costs"
   ],
   "planned": [
-    {
-      "title": "Part A · Chapter 8 · Learning from quantum algorithms",
-      "needs": "Fully worked kickback and Deutsch; a promised Deutsch–Jozsa example. Simon is an optional extension."
-    },
     {
       "title": "Part A · Chapter 9 · Observables, statistics and noisy devices",
       "needs": "Readout and finite-shot estimates before QML use, with linked depth on mixtures, reduced states and noise."
@@ -241,6 +242,20 @@
         "oracle-superposition",
         "oracle-kickback"
       ]
+    },
+    {
+      "id": "quantum-algorithms",
+      "title": "Learning from Quantum Algorithms",
+      "number": 8,
+      "part": "Part A · Quantum Computing Foundations",
+      "body_file": "chapters/quantum-algorithms/overview.html",
+      "lessons": [
+        "algorithm-problem",
+        "algorithm-deutsch",
+        "algorithm-interference",
+        "algorithm-dj",
+        "algorithm-costs"
+      ]
     }
   ],
   "reading_order": [
@@ -286,6 +301,12 @@
     "oracle-reversible",
     "oracle-definition",
     "oracle-superposition",
-    "oracle-kickback"
+    "oracle-kickback",
+    "quantum-algorithms",
+    "algorithm-problem",
+    "algorithm-deutsch",
+    "algorithm-interference",
+    "algorithm-dj",
+    "algorithm-costs"
   ]
 }

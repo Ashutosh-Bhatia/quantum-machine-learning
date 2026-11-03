@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-labelledby="t d"><title id="t">Classical query ambiguity</title><desc id="d">Query zero returning zero leaves constant zero and the identity function compatible.</desc><rect width="1000" height="400" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">One response does not determine the relation</text>
+<rect x="35" y="130" width="270" height="100" rx="5" class="box"/>
+<text x="55" y="170" font-size="27">Query f(0)</text>
+<text x="55" y="210" font-size="25">Response: 0</text>
+<path d="M310 180L475 120" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="485" y="80" width="465" height="100" rx="5" class="box"/>
+<text x="505" y="118" font-size="26">Table 00: constant</text>
+<text x="505" y="158" font-size="24">f(1) = 0</text>
+<path d="M310 180L475 280" fill="none" stroke="#286a9b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="485" y="240" width="465" height="100" rx="5" class="box"/>
+<text x="505" y="278" font-size="26">Table 01: balanced</text>
+<text x="505" y="318" font-size="24">f(1) = 1</text>
+<text x="35" y="380" font-size="23">Querying the other input resolves the two compatible possibilities.</text>
+</svg>

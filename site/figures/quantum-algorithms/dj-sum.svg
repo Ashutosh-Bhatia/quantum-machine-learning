@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-labelledby="t d"><title id="t">Four-term Deutsch Jozsa sum</title><desc id="d">For f=x0, output zero contributions cancel and output 01 contributions reinforce.</desc><rect width="1000" height="400" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">Two input bits make every contribution visible</text>
+<text x="35" y="100" font-size="25">Input labels:          00            01            10            11</text>
+<text x="35" y="150" font-size="25">Function signs:       +              −              +              −</text>
+<rect x="35" y="195" width="925" height="135" rx="5" class="box"/>
+<text x="55" y="240" font-size="27">A(00) = (1 − 1 + 1 − 1)/4 = 0</text>
+<text x="55" y="295" font-size="27">A(01) = (1 + 1 + 1 + 1)/4 = 1</text>
+<text x="35" y="380" font-size="23">Table 0101 is balanced. The ideal input readout is 01 with certainty.</text>
+</svg>

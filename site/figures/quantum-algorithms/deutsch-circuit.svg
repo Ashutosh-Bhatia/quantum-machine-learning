@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" role="img" aria-labelledby="t d"><title id="t">Deutsch circuit</title><desc id="d">Input zero and target one receive Hadamards, one oracle, and final H on input.</desc><rect width="1000" height="400" fill="white"/><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="#286a9b"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#243746}.box{fill:#f7f9fb;stroke:#c4cfd8}</style>
+<text x="30" y="42" font-size="28">One coherent oracle call; read only the input</text>
+<text x="30" y="148" font-size="25">X: |0⟩</text>
+<path d="M145 140H940" stroke="#999" stroke-width="2"/>
+<rect x="210" y="105" width="70" height="70" rx="5" class="box"/>
+<text x="230" y="149" font-size="29">H</text>
+<text x="30" y="273" font-size="25">Y: |1⟩</text>
+<path d="M145 265H940" stroke="#999" stroke-width="2"/>
+<rect x="210" y="230" width="70" height="70" rx="5" class="box"/>
+<text x="230" y="274" font-size="29">H</text>
+<rect x="415" y="90" width="170" height="225" rx="5" class="box"/>
+<text x="460" y="200" font-size="33">U_f</text>
+<rect x="715" y="105" width="70" height="70" rx="5" class="box"/>
+<text x="735" y="149" font-size="29">H</text>
+<text x="815" y="115" font-size="21">Z readout</text>
+<text x="35" y="370" font-size="23">Target stays |−⟩ after preparation. Oracle target is q0; input is q1.</text>
+</svg>

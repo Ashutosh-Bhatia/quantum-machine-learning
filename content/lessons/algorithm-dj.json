@@ -1,0 +1,46 @@
+{
+  "id": "algorithm-dj",
+  "number": "8.4",
+  "title": "Deutsch–Jozsa: four inputs, then the general case",
+  "part": "Part A · Chapter 8",
+  "chapter_id": "quantum-algorithms",
+  "objectives": [
+    "Work through a two-input-bit promised example.",
+    "Derive the all-zero amplitude and explain the promise."
+  ],
+  "prerequisites": "Chapters 5–7: Hadamard interference, joint states, XOR oracle action, phase kickback and bit ordering.",
+  "body_file": "chapters/quantum-algorithms/4.html",
+  "quizzes": [
+    {
+      "id": "q8-promise",
+      "question": "Which two-input table violates the constant-or-balanced promise?",
+      "options": [
+        "0101",
+        "1111",
+        "0001"
+      ],
+      "answer": 2,
+      "feedback": [
+        "It has two ones and is balanced.",
+        "It is constant.",
+        "Correct: it has one one, so is neither constant nor balanced."
+      ]
+    },
+    {
+      "id": "q8-dj",
+      "question": "Under the promise and ideal circuit, what does any nonzero input readout mean?",
+      "options": [
+        "Balanced",
+        "Constant one",
+        "The entire truth table is known"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: constant functions produce only the all-zero label.",
+        "Constant-one phase is global and still yields zero.",
+        "Only the required class is guaranteed."
+      ]
+    }
+  ],
+  "notebook": "09-deutsch-and-deutsch-jozsa.ipynb"
+}

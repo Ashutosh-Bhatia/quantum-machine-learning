@@ -1,0 +1,46 @@
+{
+  "id": "algorithm-problem",
+  "number": "8.1",
+  "title": "Deutsch’s problem: what are we trying to learn?",
+  "part": "Part A · Chapter 8",
+  "chapter_id": "quantum-algorithms",
+  "objectives": [
+    "Define the property and oracle access model.",
+    "Explain why exact classical identification requires two queries."
+  ],
+  "prerequisites": "Chapters 5–7: Hadamard interference, joint states, XOR oracle action, phase kickback and bit ordering.",
+  "body_file": "chapters/quantum-algorithms/1.html",
+  "quizzes": [
+    {
+      "id": "q8-property",
+      "question": "What does Deutsch’s problem ask us to learn?",
+      "options": [
+        "Both function values separately",
+        "Whether f(0) and f(1) agree",
+        "The oracle gate count"
+      ],
+      "answer": 1,
+      "feedback": [
+        "That is more information than the required property.",
+        "Correct: the answer is their XOR.",
+        "Gate cost is a separate resource question."
+      ]
+    },
+    {
+      "id": "q8-classical",
+      "question": "A single classical query gives f(0)=0. Which tables remain possible?",
+      "options": [
+        "00 and 01",
+        "Only 00",
+        "01 and 11"
+      ],
+      "answer": 0,
+      "feedback": [
+        "Correct: one is constant and the other balanced.",
+        "The other input has not been queried.",
+        "11 contradicts f(0)=0."
+      ]
+    }
+  ],
+  "notebook": "09-deutsch-and-deutsch-jozsa.ipynb"
+}
